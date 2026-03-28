@@ -24,55 +24,55 @@ end
 
 -- > ( global cheat variables )
 
-local file_path = getgenv().custom_folder or "bunny <3"
-local user_input_service = cloneref(game:GetService("UserInputService"))
-local get_mouse_location = user_input_service["GetMouseLocation"]
-local players_service = cloneref(game:GetService("Players"))
-local local_player = players_service["LocalPlayer"]
-local mouse = local_player:GetMouse()
-local tween_service = cloneref(game:GetService("TweenService"))
-local get_value = tween_service["GetValue"]
-local run_service = cloneref(game:GetService("RunService"))
-local http_service = cloneref(game:GetService("HttpService"))
-local workspace = workspace
-local camera = cloneref(workspace["CurrentCamera"])
-local hui = cloneref(gethui())
+file_path = getgenv().custom_folder or "bunny <3"
+user_input_service = cloneref(game:GetService("UserInputService"))
+get_mouse_location = user_input_service["GetMouseLocation"]
+players_service = cloneref(game:GetService("Players"))
+local_player = players_service["LocalPlayer"]
+mouse = local_player:GetMouse()
+tween_service = cloneref(game:GetService("TweenService"))
+get_value = tween_service["GetValue"]
+run_service = cloneref(game:GetService("RunService"))
+http_service = cloneref(game:GetService("HttpService"))
+workspace = workspace
+camera = cloneref(workspace["CurrentCamera"])
+hui = cloneref(gethui())
 
-local color3_fromrgb = Color3["fromRGB"]
-local color3_lerp = color3_fromrgb()["Lerp"]
-local vector2_new = Vector2["new"]
-local udim2_new = UDim2["new"]
+color3_fromrgb = Color3["fromRGB"]
+color3_lerp = color3_fromrgb()["Lerp"]
+vector2_new = Vector2["new"]
+udim2_new = UDim2["new"]
 
-local math_random = math["random"]
-local clock = os["clock"]
-local delay = task["delay"]
-local spawn = task["spawn"]
-local clamp = math["clamp"]
-local floor = math["floor"]
-local wait = task["wait"]
-local sqrt = math["sqrt"]
-local type = type
+math_random = math["random"]
+clock = os["clock"]
+delay = task["delay"]
+spawn = task["spawn"]
+clamp = math["clamp"]
+floor = math["floor"]
+wait = task["wait"]
+sqrt = math["sqrt"]
+type = type
 
-local shadow_image_data = base64_decode(
+shadow_image_data = base64_decode(
 	"iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAQAAABpN6lAAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfiAQkTIxqKm+UhAAACvElEQVR42u2dzY7aMBhFjxPHEzJQBolRq77/27XSwBCSkD/PwinS7LpBVwrfeYLjI4Ozuy6Cw+HIyHBkOMCxTiIQmYnMzEQi0S9Hz/EUePIlxDpJB58YGRiZmJlTgIKCQMkLYYmwTtLhe2509AwM6QbkFJRUbKnYEChWHGCgp6WhpoF0AzI8gYodB/bs2BDI1aYPYqKn5cIZR7oPkyejoGTLgZ+888aOEq82fRAjHRdOlEBkZGTwODwvVOx55zdH9rxSqE0fxMCVMxXQ0dHS4TwZOYENO9448osDW4La9EH01GyAhhOfBHKy9Ar4JcGeA0d2Kw5QAu3yT+fJcB7IyJdn8JUtO36sOAB0vFISKNJz7+9fgelTKBAIlGrThxEI3z743Fpf/P/GAqgF1FgAtYAaC6AWUGMB1AJqLIBaQI0FUAuosQBqATUWQC2gxgKoBdRYALWAGgugFlBjAdQCaiyAWkCNBVALqLEAagE1FkAtoMYCqAXUWAC1gBoLoBZQYwHUAmosgFpAjQVQC6ixAGoBNRZALaDGAqgF1FgAtYAaC6AWUGMB1AJqLIBaQI0FUAuosQBqATUWQC2gxgKoBdRYALWAGgugFlBjAdQCaiyAWkCNBVALqLEAagE1FkAtoMYCqAXUWAC1gBoLoBZQYwHUAmosgFpAjQVQC6ixAGoBNRZALaDGAqgF1FgAtYAaC6AWUGMB1AJqLIBaQI0nfpsi7enp1VIPI53uPriaVmfT9ORAT8eVmhJWvDZ3oea6TK5OzOkGzIz3Lc4N0K04QM0HZy609IzMRM98nyI9UQHt6ic3/3JaEkzMnsjIjYYzJdA8xejqH8403BjTDRjoqHFAx+lJZnc/qOkYmP3yD9AAkY7PJxpe7hnTT2BiAGZG2ieb3p6ILj75+LqL4O7Dq245/HoDpAjx32cQ8QtpRORenSWX2AAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xOdTWsmQAAAAASUVORK5CYII="
 )
-local pixel_image_data = base64_decode(
+pixel_image_data = base64_decode(
 	"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMvu8A7YAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAA8nYBAOgDAADydgEA6AMAAFBhaW50Lk5FVCA1LjEuMgADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAACOO8FX0xe8TgAAAAxJREFUGFdj+P//PwAF/gL+pzWBhAAAAABJRU5ErkJggg=="
 )
-local exponential = Enum["EasingStyle"]["Exponential"]
-local circular = Enum["EasingStyle"]["Circular"]
-local quad = Enum["EasingStyle"]["Quad"]
+exponential = Enum["EasingStyle"]["Exponential"]
+circular = Enum["EasingStyle"]["Circular"]
+quad = Enum["EasingStyle"]["Quad"]
 
-local show_transparency = { Transparency = 1 }
-local hide_transparency = { Transparency = 0 }
-local menu_references = {}
+show_transparency = { Transparency = 1 }
+hide_transparency = { Transparency = 0 }
+menu_references = {}
 
-local out = Enum["EasingDirection"]["Out"]
+out = Enum["EasingDirection"]["Out"]
 
-local connections = {}
-local addon_data = {}
-local heartbeat = {}
-local flags = {
+connections = {}
+addon_data = {}
+heartbeat = {}
+flags = {
 	["keybinds_position"] = { 15, camera["ViewportSize"]["Y"] / 2 - 10 },
 	["loaded_addons"] = {},
 	["favorites"] = {},
@@ -80,15 +80,15 @@ local flags = {
 
 -- > ( global cheat functions )
 
-local create_connection = LPH_NO_VIRTUALIZE(function(signal, callback)
-	local connection = signal:Connect(callback)
+create_connection = LPH_NO_VIRTUALIZE(function(signal, callback)
+	connection = signal:Connect(callback)
 	connections[#connections + 1] = connection
 
 	return connection
 end)
 
-local create_instance = LPH_NO_VIRTUALIZE(function(class, properties)
-	local instance = Instance["new"](class)
+create_instance = LPH_NO_VIRTUALIZE(function(class, properties)
+	instance = Instance["new"](class)
 
 	for property, value in properties do
 		instance[property] = value
@@ -97,13 +97,13 @@ local create_instance = LPH_NO_VIRTUALIZE(function(class, properties)
 	return instance
 end)
 
-local round = LPH_NO_VIRTUALIZE(function(num, decimals)
-	local mult = 10 ^ (decimals or 0)
+round = LPH_NO_VIRTUALIZE(function(num, decimals)
+	mult = 10 ^ (decimals or 0)
 	return floor(num * mult + 0.5 - (num < 0 and 1 or 0)) / mult
 end)
 
-local remove = LPH_NO_VIRTUALIZE(function(tbl, index)
-	local length = #tbl
+remove = LPH_NO_VIRTUALIZE(function(tbl, index)
+	length = #tbl
 	for i = index, length - 1 do
 		tbl[i] = tbl[i + 1]
 	end
@@ -112,17 +112,17 @@ end)
 
 -- > ( signal library )
 
-local signal = {}
+signal = {}
 
 do
 	-- > ( connection class)
 
-	local connection = {}
+	connection = {}
 
 	connection["__index"] = connection
 
 	function connection.new(signal, callback)
-		local callbacks = signal["callbacks"]
+		callbacks = signal["callbacks"]
 		callbacks[#callbacks + 1] = callback
 
 		return setmetatable({
@@ -132,8 +132,8 @@ do
 	end
 
 	function connection:Disconnect()
-		local callbacks = self["signal"]["callbacks"]
-		local callback = self["callback"]
+		callbacks = self["signal"]["callbacks"]
+		callback = self["callback"]
 
 		for i = 1, #callbacks do
 			if callbacks[i] == callback then
@@ -155,7 +155,7 @@ do
 	end)
 
 	function signal:Fire(...)
-		local callbacks = self["callbacks"]
+		callbacks = self["callbacks"]
 		for i = 1, #callbacks do
 			spawn(callbacks[i], ...)
 		end
@@ -168,7 +168,7 @@ end
 
 -- > ( tween library )
 
-local active_tweens = {
+active_tweens = {
 	Color = {},
 	Color3 = {},
 	Size = {},
@@ -186,18 +186,18 @@ local active_tweens = {
 	[15] = {},
 }
 
-local tween = nil
+tween = nil
 do
-	local sqrt = math["sqrt"]
+	sqrt = math["sqrt"]
 
 	tween = LPH_NO_VIRTUALIZE(function(object, properties, easing_style, _, tween_duration)
-		local start_time = clock()
+		start_time = clock()
 
-		local tween_functions = {}
+		tween_functions = {}
 
 		for property, value in properties do
-			local tweens = active_tweens[property]
-			local old_tween = tweens[object]
+			tweens = active_tweens[property]
+			old_tween = tweens[object]
 
 			if old_tween then
 				for i = 1, #heartbeat do
@@ -208,11 +208,11 @@ do
 				end
 			end
 
-			local old_value = object[property]
+			old_value = object[property]
 
 			if property == "Color" or property == "Color3" or property == "FillColor" or property == "OutlineColor" then
 				tween_functions[property] = function()
-					local t = ((clock() - start_time) / tween_duration)
+					t = ((clock() - start_time) / tween_duration)
 					object[property] = color3_lerp(
 						old_value,
 						value,
@@ -225,12 +225,12 @@ do
 				end
 			elseif property == "tween_position" or property == "tween_size" then
 				tween_functions[property] = function()
-					local t = ((clock() - start_time) / tween_duration)
-					local tween_value = easing_style == exponential and (t == 1 and 1 or 1 - 2 ^ (-10 * t))
+					t = ((clock() - start_time) / tween_duration)
+					tween_value = easing_style == exponential and (t == 1 and 1 or 1 - 2 ^ (-10 * t))
 						or easing_style == quad and t ^ 2
 						or sqrt(1 - (t - 1) ^ 2)
 
-					local new = (value - old_value)
+					new = (value - old_value)
 					new = udim2_new(
 						new["X"]["Scale"] * tween_value,
 						new["X"]["Offset"] * tween_value,
@@ -242,7 +242,7 @@ do
 				end
 			else
 				tween_functions[property] = function()
-					local t = ((clock() - start_time) / tween_duration)
+					t = ((clock() - start_time) / tween_duration)
 
 					object[property] = old_value
 						+ (value - old_value)
@@ -277,7 +277,7 @@ end
 
 -- > ( menu )
 
-local menu = {
+menu = {
 	on_config_loaded = signal["new"](),
 	accent = color3_fromrgb(254, 230, 254),
 	colors = {
@@ -310,15 +310,15 @@ local menu = {
 	theme = "",
 }
 
-local drawing
-local drawing_proxy
+drawing
+drawing_proxy
 
 do
 	-- > ( file system )
 
 	do
-		local function safeHttp(url)
-			local ok, res = pcall(function()
+		function safeHttp(url)
+			ok, res = pcall(function()
 				return game:HttpGet(url)
 			end)
 			if not ok or not res then
@@ -328,8 +328,8 @@ do
 			return res
 		end
 
-		local function debugRBXM(folder, name, url)
-			local ok, data = pcall(safeHttp, url)
+		function debugRBXM(folder, name, url)
+			ok, data = pcall(safeHttp, url)
 			if not ok or not data then
 				warn("[RBXM DEBUG] Failed to download:", folder, name, url)
 				return nil
@@ -337,7 +337,7 @@ do
 			return data -- always returns string, never a function
 		end
 
-		local files = {
+		files = {
 			["assets"] = {
 				["api.lua"] = safeHttp("https://raw.githubusercontent.com/Kazamatcha/jujuui/main/assets/api.lua"),
 				["sparkle.ogg"] = safeHttp("https://raw.githubusercontent.com/Kazamatcha/jujuui/main/assets/sparkle.ogg"),
@@ -399,12 +399,12 @@ do
 			makefolder(file_path)
 		end
 
-		local recursive_check
+		recursive_check
 
 		recursive_check = function(path, array)
 			for file, data in array do
-				local path = path .. file
-				local data_type = type(data)
+				path = path .. file
+				data_type = type(data)
 
 				if data_type == "table" then
 					if not isfolder(path) then
@@ -431,13 +431,13 @@ do
 
 	-- > ( global menu variables )
 
-	local context_action_service = cloneref(game:GetService("ContextActionService"))
-	local context_action_click = tostring({}):sub(math_random(8, 12))
-	local context_action_scroll = tostring({}):sub(math_random(8, 12))
-	local context_action_typing = tostring({}):sub(math_random(8, 12))
-	local context_action_typing_core = tostring({}):sub(math_random(8, 12))
+	context_action_service = cloneref(game:GetService("ContextActionService"))
+	context_action_click = tostring({}):sub(math_random(8, 12))
+	context_action_scroll = tostring({}):sub(math_random(8, 12))
+	context_action_typing = tostring({}):sub(math_random(8, 12))
+	context_action_typing_core = tostring({}):sub(math_random(8, 12))
 
-	local shortened_characters = {
+	shortened_characters = {
 		[Enum.KeyCode.LeftShift] = "lshift",
 		[Enum.KeyCode.RightShift] = "rshift",
 		[Enum.UserInputType.MouseButton1] = "m1",
@@ -473,45 +473,45 @@ do
 		[Enum.KeyCode.BackSlash] = "bsls",
 	}
 
-	local on_keybind_created = signal["new"]()
-	local on_keybind_deleted = signal["new"]()
-	local on_keybind_updated = signal["new"]()
-	local on_keybind_change = signal["new"]()
-	local transparency_image_data = base64_decode(
+	on_keybind_created = signal["new"]()
+	on_keybind_deleted = signal["new"]()
+	on_keybind_updated = signal["new"]()
+	on_keybind_change = signal["new"]()
+	transparency_image_data = base64_decode(
 		"iVBORw0KGgoAAAANSUhEUgAAABkAAAAMBAMAAABl3At4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///8rKyoNe1IIAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMvu8A7YAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAAYAAAAAEAAABgAAAAAQAAAFBhaW50Lk5FVCA1LjEuMgADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAADp1fY4ytpsegAAABdJREFUGNNjYBBEgmg8ZI4AGo+u+hgEAKy7BSkQOa/KAAAAAElFTkSuQmCC"
 	)
-	local checkmark_image_data = base64_decode(
+	checkmark_image_data = base64_decode(
 		"iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMvu8A7YAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAAYAAAAAEAAABgAAAAAQAAAFBhaW50Lk5FVCA1LjEuMgADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAADp1fY4ytpsegAAAEFJREFUKFOFj0EOACEIxMD//3ncTsSDYbUXDFMhpKS4MVbt4Kf+BI/Nj07YIesRPIpm1QoBIf1qQqgVls4QHmdGTFexGgt5dAJMAAAAAElFTkSuQmCC"
 	)
-	local config_image_data = base64_decode(
+	config_image_data = base64_decode(
 		"iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMvu8A7YAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAAYAAAAAEAAABgAAAAAQAAAFBhaW50Lk5FVCA1LjEuMgADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAADp1fY4ytpsegAAAFFJREFUKFOdz8ERwCAIBEC0x6QmuzYcORlkhofuB0VEbKKmQoya4tJ0xuzNl6tC64hiNZj6n04eHvlY5YyRz4tCsE3A9FnH7TNILEy5u441kQ8rkEMeEE8J7QAAAABJRU5ErkJggg=="
 	)
-	local button_image_data = base64_decode(
+	button_image_data = base64_decode(
 		"iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///wAAAFXC034AAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIDUuMS4y+7wDtgAAALZlWElmSUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAAACgBAwABAAAAAgAAADEBAgAQAAAAWgAAAGmHBAABAAAAagAAAAAAAAAMdwEA6AMAAAx3AQDoAwAAUGFpbnQuTkVUIDUuMS4yAAMAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAABaAEAAEAAACUAAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAAO7qLRjGzAACAAAAK0lEQVQYVz3KQRIAAAQCwPr/p5WiQ9YAfkDcZiph7HnUucyD3V/RWqbaCjkOewBGmBH+OgAAAABJRU5ErkJggg=="
 	)
-	local arrow_image_data = base64_decode(
+	arrow_image_data = base64_decode(
 		"iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMvu8A7YAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAA8nYBAOgDAADydgEA6AMAAFBhaW50Lk5FVCA1LjEuMgADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAACOO8FX0xe8TgAAABdJREFUKFNj/A8EDHgAE5QmHwwBKxgYAJzaC/5K6BlzAAAAAElFTkSuQmCC"
 	)
-	local cog_image_data = base64_decode(
+	cog_image_data = base64_decode(
 		"iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///wAAAFXC034AAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAQKAAAECgBJz8A6wAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIDUuMS4y+7wDtgAAALZlWElmSUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAAACgBAwABAAAAAgAAADEBAgAQAAAAWgAAAGmHBAABAAAAagAAAAAAAAB3mgEA6AMAAHeaAQDoAwAAUGFpbnQuTkVUIDUuMS4yAAMAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAABaAEAAEAAACUAAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAAEyPNqYn0aVIAAAALElEQVQYV2NgBAIGCAmioQhIQACQCZaGYBAJoZGYSApgUhATYAiikJGRkREACr4AMZ+SUSoAAAAASUVORK5CYII="
 	)
-	local menu_position =
+	menu_position =
 		udim2_new(0, camera["ViewportSize"]["X"] / 2 - 575 / 2, 0, camera["ViewportSize"]["Y"] / 2 - 450 * 0.5)
 
-	local half_transparency = { Transparency = 0.5 }
-	local stop_panel_search = nil
-	local do_notifications = true
-	local set_active_tab = nil
-	local theme_section = nil
-	local close_context = nil
-	local menu_open = true
-	local menu_tick = clock()
-	local pop_menu = nil
-	local old_text = ""
-	local searching = nil
-	local hud_frames = {}
+	half_transparency = { Transparency = 0.5 }
+	stop_panel_search = nil
+	do_notifications = true
+	set_active_tab = nil
+	theme_section = nil
+	close_context = nil
+	menu_open = true
+	menu_tick = clock()
+	pop_menu = nil
+	old_text = ""
+	searching = nil
+	hud_frames = {}
 
-	local actives = {
+	actives = {
 		["colorpicker"] = nil,
 		["dropdown"] = nil,
 		["settings"] = nil,
@@ -528,13 +528,13 @@ do
 	-- > ( drawing proxy )
 
 	drawing_proxy = {}
-	local create1 = identifyexecutor() == "AWP" and Drawing["new"] or drawing["new"]
+	create1 = identifyexecutor() == "AWP" and Drawing["new"] or drawing["new"]
 
 	drawing_proxy.new = identifyexecutor() == "AWP"
 			and LPH_NO_VIRTUALIZE(function(class, properties)
-				local object = create1(class)
+				object = create1(class)
 
-				local proxy = setmetatable({
+				proxy = setmetatable({
 					["position"] = udim2_new(0, 0, 0, 0),
 					["real_position"] = vector2_new(0, 0),
 					["size"] = class == "Text" and 12 or udim2_new(0, 0, 0, 0),
@@ -550,12 +550,12 @@ do
 					end,
 				}, drawing_proxy)
 
-				local size = properties["Size"]
+				size = properties["Size"]
 				if size and type(size) == "number" then
 					properties["Size"] = size + 2
 				end
 
-				local z_index = properties["ZIndex"]
+				z_index = properties["ZIndex"]
 				properties["ZIndex"] = z_index and z_index + 20 or 20
 
 				for property, value in properties do
@@ -565,9 +565,9 @@ do
 				return proxy
 			end)
 		or LPH_NO_VIRTUALIZE(function(class, properties)
-			local object = create1(class)
+			object = create1(class)
 
-			local proxy = setmetatable({
+			proxy = setmetatable({
 				["position"] = udim2_new(0, 0, 0, 0),
 				["real_position"] = vector2_new(0, 0),
 				["size"] = class == "Text" and 12 or udim2_new(0, 0, 0, 0),
@@ -583,7 +583,7 @@ do
 				end,
 			}, drawing_proxy)
 
-			local z_index = properties["ZIndex"]
+			z_index = properties["ZIndex"]
 			properties["ZIndex"] = z_index and z_index + 20 or 20
 
 			for property, value in properties do
@@ -597,18 +597,18 @@ do
 	menu["create_proxy_drawing"] = drawing_proxy["new"]
 
 	do
-		local rawget = rawget
-		local type = type
+		rawget = rawget
+		type = type
 
-		local update_proxy_position
+		update_proxy_position
 		update_proxy_position = LPH_NO_VIRTUALIZE(function(proxy, position)
-			local parent = rawget(proxy, "parent")
-			local real_position = parent and parent["real_position"]
+			parent = rawget(proxy, "parent")
+			real_position = parent and parent["real_position"]
 				or vector2_new(position["X"]["Offset"], position["Y"]["Offset"])
 
 			if parent then
-				local parent_position = parent["real_position"]
-				local real_parent_size = parent["real_size"]
+				parent_position = parent["real_position"]
+				real_parent_size = parent["real_size"]
 
 				real_position = vector2_new(
 					(parent_position["X"] + real_parent_size["X"] * position["X"]["Scale"]) + position["X"]["Offset"],
@@ -619,18 +619,18 @@ do
 			proxy["object"]["Position"] = real_position
 			proxy["real_position"] = real_position
 
-			local children = proxy["children"]
+			children = proxy["children"]
 			for i = 1, #children do
-				local child = children[i]
+				child = children[i]
 				update_proxy_position(child, child["position"])
 			end
 		end)
 
-		local update_proxy_visibility
+		update_proxy_visibility
 		update_proxy_visibility = LPH_NO_VIRTUALIZE(function(proxy, visible)
-			local children = proxy["children"]
-			local parent = rawget(proxy, "parent")
-			local object = proxy["object"]
+			children = proxy["children"]
+			parent = rawget(proxy, "parent")
+			object = proxy["object"]
 
 			if parent and not parent["is_rendering"] then
 				proxy["is_rendering"] = false
@@ -641,22 +641,22 @@ do
 			end
 
 			for i = 1, #children do
-				local child = children[i]
+				child = children[i]
 				update_proxy_visibility(child, child["visible"])
 			end
 		end)
 
-		local update_proxy_size
+		update_proxy_size
 		update_proxy_size = LPH_NO_VIRTUALIZE(function(proxy, size)
 			if type(proxy) ~= "table" or type(proxy["real_size"]) == "number" then -- ??
 				return
 			end
 
-			local parent = rawget(proxy, "parent")
-			local real_size = parent and parent["real_size"] or vector2_new(size["X"]["Offset"], size["Y"]["Offset"])
+			parent = rawget(proxy, "parent")
+			real_size = parent and parent["real_size"] or vector2_new(size["X"]["Offset"], size["Y"]["Offset"])
 
 			if parent then
-				local parent_size = parent["real_size"]
+				parent_size = parent["real_size"]
 
 				real_size = vector2_new(
 					(parent_size["X"] * size["X"]["Scale"]) + size["X"]["Offset"],
@@ -667,10 +667,10 @@ do
 			proxy["object"]["Size"] = real_size
 			proxy["real_size"] = real_size
 
-			local children = proxy["children"]
+			children = proxy["children"]
 			for i = 1, #children do
-				local child = children[i]
-				local old = child["real_size"]
+				child = children[i]
+				old = child["real_size"]
 				update_proxy_size(child, child["size"])
 
 				update_proxy_position(child, child["position"])
@@ -683,7 +683,7 @@ do
 				update_proxy_position(self, value)
 			elseif property == "Parent" then
 				if value then
-					local children = value["children"]
+					children = value["children"]
 					children[#children + 1] = self
 				end
 
@@ -719,7 +719,7 @@ do
 
 	-- > ( menu creation )
 
-	local cursor = drawing_proxy["new"]("Image", {
+	cursor = drawing_proxy["new"]("Image", {
 		["Position"] = menu_position,
 		["Size"] = udim2_new(0, 24, 0, 24),
 		["Color"] = menu["colors"]["cursor"],
@@ -732,7 +732,7 @@ do
 		["Visible"] = true,
 	})
 
-	local frame = drawing_proxy["new"]("Image", {
+	frame = drawing_proxy["new"]("Image", {
 		["Position"] = menu_position,
 		["Size"] = udim2_new(0, 575, 0, 450),
 		["Color"] = menu["colors"]["background"],
@@ -742,7 +742,7 @@ do
 		["Visible"] = false,
 	})
 
-	local inside = drawing_proxy["new"]("Image", {
+	inside = drawing_proxy["new"]("Image", {
 		["Position"] = udim2_new(0, 1, 0, 1),
 		["Size"] = udim2_new(1, -2, 1, -2),
 		["Color"] = menu["colors"]["section"],
@@ -753,7 +753,7 @@ do
 		["Visible"] = false,
 	})
 
-	local logo = drawing_proxy["new"]("Image", {
+	logo = drawing_proxy["new"]("Image", {
 		["Color"] = menu["colors"]["accent"],
 		["Data"] = readfile(file_path .. "/assets/logobn.png"),
 		["Position"] = udim2_new(0, 15, 0, 15),
@@ -763,7 +763,7 @@ do
 		["Transparency"] = 1,
 	})
 
-	local juju_text = drawing_proxy["new"]("Text", {
+	juju_text = drawing_proxy["new"]("Text", {
 		["Font"] = 1,
 		["Color"] = color3_fromrgb(255, 255, 255),
 		["Text"] = getgenv().script_name or "bunny",
@@ -774,7 +774,7 @@ do
 		["Transparency"] = 1,
 	})
 
-	local build_text = drawing_proxy["new"]("Text", {
+	build_text = drawing_proxy["new"]("Text", {
 		["Font"] = 1,
 		["Color"] = menu["colors"]["accent"],
 		["Text"] = getgenv().script_version or "第一小兔",
@@ -785,7 +785,7 @@ do
 		["Transparency"] = 1,
 	})
 
-	local right_side = drawing_proxy["new"]("Square", {
+	right_side = drawing_proxy["new"]("Square", {
 		["Parent"] = inside,
 		["Position"] = udim2_new(0, 101, 0, 0),
 		["Size"] = udim2_new(1, -101, 1, 0),
@@ -795,7 +795,7 @@ do
 		["Transparency"] = 1,
 	})
 
-	local right_side_cover = drawing_proxy["new"]("Square", {
+	right_side_cover = drawing_proxy["new"]("Square", {
 		["Parent"] = inside,
 		["Position"] = udim2_new(0, 101, 0, 0),
 		["Size"] = udim2_new(1, -101, 1, 0),
@@ -806,7 +806,7 @@ do
 		["Transparency"] = 0,
 	})
 
-	local right_side_divider = drawing_proxy["new"]("Square", {
+	right_side_divider = drawing_proxy["new"]("Square", {
 		["Parent"] = inside,
 		["Position"] = udim2_new(0, 100, 0, 0),
 		["Size"] = udim2_new(0, 1, 1, 0),
@@ -817,7 +817,7 @@ do
 		["Transparency"] = 1,
 	})
 
-	local search_image = drawing_proxy["new"]("Image", {
+	search_image = drawing_proxy["new"]("Image", {
 		["Color"] = menu["colors"]["image"],
 		["Data"] = base64_decode(
 			"iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMvu8A7YAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAAYAAAAAEAAABgAAAAAQAAAFBhaW50Lk5FVCA1LjEuMgADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAADp1fY4ytpsegAAAGdJREFUKFONkGEWgCAIg5GTdP9LlqPBA8Pq+yFuOvA5JHFOuDXGhNvAjPVipgtZAFAGtIuvbrSdRA4sJQQBKB/wOM6V9TevAe+cn6su8liwaieSuwuONy4/k0PdZHglsKOEWD+5QyIX+wJP/y1yP3IAAAAASUVORK5CYII="
@@ -830,7 +830,7 @@ do
 		["Visible"] = true,
 	})
 
-	local themes_image = drawing_proxy["new"]("Image", {
+	themes_image = drawing_proxy["new"]("Image", {
 		["Color"] = menu["colors"]["image"],
 		["Data"] = base64_decode(
 			"iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADdYAAA3WAZBveZwAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMvu8A7YAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAAiF8BAOgDAACIXwEA6AMAAFBhaW50Lk5FVCA1LjEuMgADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAAC1cWHl18YwawAAAH5JREFUKFOFkAsOgCAMQwE5lIfx/qeA4Do7ZCL6ErOWtHwMb7TWinyN1pE4Owxul5uJnAp2ljGFo0B5F1Zhw0p6JVxDfIZegQymtroRTK9wj0bYjl5QtTCGPkqHLGcXpFRQGtYqwhDuDU9YKhYGaQwjAGix0S7W/z0UAO0PIZyip02b2JexIAAAAABJRU5ErkJggg=="
@@ -842,7 +842,7 @@ do
 		["Visible"] = true,
 	})
 
-	local settings_image = drawing_proxy["new"]("Image", {
+	settings_image = drawing_proxy["new"]("Image", {
 		["Color"] = menu["colors"]["image"],
 		["Data"] = base64_decode(
 			"iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///wAAAFXC034AAAACdFJOU/8A5bcwSgAAAAlwSFlzAAALEwAACxMBAJqcGAAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIDUuMS4y+7wDtgAAALZlWElmSUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAAACgBAwABAAAAAgAAADEBAgAQAAAAWgAAAGmHBAABAAAAagAAAAAAAABJGQEA6AMAAEkZAQDoAwAAUGFpbnQuTkVUIDUuMS4yAAMAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAABaAEAAEAAACUAAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAAC/Sb/YZ+v7JAAAAMklEQVQYV1WLARIAQAQC9f9Pn65oNAZpFajyUHn0MtJZWkbdt+QxBwtA47X1kzDk9QY8FowASc0mZqAAAAAASUVORK5CYII="
@@ -854,7 +854,7 @@ do
 		["Visible"] = true,
 	})
 
-	local tab_line = drawing_proxy["new"]("Square", {
+	tab_line = drawing_proxy["new"]("Square", {
 		["Parent"] = inside,
 		["Position"] = udim2_new(0, 0, 0, 0),
 		["Size"] = udim2_new(0, 1, 0, 12),
@@ -864,7 +864,7 @@ do
 		["Visible"] = true,
 	})
 
-	local search_border = drawing_proxy["new"]("Image", {
+	search_border = drawing_proxy["new"]("Image", {
 		["Parent"] = frame,
 		["Position"] = udim2_new(0, 11, 1, -32),
 		["Size"] = udim2_new(0, 78, 0, 20),
@@ -875,7 +875,7 @@ do
 		["Visible"] = false,
 	})
 
-	local search_inside = drawing_proxy["new"]("Image", {
+	search_inside = drawing_proxy["new"]("Image", {
 		["Parent"] = search_border,
 		["Position"] = udim2_new(0, 1, 0, 1),
 		["Size"] = udim2_new(1, -2, 1, -2),
@@ -886,7 +886,7 @@ do
 		["Visible"] = true,
 	})
 
-	local search_out_border = drawing_proxy["new"]("Image", {
+	search_out_border = drawing_proxy["new"]("Image", {
 		["Parent"] = frame,
 		["Position"] = udim2_new(0, 11, 1, -57),
 		["Size"] = udim2_new(0, 78, 0, 20),
@@ -898,7 +898,7 @@ do
 		["Visible"] = false,
 	})
 
-	local search_out = drawing_proxy["new"]("Image", {
+	search_out = drawing_proxy["new"]("Image", {
 		["Parent"] = search_out_border,
 		["Position"] = udim2_new(0, 1, 0, 1),
 		["Size"] = udim2_new(1, -2, 1, -2),
@@ -910,7 +910,7 @@ do
 		["Visible"] = true,
 	})
 
-	local search_text = drawing_proxy["new"]("Text", {
+	search_text = drawing_proxy["new"]("Text", {
 		["Color"] = menu["colors"]["active_text"],
 		["Text"] = "",
 		["Size"] = 12,
@@ -922,7 +922,7 @@ do
 		["Position"] = udim2_new(0, 18, 0, 2),
 	})
 
-	local drag_frame = drawing_proxy["new"]("Image", {
+	drag_frame = drawing_proxy["new"]("Image", {
 		["Position"] = menu_position,
 		["Size"] = udim2_new(0, 575, 0, 450),
 		["Color"] = menu["colors"]["background"],
@@ -933,7 +933,7 @@ do
 		["Visible"] = false,
 	})
 
-	local drag_inside = drawing_proxy["new"]("Image", {
+	drag_inside = drawing_proxy["new"]("Image", {
 		["Position"] = udim2_new(0, 1, 0, 1),
 		["Size"] = udim2_new(1, -2, 1, -2),
 		["Color"] = menu["colors"]["section"],
@@ -945,7 +945,7 @@ do
 		["Visible"] = true,
 	})
 
-	local drag_logo = drawing_proxy["new"]("Image", {
+	drag_logo = drawing_proxy["new"]("Image", {
 		["Color"] = menu["colors"]["accent"],
 		["Data"] = readfile(file_path .. "/assets/logobn.png"),
 		["Position"] = udim2_new(0.5, -40, 0.5, -40),
@@ -958,7 +958,7 @@ do
 
 	-- > ( keybinds )
 
-	local keybind_data = {
+	keybind_data = {
 		[1] = {
 			["key"] = Enum["KeyCode"]["Delete"],
 			["value"] = true,
@@ -969,13 +969,13 @@ do
 		},
 	}
 
-	local keybind = {}
+	keybind = {}
 	keybind["__index"] = keybind
 
 	function keybind:set_activated(activated)
-		local new_value = activated and self["value"] or (not activated and self["original_value"])
-		local element = self["element"]
-		local type = self["type"]
+		new_value = activated and self["value"] or (not activated and self["original_value"])
+		element = self["element"]
+		type = self["type"]
 
 		if type == 1 then
 			element:set_dropdown(new_value, true)
@@ -994,7 +994,7 @@ do
 
 	-- > ( keybinds list )
 
-	local list_frame = drawing_proxy["new"]("Image", {
+	list_frame = drawing_proxy["new"]("Image", {
 		["Position"] = udim2_new(0, 15, 0, camera["ViewportSize"]["Y"] / 2 - 10),
 		["Size"] = udim2_new(0, 74, 0, 20),
 		["Color"] = menu["colors"]["border"],
@@ -1007,7 +1007,7 @@ do
 
 	hud_frames["keybinds_position"] = list_frame
 
-	local list_shadow = drawing_proxy["new"]("Image", {
+	list_shadow = drawing_proxy["new"]("Image", {
 		["Parent"] = list_frame,
 		["Data"] = shadow_image_data,
 		["Rounding"] = 7,
@@ -1019,7 +1019,7 @@ do
 		["Position"] = udim2_new(0, -3, 0, -2),
 	})
 
-	local list_inside = drawing_proxy["new"]("Image", {
+	list_inside = drawing_proxy["new"]("Image", {
 		["Position"] = udim2_new(0, 1, 0, 1),
 		["Size"] = udim2_new(0, 72, 0, 18),
 		["Color"] = color3_fromrgb(15, 15, 15),
@@ -1031,7 +1031,7 @@ do
 		["Visible"] = true,
 	})
 
-	local list_icon = drawing_proxy["new"]("Image", {
+	list_icon = drawing_proxy["new"]("Image", {
 		["Color"] = menu["colors"]["accent"],
 		["Data"] = base64_decode(
 			"iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///wAAAFXC034AAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOwwAADsMBx2+oZAAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIDUuMS4y+7wDtgAAALZlWElmSUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAAACgBAwABAAAAAgAAADEBAgAQAAAAWgAAAGmHBAABAAAAagAAAAAAAABgAAAAAQAAAGAAAAABAAAAUGFpbnQuTkVUIDUuMS4yAAMAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAABaAEAAEAAACUAAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAAOnV9jjK2mx6AAAAKklEQVQYV2NghANkJhCAKCgGUUAazIUCiBiIAVEAFoLwIQgsCgZwJiMjABBLAEmFjHpsAAAAAElFTkSuQmCC"
@@ -1044,7 +1044,7 @@ do
 		["Visible"] = true,
 	})
 
-	local list_divider = drawing_proxy["new"]("Square", {
+	list_divider = drawing_proxy["new"]("Square", {
 		["Position"] = udim2_new(0, 20, 0, 4),
 		["Size"] = udim2_new(0, 1, 0, 10),
 		["Color"] = menu["colors"]["accent"],
@@ -1055,7 +1055,7 @@ do
 		["Visible"] = true,
 	})
 
-	local list_text = drawing_proxy["new"]("Text", {
+	list_text = drawing_proxy["new"]("Text", {
 		["Color"] = color3_fromrgb(255, 255, 255),
 		["Text"] = "hotkeys",
 		["Size"] = 12,
@@ -1067,14 +1067,14 @@ do
 		["ZIndex"] = 12,
 	})
 
-	local list_drawings = {}
-	local active_binds = {}
+	list_drawings = {}
+	active_binds = {}
 
 	menu["show_bind"] = function(keybind, just_visual)
-		local found = nil
+		found = nil
 
 		for i = 1, #active_binds do
-			local bind = active_binds[i]
+			bind = active_binds[i]
 			if bind == keybind then
 				found = i
 				break
@@ -1088,9 +1088,9 @@ do
 			end
 		end
 
-		local drawings = list_drawings[keybind]
-		local frame = drawings["frame"]
-		local y = 24 + (found - 1) * 21
+		drawings = list_drawings[keybind]
+		frame = drawings["frame"]
+		y = 24 + (found - 1) * 21
 
 		frame["Position"] = udim2_new(0, -5, 0, y)
 		tween(frame, { Transparency = 0 or 0.2, tween_position = udim2_new(0, 0, 0, y) }, circular, out, 0.15)
@@ -1105,7 +1105,7 @@ do
 		return active_binds
 	end)
 
-	local create_hover_connection = nil
+	create_hover_connection = nil
 
 	menu["hide_bind"] = function(keybind, just_visual)
 		if not just_visual then
@@ -1117,9 +1117,9 @@ do
 			end
 
 			for i = 1, #active_binds do
-				local frame = list_drawings[active_binds[i]]["frame"]
-				local old_position = frame["tween_position"]
-				local new_position = udim2_new(0, 0, 0, 24 + (i - 1) * 21)
+				frame = list_drawings[active_binds[i]]["frame"]
+				old_position = frame["tween_position"]
+				new_position = udim2_new(0, 0, 0, 24 + (i - 1) * 21)
 
 				if old_position ~= new_position then
 					tween(frame, { tween_position = new_position }, circular, out, 0.15)
@@ -1127,10 +1127,10 @@ do
 			end
 		end
 
-		local drawings = list_drawings[keybind]
+		drawings = list_drawings[keybind]
 
 		if drawings then
-			local frame = drawings["frame"]
+			frame = drawings["frame"]
 
 			tween(
 				drawings["frame"],
@@ -1145,11 +1145,11 @@ do
 			tween(drawings["shadow"], hide_transparency, circular, out, 0.15)
 
 			delay(0.15, function()
-				local found = nil
+				found = nil
 
 				if not just_visual then
 					for i = 1, #active_binds do
-						local bind = active_binds[i]
+						bind = active_binds[i]
 						if bind == keybind then
 							found = i
 							break
@@ -1169,9 +1169,9 @@ do
 		tween(list_frame, { Transparency = 0.7 }, circular, out, 0.15)
 		tween(list_inside, show_transparency, circular, out, 0.15)
 		tween(list_shadow, { Transparency = 0.16 }, circular, out, 0.15)
-		local children = list_inside["children"]
+		children = list_inside["children"]
 		for i = 1, #children do
-			local child = children[i]
+			child = children[i]
 			if child["Visible"] then
 				tween(child, child == list_text and show_transparency or half_transparency, circular, out, 0.15)
 			end
@@ -1189,18 +1189,18 @@ do
 		tween(list_frame, hide_transparency, circular, out, 0.15)
 		tween(list_inside, hide_transparency, circular, out, 0.15)
 		tween(list_shadow, hide_transparency, circular, out, 0.15)
-		local children = list_inside["children"]
+		children = list_inside["children"]
 		for i = 1, #children do
-			local child = children[i]
+			child = children[i]
 			if child["Visible"] then
 				tween(child, hide_transparency, circular, out, 0.15)
 			end
 		end
 
-		local old_tick = clock()
+		old_tick = clock()
 
 		for i = 1, #active_binds do
-			local keybind = active_binds[i]
+			keybind = active_binds[i]
 			menu["hide_bind"](keybind, true)
 		end
 
@@ -1216,19 +1216,19 @@ do
 
 	function menu:load_theme(theme)
 		if theme then
-			local path = file_path .. "/themes/" .. theme .. ".th"
+			path = file_path .. "/themes/" .. theme .. ".th"
 			if isfile(path) then
-				local s, data = pcall(function()
+				s, data = pcall(function()
 					return http_service:JSONDecode(readfile(path))
 				end)
 
 				if s and data then
-					local elements = theme_section["elements"]
+					elements = theme_section["elements"]
 					for i = 1, #elements do
-						local element = elements[i]
-						local flag = element["color_flag"]
+						element = elements[i]
+						flag = element["color_flag"]
 						if flag then
-							local color = data[flag]
+							color = data[flag]
 
 							if color then
 								element:set_colorpicker(color3_fromrgb(color[1], color[2], color[3]))
@@ -1250,13 +1250,13 @@ do
 		end
 	end
 
-	local offset = identifyexecutor() == "AWP" and 1 or 2
+	offset = identifyexecutor() == "AWP" and 1 or 2
 
 	create_connection(on_keybind_created, function(keybind, element)
-		local type = keybind["type"]
+		type = keybind["type"]
 
 		if type == 1 then
-			local keybind_frame = drawing_proxy["new"]("Image", {
+			keybind_frame = drawing_proxy["new"]("Image", {
 				["Position"] = udim2_new(0, 0, 0, 25),
 				["Size"] = udim2_new(0, 74, 0, 18),
 				["Color"] = menu["colors"]["border"],
@@ -1267,7 +1267,7 @@ do
 				["Visible"] = false,
 			})
 
-			local keybind_inside = drawing_proxy["new"]("Image", {
+			keybind_inside = drawing_proxy["new"]("Image", {
 				["Position"] = udim2_new(0, 1, 0, 1),
 				["Size"] = udim2_new(0, 72, 0, 18),
 				["Color"] = menu["colors"]["background"],
@@ -1278,7 +1278,7 @@ do
 				["Visible"] = true,
 			})
 
-			local value_image = drawing_proxy["new"]("Image", {
+			value_image = drawing_proxy["new"]("Image", {
 				["Color"] = menu["colors"]["accent"],
 				["Size"] = udim2_new(0, 10, 0, 10),
 				["Data"] = arrow_image_data,
@@ -1289,7 +1289,7 @@ do
 				["ZIndex"] = 2,
 			})
 
-			local keybind_text = drawing_proxy["new"]("Text", {
+			keybind_text = drawing_proxy["new"]("Text", {
 				["Color"] = menu["colors"]["keybind_text"],
 				["Text"] = element["name"],
 				["Size"] = 12,
@@ -1301,7 +1301,7 @@ do
 				["ZIndex"] = 2,
 			})
 
-			local keybind_shadow = drawing_proxy["new"]("Image", {
+			keybind_shadow = drawing_proxy["new"]("Image", {
 				["Parent"] = keybind_frame,
 				["Data"] = shadow_image_data,
 				["Rounding"] = 7,
@@ -1312,12 +1312,12 @@ do
 				["ZIndex"] = 3,
 			})
 
-			local x_size = keybind_text["TextBounds"]["X"] + 31
+			x_size = keybind_text["TextBounds"]["X"] + 31
 
 			keybind_frame["Size"] = udim2_new(0, x_size, 0, 18)
 			keybind_inside["Size"] = udim2_new(0, x_size - 2, 0, 16)
 
-			local shadow_size = floor(x_size / 11)
+			shadow_size = floor(x_size / 11)
 			keybind_shadow["Size"] = udim2_new(1, shadow_size - 1, 1, 4)
 			keybind_shadow["Position"] = udim2_new(0, -shadow_size / 2, 0, -2)
 
@@ -1329,7 +1329,7 @@ do
 				["shadow"] = keybind_shadow,
 			}
 		elseif type == 2 then
-			local keybind_frame = drawing_proxy["new"]("Image", {
+			keybind_frame = drawing_proxy["new"]("Image", {
 				["Position"] = udim2_new(0, 0, 0, 25),
 				["Size"] = udim2_new(0, 74, 0, 18),
 				["Color"] = menu["colors"]["border"],
@@ -1340,7 +1340,7 @@ do
 				["Visible"] = false,
 			})
 
-			local keybind_inside = drawing_proxy["new"]("Image", {
+			keybind_inside = drawing_proxy["new"]("Image", {
 				["Position"] = udim2_new(0, 1, 0, 1),
 				["Size"] = udim2_new(0, 72, 0, 18),
 				["Color"] = menu["colors"]["background"],
@@ -1351,7 +1351,7 @@ do
 				["Visible"] = true,
 			})
 
-			local value_text = drawing_proxy["new"]("Text", {
+			value_text = drawing_proxy["new"]("Text", {
 				["Color"] = menu["colors"]["accent"],
 				["Text"] = element["drawings"]["slider_text"]["Text"],
 				["Size"] = 12,
@@ -1362,7 +1362,7 @@ do
 				["Position"] = udim2_new(0, 3, 0, offset),
 			})
 
-			local value = keybind["value"]
+			value = keybind["value"]
 
 			if value == element["slider_min"] then
 				value_text["Text"] = element["slider_min_text"]
@@ -1372,7 +1372,7 @@ do
 					or element["slider_prefix"] .. value .. element["slider_suffix"]
 			end
 
-			local keybind_text = drawing_proxy["new"]("Text", {
+			keybind_text = drawing_proxy["new"]("Text", {
 				["Color"] = menu["colors"]["keybind_text"],
 				["Text"] = element["name"],
 				["Size"] = 12,
@@ -1383,7 +1383,7 @@ do
 				["Position"] = udim2_new(0, 23, 0, offset),
 			})
 
-			local keybind_shadow = drawing_proxy["new"]("Image", {
+			keybind_shadow = drawing_proxy["new"]("Image", {
 				["Parent"] = keybind_frame,
 				["Data"] = shadow_image_data,
 				["Rounding"] = 7,
@@ -1394,14 +1394,14 @@ do
 				["ZIndex"] = 3,
 			})
 
-			local text_bounds = value_text["TextBounds"]["X"]
-			local x_size = text_bounds + keybind_text["TextBounds"]["X"] + 18
+			text_bounds = value_text["TextBounds"]["X"]
+			x_size = text_bounds + keybind_text["TextBounds"]["X"] + 18
 
 			keybind_text["Position"] = udim2_new(0, text_bounds + 13, 0, 2)
 			keybind_frame["Size"] = udim2_new(0, x_size, 0, 18)
 			keybind_inside["Size"] = udim2_new(0, x_size - 2, 0, 16)
 
-			local shadow_size = floor(x_size / 11)
+			shadow_size = floor(x_size / 11)
 			keybind_shadow["Size"] = udim2_new(1, shadow_size - 1, 1, 4)
 			keybind_shadow["Position"] = udim2_new(0, -shadow_size / 2, 0, -2)
 
@@ -1413,7 +1413,7 @@ do
 				["shadow"] = keybind_shadow,
 			}
 		elseif type == 3 then
-			local keybind_frame = drawing_proxy["new"]("Image", {
+			keybind_frame = drawing_proxy["new"]("Image", {
 				["Position"] = UDim2.new(0, 0, 0, 25),
 				["Size"] = UDim2.new(0, 74, 0, 18),
 				["Color"] = menu["colors"]["border"],
@@ -1424,7 +1424,7 @@ do
 				["Visible"] = false,
 			})
 
-			local keybind_inside = drawing_proxy["new"]("Image", {
+			keybind_inside = drawing_proxy["new"]("Image", {
 				["Position"] = UDim2.new(0, 1, 0, 1),
 				["Size"] = UDim2.new(0, 72, 0, 18),
 				["Color"] = menu["colors"]["background"],
@@ -1435,7 +1435,7 @@ do
 				["Visible"] = true,
 			})
 
-			local keybind_shadow = drawing_proxy["new"]("Image", {
+			keybind_shadow = drawing_proxy["new"]("Image", {
 				["Parent"] = keybind_frame,
 				["Data"] = shadow_image_data,
 				["Rounding"] = 7,
@@ -1446,7 +1446,7 @@ do
 				["ZIndex"] = 3,
 			})
 
-			local value_image = drawing_proxy["new"]("Image", {
+			value_image = drawing_proxy["new"]("Image", {
 				["Color"] = menu["colors"]["accent"],
 				["Size"] = UDim2.new(0, 10, 0, 10),
 				["Data"] = checkmark_image_data,
@@ -1457,7 +1457,7 @@ do
 				["ZIndex"] = 2,
 			})
 
-			local keybind_text = drawing_proxy["new"]("Text", {
+			keybind_text = drawing_proxy["new"]("Text", {
 				["Color"] = menu["colors"]["keybind_text"],
 				["Text"] = element["name"],
 				["Size"] = 12,
@@ -1469,12 +1469,12 @@ do
 				["ZIndex"] = 2,
 			})
 
-			local x_size = keybind_text["TextBounds"]["X"] + 31
+			x_size = keybind_text["TextBounds"]["X"] + 31
 
 			keybind_frame["Size"] = UDim2.new(0, x_size, 0, 18)
 			keybind_inside["Size"] = UDim2.new(0, x_size - 2, 0, 16)
 
-			local shadow_size = floor(x_size / 11)
+			shadow_size = floor(x_size / 11)
 			keybind_shadow["Size"] = udim2_new(1, shadow_size - 1, 1, 4)
 			keybind_shadow["Position"] = udim2_new(0, -shadow_size / 2, 0, -2)
 
@@ -1493,12 +1493,12 @@ do
 	end)
 
 	create_connection(on_keybind_updated, function(keybind, element)
-		local type = keybind["type"]
+		type = keybind["type"]
 
 		if type == 2 then
-			local drawings = list_drawings[keybind]
-			local value_text = drawings["value"]
-			local value = keybind["value"]
+			drawings = list_drawings[keybind]
+			value_text = drawings["value"]
+			value = keybind["value"]
 
 			if value == element["slider_min"] then
 				value_text["Text"] = element["slider_min_text"]
@@ -1508,8 +1508,8 @@ do
 					or element["slider_prefix"] .. value .. element["slider_suffix"]
 			end
 
-			local text_bounds = value_text["TextBounds"]["X"]
-			local x_size = text_bounds + drawings["text"]["TextBounds"]["X"] + 18
+			text_bounds = value_text["TextBounds"]["X"]
+			x_size = text_bounds + drawings["text"]["TextBounds"]["X"] + 18
 
 			drawings["text"]["Position"] = udim2_new(0, text_bounds + 13, 0, 2)
 			drawings["frame"]["Size"] = udim2_new(0, x_size, 0, 18)
@@ -1532,7 +1532,7 @@ do
 			menu["hide_bind"](keybind)
 
 			delay(0.15, function()
-				local data = list_drawings[keybind]
+				data = list_drawings[keybind]
 
 				if data then
 					for _, drawing in data do
@@ -1543,7 +1543,7 @@ do
 				end
 			end)
 		else
-			local data = list_drawings[keybind]
+			data = list_drawings[keybind]
 
 			if data then
 				for _, drawing in data do
@@ -1557,27 +1557,27 @@ do
 
 	-- > ( elements )
 
-	local element = {}
+	element = {}
 	element["__index"] = element
 
-	local section = {}
+	section = {}
 	section["__index"] = section
 
-	local item = {}
+	item = {}
 	item["__index"] = item
 
 	-- > ( inputs )
 
-	local moving = nil
+	moving = nil
 
-	local right_click_connections = {}
-	local scroll_connections = {}
-	local hover_connections = {}
-	local click_connections = {}
-	local hovering_objects = {}
-	local active_typing = nil
+	right_click_connections = {}
+	scroll_connections = {}
+	hover_connections = {}
+	click_connections = {}
+	hovering_objects = {}
+	active_typing = nil
 
-	local type_line = drawing_proxy["new"]("Square", {
+	type_line = drawing_proxy["new"]("Square", {
 		["Position"] = udim2_new(0, 0, 0, 0),
 		["Size"] = udim2_new(0, 1, 0, 12),
 		["Filled"] = true,
@@ -1587,21 +1587,21 @@ do
 		["ZIndex"] = 999,
 	})
 
-	local type_function = LPH_NO_VIRTUALIZE(function()
-		local position = active_typing["real_position"]
+	type_function = LPH_NO_VIRTUALIZE(function()
+		position = active_typing["real_position"]
 		type_line["Transparency"] = 0.5 + 0.5 * math["sin"](clock() * math["pi"] * 2.5)
 		type_line["Position"] = udim2_new(0, position["X"] + active_typing["TextBounds"]["X"] + 3, 0, position["Y"] + 1)
 	end)
 
-	local create_click_connection = function(new_handle, object, callback)
-		local handle = click_connections[new_handle]
+	create_click_connection = function(new_handle, object, callback)
+		handle = click_connections[new_handle]
 
 		if not handle then
 			click_connections[new_handle] = {}
 			handle = click_connections[new_handle]
 		end
 
-		local new_handle = handle[object]
+		new_handle = handle[object]
 		if not new_handle then
 			handle[object] = {
 				callback,
@@ -1611,15 +1611,15 @@ do
 		end
 	end
 
-	local create_scroll_connection = function(new_handle, object, callback)
-		local handle = scroll_connections[new_handle]
+	create_scroll_connection = function(new_handle, object, callback)
+		handle = scroll_connections[new_handle]
 
 		if not handle then
 			scroll_connections[new_handle] = {}
 			handle = scroll_connections[new_handle]
 		end
 
-		local new_handle = handle[object]
+		new_handle = handle[object]
 		if not new_handle then
 			handle[object] = {
 				callback,
@@ -1629,15 +1629,15 @@ do
 		end
 	end
 
-	local create_right_click_connection = function(new_handle, object, callback)
-		local handle = right_click_connections[new_handle]
+	create_right_click_connection = function(new_handle, object, callback)
+		handle = right_click_connections[new_handle]
 
 		if not handle then
 			right_click_connections[new_handle] = {}
 			handle = right_click_connections[new_handle]
 		end
 
-		local new_handle = handle[object]
+		new_handle = handle[object]
 		if not new_handle then
 			handle[object] = {
 				callback,
@@ -1648,14 +1648,14 @@ do
 	end
 
 	create_hover_connection = function(new_handle, object, hover_callback, leave_callback)
-		local handle = hover_connections[new_handle]
+		handle = hover_connections[new_handle]
 
 		if not handle then
 			hover_connections[new_handle] = {}
 			handle = hover_connections[new_handle]
 		end
 
-		local new_handle = handle[object]
+		new_handle = handle[object]
 		if not new_handle then
 			handle[object] = {
 				{
@@ -1671,8 +1671,8 @@ do
 		end
 	end
 
-	local open_settings = function(settings)
-		local border = settings["border"]
+	open_settings = function(settings)
+		border = settings["border"]
 		for _, element in settings["elements"] do
 			for _, drawing in element["drawings"] do
 				tween(
@@ -1691,14 +1691,14 @@ do
 			end
 		end
 
-		local position = border["real_position"]
-		local x_position = position["X"] + 30
-		local screen_size = camera["ViewportSize"]
-		local x_size = screen_size["X"]
-		local y_size = screen_size["Y"]
+		position = border["real_position"]
+		x_position = position["X"] + 30
+		screen_size = camera["ViewportSize"]
+		x_size = screen_size["X"]
+		y_size = screen_size["Y"]
 
-		local x_overlap = (x_position + border["real_size"]["X"]) - x_size
-		local y_overlap = (position["Y"] + border["real_size"]["Y"]) - y_size
+		x_overlap = (x_position + border["real_size"]["X"]) - x_size
+		y_overlap = (position["Y"] + border["real_size"]["Y"]) - y_size
 
 		if x_overlap > 0 then
 			x_position -= (x_overlap + 5)
@@ -1728,8 +1728,8 @@ do
 		actives["settings"] = settings
 	end
 
-	local close_settings = function(settings)
-		local border = settings["border"]
+	close_settings = function(settings)
+		border = settings["border"]
 		for _, element in settings["elements"] do
 			for _, drawing in element["drawings"] do
 				tween(drawing, hide_transparency, circular, out, 0.15)
@@ -1759,7 +1759,7 @@ do
 		end
 	end
 
-	local stop_typing = function()
+	stop_typing = function()
 		for i = 1, #heartbeat do
 			if heartbeat[i] == type_function then
 				remove(heartbeat, i)
@@ -1776,8 +1776,8 @@ do
 		context_action_service:UnbindAction(context_action_typing)
 	end
 
-	local stop_search = function()
-		local children = search_out["children"]
+	stop_search = function()
+		children = search_out["children"]
 		click_connections[search_out] = nil
 		hover_connections[search_out] = nil
 
@@ -1808,7 +1808,7 @@ do
 		end)
 	end
 
-	local start_typing = LPH_JIT_MAX(
+	start_typing = LPH_JIT_MAX(
 		function(label, limit, callback, numbers, allow_enter, allow_all, only_on_enter) -- > LOL dont ask im too lazy to rewrite this >->
 			if active_typing then
 				stop_typing()
@@ -1820,21 +1820,21 @@ do
 			type_line["Visible"] = true
 			heartbeat[#heartbeat + 1] = type_function
 
-			local current_input = ""
+			current_input = ""
 
 			old_text = label["Text"]
 
-			local items = Enum["KeyCode"]:GetEnumItems()
+			items = Enum["KeyCode"]:GetEnumItems()
 
-			local backspace = Enum["KeyCode"]["Backspace"]
-			local enter = Enum["KeyCode"]["Return"]
-			local shift = Enum["KeyCode"]["LeftShift"]
+			backspace = Enum["KeyCode"]["Backspace"]
+			enter = Enum["KeyCode"]["Return"]
+			shift = Enum["KeyCode"]["LeftShift"]
 
 			context_action_service:BindAction(context_action_typing, function(_, state, input)
 				if state == Enum["UserInputState"]["Begin"] then
-					local keycode = input["KeyCode"]
-					local is_enter = keycode == enter
-					local last_input = current_input
+					keycode = input["KeyCode"]
+					is_enter = keycode == enter
+					last_input = current_input
 
 					if is_enter and allow_enter then
 						stop_typing()
@@ -1856,7 +1856,7 @@ do
 						user_input_service:IsKeyDown(Enum["KeyCode"]["LeftControl"])
 						and user_input_service:IsKeyDown(Enum["KeyCode"]["V"])
 					then
-						local textbox = create_instance("TextBox", {
+						textbox = create_instance("TextBox", {
 							["Name"] = "\0",
 							["Parent"] = hui,
 						})
@@ -1866,7 +1866,7 @@ do
 						wait()
 						keyrelease(0xA2)
 						keyrelease(0x56)
-						local text = textbox["Text"]
+						text = textbox["Text"]
 						if text and #text > 0 then
 							current_input ..= text
 						end
@@ -1877,8 +1877,8 @@ do
 							return
 						end
 
-						local letter = user_input_service:GetStringForKeyCode(keycode):lower()
-						local byte = string["byte"](letter)
+						letter = user_input_service:GetStringForKeyCode(keycode):lower()
+						byte = string["byte"](letter)
 
 						if
 							(allow_all and byte)
@@ -1902,7 +1902,7 @@ do
 					label["Text"] = current_input
 
 					if is_enter and only_on_enter or not only_on_enter then
-						local ignore = callback(current_input, input)
+						ignore = callback(current_input, input)
 
 						if ignore then
 							current_input = last_input
@@ -1915,8 +1915,8 @@ do
 		end
 	)
 
-	local do_search = LPH_JIT_MAX(function(text)
-		local children = search_out["children"]
+	do_search = LPH_JIT_MAX(function(text)
+		children = search_out["children"]
 		hover_connections[search_out] = nil
 		click_connections[search_out] = nil
 
@@ -1931,17 +1931,17 @@ do
 			return
 		end
 
-		local results = {}
+		results = {}
 
 		text = text:lower()
 
 		for name, group in menu["groups"] do
 			for name, tab in group["tabs"] do
 				for _, section in tab["sections"] do
-					local elements = section["elements"]
+					elements = section["elements"]
 					for i = 1, #elements do
-						local element = elements[i]
-						local test = (element["name"] or "f"):lower():gsub(" ", "")
+						element = elements[i]
+						test = (element["name"] or "f"):lower():gsub(" ", "")
 						if test:find(text) then
 							results[#results + 1] = {
 								group,
@@ -1956,9 +1956,9 @@ do
 		end
 
 		for element_settings, settings in menu["settings"] do
-			local elements = settings["elements"]
+			elements = settings["elements"]
 			for i = 1, #elements do
-				local element = elements[i]
+				element = elements[i]
 				if (element["name"]:lower()):find(text) then
 					results[#results + 1] = {
 						element_settings,
@@ -1969,20 +1969,20 @@ do
 			end
 		end
 
-		local max_textbounds = 0
+		max_textbounds = 0
 
 		if #results > 0 then
 			search_out_border["Visible"] = true
 
-			local size = 8 + #results * 12
+			size = 8 + #results * 12
 
 			for i = 1, #results do
-				local result = results[i]
-				local path = nil
-				local tab = nil
-				local settings = nil
-				local settings_element = nil
-				local element = nil
+				result = results[i]
+				path = nil
+				tab = nil
+				settings = nil
+				settings_element = nil
+				element = nil
 				if #result == 3 then
 					path = result[1]["name"] .. " > " .. result[2]["name"]
 					settings = result[3]
@@ -1994,8 +1994,8 @@ do
 					element = result[4]
 				end
 
-				local position = udim2_new(0, 3, 0, 3 + (i - 1) * 12)
-				local text_click = drawing_proxy["new"]("Square", {
+				position = udim2_new(0, 3, 0, 3 + (i - 1) * 12)
+				text_click = drawing_proxy["new"]("Square", {
 					["Size"] = udim2_new(1, -6, 0, 12),
 					["Position"] = position,
 					["Visible"] = true,
@@ -2003,7 +2003,7 @@ do
 					["Transparency"] = 0,
 					["Parent"] = search_out,
 				})
-				local text = drawing_proxy["new"]("Text", {
+				text = drawing_proxy["new"]("Text", {
 					["Color"] = menu["colors"]["inactive_text"],
 					["Text"] = path,
 					["Size"] = 12,
@@ -2015,7 +2015,7 @@ do
 					["ZIndex"] = 1001,
 				})
 
-				local textbounds = text["TextBounds"]
+				textbounds = text["TextBounds"]
 				if textbounds["X"] > max_textbounds then
 					max_textbounds = textbounds["X"]
 				end
@@ -2033,7 +2033,7 @@ do
 						for name, group in menu["groups"] do
 							for name, potential_tab in group["tabs"] do
 								for _, section in potential_tab["sections"] do
-									local elements = section["elements"]
+									elements = section["elements"]
 									for i = 1, #elements do
 										if elements[i] == settings_element then
 											tab = potential_tab
@@ -2053,8 +2053,8 @@ do
 						end
 						open_settings(settings)
 					end
-					local drawings = element["drawings"]
-					local label = drawings["button_text"] or drawings["text"]
+					drawings = element["drawings"]
+					label = drawings["button_text"] or drawings["text"]
 					tween(label, hide_transparency, circular, out, 0.33)
 					delay(0.33, function()
 						if menu_open then
@@ -2078,9 +2078,9 @@ do
 			search_out_border["Position"] = udim2_new(0, 11, 1, -42 - size)
 			search_out["Size"] = udim2_new(1, -2, 1, -2)
 
-			local children = search_out["children"]
+			children = search_out["children"]
 			for i = 1, #children do
-				local child = children[i]
+				child = children[i]
 				if child["Size"] ~= 12 then
 					child["Size"] = udim2_new(1, -6, 0, 12)
 				end
@@ -2088,7 +2088,7 @@ do
 		end
 	end)
 
-	local start_search = function()
+	start_search = function()
 		tween(
 			search_image,
 			{ tween_position = udim2_new(0, 14, 1, -27), Color = menu["colors"]["highlighted"] },
@@ -2106,7 +2106,7 @@ do
 		start_typing(search_text, 51, do_search, false, true, true, false)
 	end
 
-	local stop_binding = function(key)
+	stop_binding = function(key)
 		context_action_service:UnbindCoreAction(context_action_typing_core)
 		tween(
 			actives["binding"]["drawings"]["keybind_text"],
@@ -2118,33 +2118,33 @@ do
 		actives["binding"] = nil
 	end
 
-	local start_binding = function(element)
+	start_binding = function(element)
 		actives["binding"] = element
 
-		local drawings = element["drawings"]
-		local keybind_border = drawings["keybind_border"]
-		local keybind_inside = drawings["keybind_inside"]
-		local keybind_text = drawings["keybind_text"]
+		drawings = element["drawings"]
+		keybind_border = drawings["keybind_border"]
+		keybind_inside = drawings["keybind_inside"]
+		keybind_text = drawings["keybind_text"]
 
 		keybind_text["Text"] = "..."
 
-		local size = keybind_text["TextBounds"]["X"] + 8
+		size = keybind_text["TextBounds"]["X"] + 8
 
 		keybind_border["Size"] = udim2_new(0, size, 0, 12)
 		keybind_border["Position"] = udim2_new(1, -size, 0, 0)
 		keybind_inside["Size"] = udim2_new(0, size - 2, 0, 10)
 		keybind_text["Position"] = udim2_new(0, (size - 2) / 2, 0, -2)
 
-		local escape = Enum["KeyCode"]["Escape"]
-		local tilde = Enum["KeyCode"]["Tilde"]
-		local items = Enum["KeyCode"]:GetEnumItems()
+		escape = Enum["KeyCode"]["Escape"]
+		tilde = Enum["KeyCode"]["Tilde"]
+		items = Enum["KeyCode"]:GetEnumItems()
 
 		for _, a in Enum["UserInputType"]:GetEnumItems() do
 			items[#items + 1] = a
 		end
 
 		context_action_service:BindCoreAction(context_action_typing_core, function(_, state, input)
-			local key = shortened_characters[input["UserInputType"]] and input["UserInputType"] or input["KeyCode"]
+			key = shortened_characters[input["UserInputType"]] and input["UserInputType"] or input["KeyCode"]
 
 			if state == Enum["UserInputState"]["Begin"] and key ~= Enum["KeyCode"]["Unknown"] then
 				if key == escape or key == tilde then
@@ -2160,7 +2160,7 @@ do
 		tween(keybind_text, { Color = menu["colors"]["accent"] }, circular, out, 0.17)
 	end
 
-	local dropdown_border = drawing_proxy["new"]("Image", {
+	dropdown_border = drawing_proxy["new"]("Image", {
 		["Position"] = udim2_new(0, 0, 0, 14),
 		["Size"] = udim2_new(0, 0, 0, 15),
 		["Color"] = menu["colors"]["border"],
@@ -2171,7 +2171,7 @@ do
 		["Visible"] = false,
 	})
 
-	local dropdown_inside = drawing_proxy["new"]("Image", {
+	dropdown_inside = drawing_proxy["new"]("Image", {
 		["Parent"] = dropdown_border,
 		["Position"] = udim2_new(0, 1, 0, 1),
 		["Size"] = udim2_new(1, -2, 1, -2),
@@ -2183,8 +2183,8 @@ do
 		["Visible"] = true,
 	})
 
-	local close_dropdown = function()
-		local position = dropdown_border["real_position"]
+	close_dropdown = function()
+		position = dropdown_border["real_position"]
 		tween(
 			dropdown_border,
 			{ tween_position = udim2_new(0, position["X"], 0, position["Y"] - 5), Transparency = 0 },
@@ -2193,7 +2193,7 @@ do
 			0.15
 		)
 		tween(dropdown_inside, hide_transparency, circular, out, 0.15)
-		local connections = click_connections[dropdown_border]
+		connections = click_connections[dropdown_border]
 
 		if connections then
 			for object, callback in connections do
@@ -2202,7 +2202,7 @@ do
 			click_connections[dropdown_border] = nil
 		end
 
-		local connections = hover_connections[dropdown_border]
+		connections = hover_connections[dropdown_border]
 
 		if connections then
 			for object, callback in hover_connections[dropdown_border] do
@@ -2210,21 +2210,21 @@ do
 			end
 		end
 
-		local children = dropdown_inside["children"]
+		children = dropdown_inside["children"]
 		for _, child in children do
-			local children = child["children"]
+			children = child["children"]
 			for i = 1, #children do
 				tween(children[i], hide_transparency, circular, out, 0.15)
 			end
 		end
 
-		local children = dropdown_inside["children"]
+		children = dropdown_inside["children"]
 		for _, child in children do
 			children[_] = nil
 
 			delay(0.14, function()
 				child:Destroy()
-				local children = child["children"]
+				children = child["children"]
 				for i = 1, #children do
 					children[i]:Destroy()
 				end
@@ -2235,12 +2235,12 @@ do
 		actives["dropdown"] = nil
 	end
 
-	local open_dropdown = function(element)
+	open_dropdown = function(element)
 		actives["dropdown"] = element
 
-		local border = element["drawings"]["dropdown_border"]
-		local position = border["real_position"]
-		local size = border["real_size"]
+		border = element["drawings"]["dropdown_border"]
+		position = border["real_position"]
+		size = border["real_size"]
 		dropdown_border["Position"] = udim2_new(0, position["X"], 0, position["Y"] + 15)
 		dropdown_border["Visible"] = true
 		tween(
@@ -2252,17 +2252,17 @@ do
 		)
 		tween(dropdown_inside, show_transparency, circular, out, 0.15)
 
-		local options = element["options"]
+		options = element["options"]
 		dropdown_border["Size"] = udim2_new(0, size["X"], 0, (8 + #options * 12))
 		dropdown_inside["Size"] = udim2_new(0, size["X"] - 2, 0, (8 + #options * 12) - 2)
 
-		local selected_options = flags[element["dropdown_flag"]]
+		selected_options = flags[element["dropdown_flag"]]
 
-		local multi = element["multi"]
+		multi = element["multi"]
 
 		for i = 1, #options do
-			local option = options[i]
-			local selected = nil
+			option = options[i]
+			selected = nil
 			if selected_options then
 				for i = 1, #selected_options do
 					if selected_options[i] == option then
@@ -2272,7 +2272,7 @@ do
 				end
 			end
 
-			local option_click = drawing_proxy["new"]("Square", {
+			option_click = drawing_proxy["new"]("Square", {
 				["Parent"] = dropdown_inside,
 				["Size"] = udim2_new(1, -6, 0, 12),
 				["Transparency"] = 0,
@@ -2280,7 +2280,7 @@ do
 				["Filled"] = true,
 				["Position"] = udim2_new(0, 3, 0, 3 + (i - 1) * 12),
 			})
-			local option_checkmark = drawing_proxy["new"]("Image", {
+			option_checkmark = drawing_proxy["new"]("Image", {
 				["Parent"] = option_click,
 				["Position"] = udim2_new(1, -8, 0, 2),
 				["Size"] = udim2_new(0, 8, 0, 8),
@@ -2290,7 +2290,7 @@ do
 				["Color"] = menu["colors"]["highlighted"],
 				["Visible"] = true,
 			})
-			local option_text = drawing_proxy["new"]("Text", {
+			option_text = drawing_proxy["new"]("Text", {
 				["Color"] = menu["colors"]["inactive_text"],
 				["Text"] = option,
 				["Size"] = 12,
@@ -2315,7 +2315,7 @@ do
 			end)
 
 			create_click_connection(dropdown_border, option_click, function()
-				local result = element:update_dropdown_value(option)
+				result = element:update_dropdown_value(option)
 				if result then
 					selected = true
 					tween(option_checkmark, show_transparency, circular, out, 0.15)
@@ -2338,7 +2338,7 @@ do
 		end
 	end
 
-	local context_border = drawing_proxy["new"]("Image", {
+	context_border = drawing_proxy["new"]("Image", {
 		["Position"] = udim2_new(0, 0, 0, 14),
 		["Size"] = udim2_new(0, 100, 0, 15),
 		["Color"] = menu["colors"]["border"],
@@ -2349,7 +2349,7 @@ do
 		["Visible"] = false,
 	})
 
-	local context_inside = drawing_proxy["new"]("Image", {
+	context_inside = drawing_proxy["new"]("Image", {
 		["Parent"] = context_border,
 		["Position"] = udim2_new(0, 1, 0, 1),
 		["Size"] = udim2_new(1, -2, 1, -2),
@@ -2361,7 +2361,7 @@ do
 		["Visible"] = true,
 	})
 
-	local keybind_border = drawing_proxy["new"]("Image", {
+	keybind_border = drawing_proxy["new"]("Image", {
 		["Position"] = udim2_new(0, 0, 0, 14),
 		["Size"] = udim2_new(0, 170, 0, 20),
 		["Color"] = menu["colors"]["border"],
@@ -2372,7 +2372,7 @@ do
 		["Visible"] = false,
 	})
 
-	local keybind_inside = drawing_proxy["new"]("Image", {
+	keybind_inside = drawing_proxy["new"]("Image", {
 		["Parent"] = keybind_border,
 		["Position"] = udim2_new(0, 1, 0, 1),
 		["Size"] = udim2_new(1, -2, 1, -2),
@@ -2384,7 +2384,7 @@ do
 		["Visible"] = true,
 	})
 
-	local keybind_holder = drawing_proxy["new"]("Square", {
+	keybind_holder = drawing_proxy["new"]("Square", {
 		["Parent"] = keybind_inside,
 		["Position"] = udim2_new(0, 10, 0, 10),
 		["Size"] = udim2_new(1, -20, 1, -20),
@@ -2393,12 +2393,12 @@ do
 		["Visible"] = true,
 	})
 
-	local keybind_section = nil
-	local copied_transparency = nil
-	local copied_color = nil
+	keybind_section = nil
+	copied_transparency = nil
+	copied_color = nil
 
-	local close_keybind = function()
-		local position = keybind_border["real_position"]
+	close_keybind = function()
+		position = keybind_border["real_position"]
 		tween(
 			keybind_border,
 			{ tween_position = udim2_new(0, position["X"], 0, position["Y"] - 5), Transparency = 0 },
@@ -2408,7 +2408,7 @@ do
 		)
 		tween(keybind_inside, hide_transparency, circular, out, 0.15)
 
-		local keybind_elements = keybind_section["elements"]
+		keybind_elements = keybind_section["elements"]
 		for i = #keybind_elements, 1, -1 do
 			keybind_elements[i]:remove()
 		end
@@ -2425,21 +2425,21 @@ do
 		end)
 	end
 
-	local star = base64_decode(
+	star = base64_decode(
 		"iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///wAAAFXC034AAAACdFJOU/8A5bcwSgAAAAlwSFlzAAALGAAACxgBiam1EAAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIDUuMS4y+7wDtgAAALZlWElmSUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAAACgBAwABAAAAAgAAADEBAgAQAAAAWgAAAGmHBAABAAAAagAAAAAAAADIGQEA6AMAAMgZAQDoAwAAUGFpbnQuTkVUIDUuMS4yAAMAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAABaAEAAEAAACUAAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAACaOS8o1uPhvAAAALklEQVQYV2NgRAIQDgOUgpBIHAYggNE4AEISogfGxuBA2FBlEBrCASsAqWFgBAAZ8wBLe9n4/wAAAABJRU5ErkJggg=="
 	)
-	local autoload = base64_decode(
+	autoload = base64_decode(
 		"iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///wAAAFXC034AAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAN1gAADdYBkG95nAAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIDUuMS40Et+mgwAAALZlWElmSUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAAACgBAwABAAAAAgAAADEBAgAQAAAAWgAAAGmHBAABAAAAagAAAAAAAACIXwEA6AMAAIhfAQDoAwAAUGFpbnQuTkVUIDUuMS40AAMAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAABaAEAAEAAACUAAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAAItCLPyg+gOlAAAAJklEQVQYV2NgBAIQAcQMQABiAEkoAyQJZ4BkIQwQBCkA80G6GBkBBlgAKnvLiKoAAAAASUVORK5CYII="
 	)
-	local context_buttons = {
+	context_buttons = {
 		[1] = {
 			"create keybind",
 			base64_decode(
 				"iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFE0AABRNAZTKjS8AAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMvu8A7YAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAAvQMCAOgDAAC9AwIA6AMAAFBhaW50Lk5FVCA1LjEuMgADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAACZvWRFEAE3KwAAACtJREFUKFNjQAb/oQDKBQMmKI0TEFTAiG4kOiBoAgoAuxAIoFwwoNSRDAwA1K8T+Ha/C0cAAAAASUVORK5CYII="
 			),
 			LPH_JIT_MAX(function()
-				local new_keybind_data = keybind_data[actives["context"]]
-				local do_fire = false
+				new_keybind_data = keybind_data[actives["context"]]
+				do_fire = false
 
 				if not new_keybind_data then
 					new_keybind_data = setmetatable({
@@ -2457,8 +2457,8 @@ do
 
 				keybind_data[actives["context"]] = new_keybind_data
 
-				local position = context_border["real_position"]
-				local y_position = position["Y"] + context_border["real_size"]["Y"]
+				position = context_border["real_position"]
+				y_position = position["Y"] + context_border["real_size"]["Y"]
 				keybind_border["Position"] = udim2_new(0, position["X"], 0, y_position)
 				tween(
 					keybind_border,
@@ -2472,7 +2472,7 @@ do
 
 				actives["keybind"] = actives["context"]
 
-				local new_keybind = keybind_section:create_element({
+				new_keybind = keybind_section:create_element({
 					["name"] = "key",
 				}, {
 					["keybind"] = {
@@ -2482,7 +2482,7 @@ do
 
 				new_keybind:set_key(new_keybind_data["key"])
 
-				local activate_when = keybind_section:create_element({
+				activate_when = keybind_section:create_element({
 					["name"] = "activate when",
 				}, {
 					["dropdown"] = {
@@ -2493,22 +2493,22 @@ do
 					},
 				}, true)
 
-				local method = new_keybind_data["method"]
+				method = new_keybind_data["method"]
 
 				activate_when:set_dropdown(
 					method == 1 and { "toggled" } or method == 2 and { "not held" } or { "held" }
 				)
 
 				create_connection(activate_when["on_dropdown_change"], function(value)
-					local value = value[1]
+					value = value[1]
 					new_keybind_data["method"] = value == "toggled" and 1 or value == "not held" and 2 or 3
 					new_keybind_data:set_activated(value == "not held" and true or false)
 				end)
 
-				local active = actives["keybind"]
+				active = actives["keybind"]
 
 				if active["options"] then
-					local was_nil = new_keybind_data["type"] == nil
+					was_nil = new_keybind_data["type"] == nil
 					new_keybind_data["type"] = 1
 
 					if was_nil then
@@ -2516,7 +2516,7 @@ do
 						new_keybind_data["original_value"] = new_keybind_data["value"]
 					end
 
-					local new_dropdown = keybind_section:create_element({
+					new_dropdown = keybind_section:create_element({
 						["name"] = "new value",
 					}, {
 						["dropdown"] = {
@@ -2536,7 +2536,7 @@ do
 						end
 					end)
 				elseif active["slider_flag"] then
-					local was_nil = new_keybind_data["type"] == nil
+					was_nil = new_keybind_data["type"] == nil
 
 					new_keybind_data["type"] = 2
 
@@ -2545,7 +2545,7 @@ do
 						new_keybind_data["original_value"] = new_keybind_data["value"]
 					end
 
-					local new_slider = keybind_section:create_element({
+					new_slider = keybind_section:create_element({
 						name = "new value",
 					}, {
 						["slider"] = {
@@ -2595,7 +2595,7 @@ do
 				"iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMvu8A7YAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAADHcBAOgDAAAMdwEA6AMAAFBhaW50Lk5FVCA1LjEuMgADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAADu6i0YxswAAgAAAChJREFUKFNjQAb/oQDKBQNGEIEuCAOMQABl4gYETWCCsnECmitgYAAAtW8QA/NoRH8AAAAASUVORK5CYII="
 			),
 			function()
-				local data = keybind_data[actives["context"]]
+				data = keybind_data[actives["context"]]
 
 				if data then
 					if data["type"] ~= 4 then
@@ -2638,9 +2638,9 @@ do
 				"iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///wAAAFXC034AAAACdFJOU/8A5bcwSgAAAAlwSFlzAAALGAAACxgBiam1EAAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIDUuMS4y+7wDtgAAALZlWElmSUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAAACgBAwABAAAAAgAAADEBAgAQAAAAWgAAAGmHBAABAAAAagAAAAAAAADIGQEA6AMAAMgZAQDoAwAAUGFpbnQuTkVUIDUuMS4yAAMAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAABaAEAAEAAACUAAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAACaOS8o1uPhvAAAAH0lEQVQYV2NghAIQgwFMwBlwAGWCpMA0MgOkkpGBEQAF1gAlfZ5svQAAAABJRU5ErkJggg=="
 			),
 			function()
-				local active = actives["context"]
-				local favorites = menu["favorites"]
-				local flag = active["favorite_flag"]
+				active = actives["context"]
+				favorites = menu["favorites"]
+				flag = active["favorite_flag"]
 
 				if not favorites[flag] then
 					favorites[flag] = true
@@ -2668,10 +2668,10 @@ do
 				"iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///wAAAFXC034AAAACdFJOU/8A5bcwSgAAAAlwSFlzAAALGAAACxgBiam1EAAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIDUuMS4y+7wDtgAAALZlWElmSUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAAACgBAwABAAAAAgAAADEBAgAQAAAAWgAAAGmHBAABAAAAagAAAAAAAADIGQEA6AMAAMgZAQDoAwAAUGFpbnQuTkVUIDUuMS4yAAMAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAABaAEAAEAAACUAAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAACaOS8o1uPhvAAAAH0lEQVQYV2NghAIQgwFMwBlwAGWCpMA0MgOkkpGBEQAF1gAlfZ5svQAAAABJRU5ErkJggg=="
 			),
 			function()
-				local active = actives["context"]
+				active = actives["context"]
 
-				local favorites = menu["favorites"]
-				local flag = active["favorite_flag"]
+				favorites = menu["favorites"]
+				flag = active["favorite_flag"]
 				if favorites[flag] then
 					favorites[flag] = nil
 					active["favorited"] = false
@@ -2698,7 +2698,7 @@ do
 				"iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///wAAAFXC034AAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIDUuMS40Et+mgwAAALZlWElmSUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAAACgBAwABAAAAAgAAADEBAgAQAAAAWgAAAGmHBAABAAAAagAAAAAAAAAMdwEA6AMAAAx3AQDoAwAAUGFpbnQuTkVUIDUuMS40AAMAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAABaAEAAEAAACUAAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAANDZYAGx8DPMAAAAHklEQVQYV2NgBAEGKAVhQ3hAAsyCEBBxEKAXh5ERABXWAD2lxbDCAAAAAElFTkSuQmCC"
 			),
 			function()
-				local textbox = create_instance("TextBox", {
+				textbox = create_instance("TextBox", {
 					["Parent"] = hui,
 				})
 				textbox:CaptureFocus()
@@ -2708,32 +2708,32 @@ do
 				wait()
 				keyrelease(0xA2)
 				keyrelease(0x56)
-				local text = textbox["Text"]
+				text = textbox["Text"]
 				textbox:Destroy()
 
-				local r, g, b = 255, 255, 255
-				local a = 0
+				r, g, b = 255, 255, 255
+				a = 0
 
-				local trimmed_text = (text:match("^%s*(.-)%s*$") or ""):lower():gsub("%s+", "")
+				trimmed_text = (text:match("^%s*(.-)%s*$") or ""):lower():gsub("%s+", "")
 
-				local parsed = false
+				parsed = false
 
-				local hex_digits = trimmed_text:match("^#?([0-9a-f]+)$")
+				hex_digits = trimmed_text:match("^#?([0-9a-f]+)$")
 				if hex_digits then
-					local len = #hex_digits
+					len = #hex_digits
 					if len == 6 then
-						local r_val = tonumber(hex_digits:sub(1, 2), 16)
-						local g_val = tonumber(hex_digits:sub(3, 4), 16)
-						local b_val = tonumber(hex_digits:sub(5, 6), 16)
+						r_val = tonumber(hex_digits:sub(1, 2), 16)
+						g_val = tonumber(hex_digits:sub(3, 4), 16)
+						b_val = tonumber(hex_digits:sub(5, 6), 16)
 						if r_val and g_val and b_val then
 							r, g, b = r_val, g_val, b_val
 							parsed = true
 						end
 					elseif len == 8 then
-						local r_val = tonumber(hex_digits:sub(1, 2), 16)
-						local g_val = tonumber(hex_digits:sub(3, 4), 16)
-						local b_val = tonumber(hex_digits:sub(5, 6), 16)
-						local a_val = tonumber(hex_digits:sub(7, 8), 16)
+						r_val = tonumber(hex_digits:sub(1, 2), 16)
+						g_val = tonumber(hex_digits:sub(3, 4), 16)
+						b_val = tonumber(hex_digits:sub(5, 6), 16)
+						a_val = tonumber(hex_digits:sub(7, 8), 16)
 						if r_val and g_val and b_val and a_val then
 							r, g, b = r_val, g_val, b_val
 							a = 1 - (math["min"](math["max"](a_val, 0), 255) / 255)
@@ -2743,15 +2743,15 @@ do
 				end
 
 				if not parsed then
-					local r_str, g_str, b_str, a_str = trimmed_text:match("^(%d+),(%d+),(%d+),?(%d*)$")
+					r_str, g_str, b_str, a_str = trimmed_text:match("^(%d+),(%d+),(%d+),?(%d*)$")
 					if r_str and g_str and b_str then
-						local r_val = tonumber(r_str)
-						local g_val = tonumber(g_str)
-						local b_val = tonumber(b_str)
+						r_val = tonumber(r_str)
+						g_val = tonumber(g_str)
+						b_val = tonumber(b_str)
 						if r_val and g_val and b_val then
 							r, g, b = r_val, g_val, b_val
 							if a_str and #a_str > 0 then
-								local a_val = tonumber(a_str)
+								a_val = tonumber(a_str)
 								if a_val then
 									a = 1 - (math["min"](math["max"](a_val, 0), 255) / 255)
 								end
@@ -2771,14 +2771,14 @@ do
 			"autoload config",
 			autoload,
 			function()
-				local active = actives["context"]
-				local name = active["name"]
+				active = actives["context"]
+				name = active["name"]
 
 				if menu["autoload"] ~= name then
 					menu["autoload"] = name
 					menu["saved"] = true
-					local parent = active["parent"]
-					local elements = parent["elements"]
+					parent = active["parent"]
+					elements = parent["elements"]
 
 					for _, element in next, elements do
 						parent:remove_icon(element["name"], autoload)
@@ -2806,9 +2806,9 @@ do
 				"iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf///wAAAFXC034AAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAPhwAAD4cBYAYLnAAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIDUuMS40Et+mgwAAALZlWElmSUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAAACgBAwABAAAAAgAAADEBAgAQAAAAWgAAAGmHBAABAAAAagAAAAAAAAB+igEA6AMAAH6KAQDoAwAAUGFpbnQuTkVUIDUuMS40AAMAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAABaAEAAEAAACUAAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAANdbGZi1Ab9fAAAAJElEQVQYV2NgYGAEAiAFZoFJMBtIQbnIDBANVQERBNGMjAwMAAOoABlFkxrMAAAAAElFTkSuQmCC"
 			),
 			function()
-				local active = actives["context"]
-				local active = actives["context"]
-				local name = active["name"]
+				active = actives["context"]
+				active = actives["context"]
+				name = active["name"]
 
 				if menu["autoload"] == name then
 					menu["autoload"] = nil
@@ -2832,9 +2832,9 @@ do
 	}
 
 	for i = 1, #context_buttons do
-		local button = context_buttons[i]
+		button = context_buttons[i]
 
-		local button_click = drawing_proxy["new"]("Image", {
+		button_click = drawing_proxy["new"]("Image", {
 			["Parent"] = context_inside,
 			["Size"] = udim2_new(1, 0, 0, 16),
 			["Transparency"] = 0,
@@ -2845,7 +2845,7 @@ do
 			["Rounding"] = 4,
 		})
 
-		local button_text = drawing_proxy["new"]("Text", {
+		button_text = drawing_proxy["new"]("Text", {
 			["Color"] = menu["colors"]["inactive_text"],
 			["Text"] = button[1],
 			["Size"] = 12,
@@ -2858,7 +2858,7 @@ do
 			["ZIndex"] = 1000,
 		})
 
-		local button_icon = drawing_proxy["new"]("Image", {
+		button_icon = drawing_proxy["new"]("Image", {
 			["Data"] = button[2],
 			["Color"] = menu["colors"]["accent"],
 			["Size"] = udim2_new(0, 8, 0, 8),
@@ -2870,7 +2870,7 @@ do
 		})
 
 		create_hover_connection(context_border, button_click, function()
-			local h, s, v = menu["colors"]["background"]:ToHSV()
+			h, s, v = menu["colors"]["background"]:ToHSV()
 
 			tween(button_click, { Color = Color3["fromHSV"](h, s, clamp(v * 1.5, 0.1, 1)) }, circular, out, 0.15)
 		end, function()
@@ -2886,9 +2886,9 @@ do
 		}
 	end
 
-	local open_context = function(buttons, element, position)
-		local x_position = position["X"] + 15
-		local y_position = 0
+	open_context = function(buttons, element, position)
+		x_position = position["X"] + 15
+		y_position = 0
 
 		context_border["Visible"] = true
 		context_border["Position"] = udim2_new(0, x_position, 0, position["Y"] - 5)
@@ -2905,15 +2905,15 @@ do
 			context_buttons[i]["frame"]["Visible"] = false
 		end
 
-		local textbounds = 0
+		textbounds = 0
 
 		for i = 1, #buttons do
-			local index = buttons[i]
-			local button = context_buttons[index]
-			local callback = buttons[i]
+			index = buttons[i]
+			button = context_buttons[index]
+			callback = buttons[i]
 
 			if callback then
-				local frame = button["frame"]
+				frame = button["frame"]
 
 				frame["Visible"] = true
 				tween(frame, show_transparency, circular, out, 0.15)
@@ -2925,7 +2925,7 @@ do
 					button["text"]["Text"] = keybind_data[element] and "edit keybind" or "create keybind"
 				end
 
-				local button_textbounds = button["text"]["TextBounds"]["X"]
+				button_textbounds = button["text"]["TextBounds"]["X"]
 				if button_textbounds > textbounds then
 					textbounds = button_textbounds
 				end
@@ -2945,7 +2945,7 @@ do
 	end
 
 	close_context = function()
-		local position = context_border["real_position"]
+		position = context_border["real_position"]
 
 		tween(
 			context_border,
@@ -2957,8 +2957,8 @@ do
 		tween(context_inside, hide_transparency, circular, out, 0.15)
 
 		for i = 1, #context_buttons do
-			local button = context_buttons[i]
-			local frame = button["frame"]
+			button = context_buttons[i]
+			frame = button["frame"]
 
 			if frame["Visible"] then
 				tween(frame, hide_transparency, circular, out, 0.15)
@@ -2976,7 +2976,7 @@ do
 		actives["context"] = nil
 	end
 
-	local colorpicker_border = drawing_proxy["new"]("Image", {
+	colorpicker_border = drawing_proxy["new"]("Image", {
 		["Position"] = udim2_new(0, 0, 0, 14),
 		["Size"] = udim2_new(0, 185, 0, 221),
 		["Color"] = menu["colors"]["border"],
@@ -2987,7 +2987,7 @@ do
 		["Visible"] = false,
 	})
 
-	local colorpicker_inside = drawing_proxy["new"]("Image", {
+	colorpicker_inside = drawing_proxy["new"]("Image", {
 		["Parent"] = colorpicker_border,
 		["Position"] = udim2_new(0, 1, 0, 1),
 		["Size"] = udim2_new(1, -2, 1, -2),
@@ -2999,7 +2999,7 @@ do
 		["Visible"] = true,
 	})
 
-	local colorpicker_saturation_background = drawing_proxy["new"]("Image", {
+	colorpicker_saturation_background = drawing_proxy["new"]("Image", {
 		["Parent"] = colorpicker_inside,
 		["Position"] = udim2_new(0, 10, 0, 10),
 		["Size"] = udim2_new(0, 163, 0, 163),
@@ -3011,7 +3011,7 @@ do
 		["Visible"] = true,
 	})
 
-	local colorpicker_saturation = drawing_proxy["new"]("Image", {
+	colorpicker_saturation = drawing_proxy["new"]("Image", {
 		["Parent"] = colorpicker_saturation_background,
 		["Position"] = udim2_new(0, 0, 0, 0),
 		["Size"] = udim2_new(0, 163, 0, 163),
@@ -3023,7 +3023,7 @@ do
 		["Visible"] = true,
 	})
 
-	local colorpicker_saturation_dragger = drawing_proxy["new"]("Circle", {
+	colorpicker_saturation_dragger = drawing_proxy["new"]("Circle", {
 		["Radius"] = identifyexecutor() == "AWP" and 5 or 6,
 		["Color"] = color3_fromrgb(255, 255, 255),
 		["Position"] = udim2_new(0, 159, 0, 4),
@@ -3034,7 +3034,7 @@ do
 		["ZIndex"] = 1002,
 	})
 
-	local colorpicker_transparency = drawing_proxy["new"]("Image", {
+	colorpicker_transparency = drawing_proxy["new"]("Image", {
 		["Parent"] = colorpicker_inside,
 		["Position"] = udim2_new(0, 10, 0, 183),
 		["Size"] = udim2_new(0, 163, 0, 8),
@@ -3048,7 +3048,7 @@ do
 		["Visible"] = true,
 	})
 
-	local colorpicker_transparency_dragger = drawing_proxy["new"]("Circle", {
+	colorpicker_transparency_dragger = drawing_proxy["new"]("Circle", {
 		["Radius"] = identifyexecutor() == "AWP" and 3 or 5,
 		["Color"] = color3_fromrgb(0, 0, 0),
 		["Position"] = udim2_new(0, 4, 0, 4),
@@ -3060,7 +3060,7 @@ do
 		["ZIndex"] = 1002,
 	})
 
-	local colorpicker_transparency_dragger_overlay = drawing_proxy["new"]("Circle", {
+	colorpicker_transparency_dragger_overlay = drawing_proxy["new"]("Circle", {
 		["Radius"] = identifyexecutor() == "AWP" and 2 or 7,
 		["Color"] = color3_fromrgb(255, 255, 255),
 		["Transparency"] = 0,
@@ -3071,7 +3071,7 @@ do
 		["ZIndex"] = 1003,
 	})
 
-	local colorpicker_hue = drawing_proxy["new"]("Image", {
+	colorpicker_hue = drawing_proxy["new"]("Image", {
 		["Parent"] = colorpicker_inside,
 		["Position"] = udim2_new(0, 10, 0, 201),
 		["Size"] = udim2_new(0, 163, 0, 8),
@@ -3085,7 +3085,7 @@ do
 		["Visible"] = true,
 	})
 
-	local colorpicker_hue_dragger = drawing_proxy["new"]("Circle", {
+	colorpicker_hue_dragger = drawing_proxy["new"]("Circle", {
 		["Radius"] = identifyexecutor() == "AWP" and 3 or 5,
 		["Color"] = color3_fromrgb(255, 255, 255),
 		["Position"] = udim2_new(0, 4, 0, 4),
@@ -3096,7 +3096,7 @@ do
 		["ZIndex"] = 1002,
 	})
 
-	local set_colorpicker_color = function(color, set)
+	set_colorpicker_color = function(color, set)
 		colorpicker_saturation["Color"] = Color3.fromHSV(actives["colorpicker_hue"], 1, 1)
 
 		tween(
@@ -3120,7 +3120,7 @@ do
 		end
 	end
 
-	local set_colorpicker_transparency = function(transparency, set)
+	set_colorpicker_transparency = function(transparency, set)
 		tween(
 			colorpicker_transparency_dragger,
 			{ tween_position = udim2_new(0, clamp((1 - transparency) * 163, 6, 157), 0, 4) },
@@ -3135,9 +3135,9 @@ do
 	end
 
 	create_click_connection(colorpicker_border, colorpicker_saturation, function(position)
-		local frame_position = colorpicker_saturation["real_position"]
-		local frame_position_x = frame_position["X"]
-		local frame_position_y = frame_position["Y"]
+		frame_position = colorpicker_saturation["real_position"]
+		frame_position_x = frame_position["X"]
+		frame_position_y = frame_position["Y"]
 
 		actives["colorpicker_saturation"] = clamp((position["X"] - frame_position_x) / 163, 0, 1)
 		actives["colorpicker_value"] = clamp((163 - (position["Y"] - frame_position_y)) / 163, 0, 1)
@@ -3148,7 +3148,7 @@ do
 		)
 
 		moving = create_connection(mouse["Move"], function()
-			local position = get_mouse_location(user_input_service)
+			position = get_mouse_location(user_input_service)
 
 			actives["colorpicker_saturation"] = clamp((position["X"] - frame_position_x) / 163, 0, 1)
 			actives["colorpicker_value"] = clamp((163 - (position["Y"] - frame_position_y)) / 163, 0, 1)
@@ -3165,7 +3165,7 @@ do
 	end)
 
 	create_click_connection(colorpicker_border, colorpicker_hue, function(position)
-		local frame_position_x = colorpicker_hue["real_position"]["X"]
+		frame_position_x = colorpicker_hue["real_position"]["X"]
 
 		actives["colorpicker_hue"] = clamp((position["X"] - frame_position_x) / 163, 0, 1)
 
@@ -3189,7 +3189,7 @@ do
 	end)
 
 	create_click_connection(colorpicker_border, colorpicker_transparency, function(position)
-		local frame_position_x = colorpicker_transparency["real_position"]["X"]
+		frame_position_x = colorpicker_transparency["real_position"]["X"]
 
 		set_colorpicker_transparency(clamp(1 - (position["X"] - frame_position_x) / 163, 0, 1), true)
 
@@ -3201,15 +3201,15 @@ do
 		end)
 	end)
 
-	local open_colorpicker = function(element)
-		local position = element["drawings"]["colorpicker_border"]["real_position"]
-		local x_position = position["X"] + 30
-		local screen_size = camera["ViewportSize"]
-		local x_size = screen_size["X"]
-		local y_size = screen_size["Y"]
+	open_colorpicker = function(element)
+		position = element["drawings"]["colorpicker_border"]["real_position"]
+		x_position = position["X"] + 30
+		screen_size = camera["ViewportSize"]
+		x_size = screen_size["X"]
+		y_size = screen_size["Y"]
 
-		local x_overlap = (x_position + colorpicker_inside["real_size"]["X"]) - x_size
-		local y_overlap = (position["Y"] + colorpicker_inside["real_size"]["Y"]) - y_size
+		x_overlap = (x_position + colorpicker_inside["real_size"]["X"]) - x_size
+		y_overlap = (position["Y"] + colorpicker_inside["real_size"]["Y"]) - y_size
 
 		if x_overlap > 0 then
 			x_position -= (x_overlap + 5)
@@ -3243,7 +3243,7 @@ do
 		tween(colorpicker_hue_dragger, show_transparency, circular, out, 0.15)
 		tween(colorpicker_saturation_dragger, show_transparency, circular, out, 0.15)
 
-		local color = flags[element["color_flag"]]
+		color = flags[element["color_flag"]]
 
 		actives["colorpicker_hue"], actives["colorpicker_saturation"], actives["colorpicker_value"] = color:ToHSV()
 
@@ -3257,8 +3257,8 @@ do
 		actives["colorpicker"] = element
 	end
 
-	local close_colorpicker = function()
-		local position = colorpicker_border["real_position"]
+	close_colorpicker = function()
+		position = colorpicker_border["real_position"]
 		tween(
 			colorpicker_border,
 			{ Transparency = 0, tween_position = udim2_new(0, position["X"], 0, position["Y"] - 5) },
@@ -3290,28 +3290,28 @@ do
 		tween(actives["panel"]["search_image"], { Color = menu["colors"]["border"] }, circular, out, 0.15)
 		tween(actives["panel"]["search_text"], { Color = menu["colors"]["inactive_text"] }, circular, out, 0.15)
 
-		local panel = actives["panel"]
+		panel = actives["panel"]
 		actives["panel"] = nil
 		panel:update_position()
 	end
 
-	local do_panel_search = function(search_text)
+	do_panel_search = function(search_text)
 		if not actives["panel"] then
 			return
 		end
 
 		actives["panel"]["scroll_index"] = 1
 
-		local elements = actives["panel"]["elements"]
-		local search_text = search_text:lower()
-		local search_index = 0
+		elements = actives["panel"]["elements"]
+		search_text = search_text:lower()
+		search_index = 0
 
 		for i = 1, #elements do
-			local element = elements[i]
-			local drawings = element["drawings"]
-			local frame = drawings["border"]
-			local text = drawings["text"]
-			local text2 = element["text2"]
+			element = elements[i]
+			drawings = element["drawings"]
+			frame = drawings["border"]
+			text = drawings["text"]
+			text2 = element["text2"]
 			if
 				search_index < 13
 				and (text["Text"]:lower():find(search_text) or text2 and text2:lower():find(search_text))
@@ -3325,7 +3325,7 @@ do
 		end
 	end
 
-	local start_panel_search = function(element)
+	start_panel_search = function(element)
 		actives["panel"] = element
 
 		start_typing(actives["panel"]["search_text"], 150, do_panel_search, false, true, true, false)
@@ -3335,7 +3335,7 @@ do
 		tween(actives["panel"]["search_text"], { Color = menu["colors"]["active_text"] }, circular, out, 0.15)
 	end
 
-	local handle_click = LPH_JIT_MAX(function(_, state, input)
+	handle_click = LPH_JIT_MAX(function(_, state, input)
 		if moving then
 			moving:Disconnect()
 			moving = nil
@@ -3354,7 +3354,7 @@ do
 			end
 		end
 
-		local type = input["UserInputType"]
+		type = input["UserInputType"]
 		if
 			(type ~= Enum["UserInputType"]["MouseButton1"] and type ~= Enum["UserInputType"]["Touch"])
 			or state ~= Enum["UserInputState"]["Begin"]
@@ -3376,13 +3376,13 @@ do
 			end)
 		end
 
-		local mouse_position = get_mouse_location(user_input_service)
-		local mouse_position_x = mouse_position["X"]
-		local mouse_position_y = mouse_position["Y"]
+		mouse_position = get_mouse_location(user_input_service)
+		mouse_position_x = mouse_position["X"]
+		mouse_position_y = mouse_position["Y"]
 
 		if actives["dropdown"] then
-			local border = actives["dropdown"]["drawings"]["dropdown_border"]
-			local border_position = border["real_position"] + vector2_new(0, 18)
+			border = actives["dropdown"]["drawings"]["dropdown_border"]
+			border_position = border["real_position"] + vector2_new(0, 18)
 
 			if
 				not (
@@ -3399,7 +3399,7 @@ do
 				return
 			end
 		elseif actives["colorpicker"] then
-			local border_position = colorpicker_border["real_position"]
+			border_position = colorpicker_border["real_position"]
 
 			if
 				not (
@@ -3416,7 +3416,7 @@ do
 				return
 			end
 		elseif actives["keybind"] then
-			local border_position = keybind_border["real_position"]
+			border_position = keybind_border["real_position"]
 
 			if
 				not (
@@ -3434,7 +3434,7 @@ do
 				return
 			end
 		elseif actives["context"] then
-			local border_position = context_border["real_position"]
+			border_position = context_border["real_position"]
 
 			if
 				not (
@@ -3451,8 +3451,8 @@ do
 				return
 			end
 		elseif actives["settings"] then
-			local border = actives["settings"]["border"]
-			local border_position = border["real_position"]
+			border = actives["settings"]["border"]
+			border_position = border["real_position"]
 
 			if
 				not (
@@ -3470,7 +3470,7 @@ do
 			end
 		end
 
-		local connections = searching and click_connections[search_out]
+		connections = searching and click_connections[search_out]
 			or actives["colorpicker"] and click_connections[colorpicker_border]
 			or actives["dropdown"] and click_connections[dropdown_border]
 			or actives["keybind"] and click_connections[keybind_inside]
@@ -3492,8 +3492,8 @@ do
 						continue
 					end
 
-					local object_position = object["real_position"]
-					local object_size = object["real_size"]
+					object_position = object["real_position"]
+					object_size = object["real_size"]
 
 					if
 						(
@@ -3510,8 +3510,8 @@ do
 								continue
 							end
 
-							local object_position = object["real_position"]
-							local object_size = object["real_size"]
+							object_position = object["real_position"]
+							object_size = object["real_size"]
 
 							if
 								(
@@ -3533,8 +3533,8 @@ do
 					end
 				end
 
-				local fake_menu_position = frame["real_position"]
-				local abs = math["abs"]
+				fake_menu_position = frame["real_position"]
+				abs = math["abs"]
 
 				moving = create_connection(mouse["Move"], function()
 					if not drag_frame["Visible"] then
@@ -3551,8 +3551,8 @@ do
 						end)
 					end
 
-					local new_mouse_position = get_mouse_location(user_input_service)
-					local new_position = udim2_new(
+					new_mouse_position = get_mouse_location(user_input_service)
+					new_position = udim2_new(
 						0,
 						fake_menu_position["X"] - (mouse_position_x - new_mouse_position["X"]),
 						0,
@@ -3573,8 +3573,8 @@ do
 						continue
 					end
 
-					local object_position = object["real_position"]
-					local object_size = object["real_size"]
+					object_position = object["real_position"]
+					object_size = object["real_size"]
 
 					if
 						(
@@ -3597,8 +3597,8 @@ do
 		else
 			for flag, frame in hud_frames do
 				if frame["is_rendering"] then
-					local hud_position = frame["real_position"]
-					local hud_size = frame["real_size"]
+					hud_position = frame["real_position"]
+					hud_size = frame["real_size"]
 
 					if
 						(mouse_position_x > hud_position["X"] and mouse_position_x < hud_position["X"] + hud_size["X"])
@@ -3607,13 +3607,13 @@ do
 							and mouse_position_y < hud_position["Y"] + hud_size["Y"]
 						)
 					then
-						local fake_hud_position = hud_position
+						fake_hud_position = hud_position
 
 						moving = create_connection(mouse["Move"], function()
-							local new_mouse_position = get_mouse_location(user_input_service)
-							local new_position_x = fake_hud_position["X"] - (mouse_position_x - new_mouse_position["X"])
-							local new_position_y = fake_hud_position["Y"] - (mouse_position_y - new_mouse_position["Y"])
-							local new_position = udim2_new(0, new_position_x, 0, new_position_y)
+							new_mouse_position = get_mouse_location(user_input_service)
+							new_position_x = fake_hud_position["X"] - (mouse_position_x - new_mouse_position["X"])
+							new_position_y = fake_hud_position["Y"] - (mouse_position_y - new_mouse_position["Y"])
+							new_position = udim2_new(0, new_position_x, 0, new_position_y)
 
 							list_frame["Position"] = new_position
 							flags[flag] = { new_position_x, new_position_y }
@@ -3626,7 +3626,7 @@ do
 		end
 	end)
 
-	local handle_scroll = LPH_JIT_MAX(function(_, state, input)
+	handle_scroll = LPH_JIT_MAX(function(_, state, input)
 		if
 			state ~= Enum["UserInputState"]["Change"]
 			or input["UserInputType"] ~= Enum["UserInputType"]["MouseWheel"]
@@ -3634,11 +3634,11 @@ do
 			return
 		end
 
-		local mouse_position = get_mouse_location(user_input_service)
-		local mouse_position_x = mouse_position["X"]
-		local mouse_position_y = mouse_position["Y"]
+		mouse_position = get_mouse_location(user_input_service)
+		mouse_position_x = mouse_position["X"]
+		mouse_position_y = mouse_position["Y"]
 
-		local is_up = input["Position"]["Z"] > 0
+		is_up = input["Position"]["Z"] > 0
 
 		if
 			(
@@ -3655,8 +3655,8 @@ do
 					continue
 				end
 
-				local object_position = object["real_position"]
-				local object_size = object["real_size"]
+				object_position = object["real_position"]
+				object_size = object["real_size"]
 
 				if
 					(
@@ -3673,8 +3673,8 @@ do
 							continue
 						end
 
-						local object_position = object["real_position"]
-						local object_size = object["real_size"]
+						object_position = object["real_position"]
+						object_size = object["real_size"]
 
 						if
 							(
@@ -3698,15 +3698,15 @@ do
 		end
 	end)
 
-	local handle_hover = LPH_JIT_MAX(function()
-		local mouse_position = get_mouse_location(user_input_service)
-		local mouse_position_x = mouse_position["X"]
-		local mouse_position_y = mouse_position["Y"]
+	handle_hover = LPH_JIT_MAX(function()
+		mouse_position = get_mouse_location(user_input_service)
+		mouse_position_x = mouse_position["X"]
+		mouse_position_y = mouse_position["Y"]
 
 		cursor["Position"] = udim2_new(0, mouse_position["X"], 0, mouse_position["Y"])
 		user_input_service["MouseIconEnabled"] = false
 
-		local connections = searching and hover_connections[search_out]
+		connections = searching and hover_connections[search_out]
 			or actives["colorpicker"] and hover_connections[colorpicker_border]
 			or actives["dropdown"] and hover_connections[dropdown_border]
 			or actives["keybind"] and hover_connections[keybind_inside]
@@ -3728,8 +3728,8 @@ do
 						continue
 					end
 
-					local object_position = object["real_position"]
-					local object_size = object["real_size"]
+					object_position = object["real_position"]
+					object_size = object["real_size"]
 
 					if
 						(
@@ -3746,8 +3746,8 @@ do
 								continue
 							end
 
-							local object_position = object["real_position"]
-							local object_size = object["real_size"]
+							object_position = object["real_position"]
+							object_size = object["real_size"]
 
 							if
 								(
@@ -3787,8 +3787,8 @@ do
 						continue
 					end
 
-					local object_position = object["real_position"]
-					local object_size = object["real_size"]
+					object_position = object["real_position"]
+					object_size = object["real_size"]
 
 					if
 						(
@@ -3831,8 +3831,8 @@ do
 		else
 			for flag, frame in hud_frames do
 				if frame["is_rendering"] then
-					local hud_position = frame["real_position"]
-					local hud_size = frame["real_size"]
+					hud_position = frame["real_position"]
+					hud_size = frame["real_size"]
 
 					if
 						(mouse_position_x > hud_position["X"] and mouse_position_x < hud_position["X"] + hud_size["X"])
@@ -3845,7 +3845,7 @@ do
 							return
 						end
 
-						local data = hover_connections[frame][frame]
+						data = hover_connections[frame][frame]
 
 						if data then
 							for object, data in hovering_objects do
@@ -3876,14 +3876,14 @@ do
 		end
 	end)
 
-	local handle_right_click = LPH_JIT_MAX(function(_, input)
+	handle_right_click = LPH_JIT_MAX(function(_, input)
 		if actives["dropdown"] then
 			return
 		end
 
-		local mouse_position = get_mouse_location(user_input_service)
-		local mouse_position_x = mouse_position["X"]
-		local mouse_position_y = mouse_position["Y"]
+		mouse_position = get_mouse_location(user_input_service)
+		mouse_position_x = mouse_position["X"]
+		mouse_position_y = mouse_position["Y"]
 
 		if
 			(
@@ -3900,8 +3900,8 @@ do
 					continue
 				end
 
-				local object_position = object["real_position"]
-				local object_size = object["real_size"]
+				object_position = object["real_position"]
+				object_size = object["real_size"]
 
 				if
 					(
@@ -3918,8 +3918,8 @@ do
 							continue
 						end
 
-						local object_position = object["real_position"]
-						local object_size = object["real_size"]
+						object_position = object["real_position"]
+						object_size = object["real_size"]
 
 						if
 							(
@@ -3943,7 +3943,7 @@ do
 		end
 	end)
 
-	local hovering = nil
+	hovering = nil
 
 	pop_menu = LPH_JIT_MAX(function(a)
 		if moving then
@@ -4007,12 +4007,12 @@ do
 
 		menu_open = not menu_open
 
-		local half_transparency = menu_open and half_transparency or hide_transparency
-		local transparency = menu_open and show_transparency or hide_transparency
+		half_transparency = menu_open and half_transparency or hide_transparency
+		transparency = menu_open and show_transparency or hide_transparency
 
 		tween(cursor, transparency, exponential, out, 0.18)
 
-		local mouse_position = get_mouse_location(user_input_service)
+		mouse_position = get_mouse_location(user_input_service)
 		user_input_service["MouseIconEnabled"] = not menu_open
 		cursor["Position"] = udim2_new(0, mouse_position["X"], 0, mouse_position["Y"])
 
@@ -4050,7 +4050,7 @@ do
 						tween(section["label"], half_transparency, exponential, out, 0.18)
 						tween(section["line"], half_transparency, exponential, out, 0.18)
 
-						local search_border = section["search_border"]
+						search_border = section["search_border"]
 
 						if search_border then
 							tween(search_border, transparency, exponential, out, 0.18)
@@ -4095,7 +4095,7 @@ do
 			Enum["UserInputType"]["MouseWheel"]
 		)
 
-		local old_tick = clock()
+		old_tick = clock()
 		menu_tick = old_tick
 
 		if not menu_open then
@@ -4116,15 +4116,15 @@ do
 	create_connection(
 		user_input_service["InputBegan"],
 		LPH_NO_VIRTUALIZE(function(input, gpe)
-			local user_input_type = input["UserInputType"]
+			user_input_type = input["UserInputType"]
 
 			if not gpe then
 				for element, keybind in keybind_data do
-					local key = keybind["key"]
-					local is_key = user_input_type == key or input["KeyCode"] == key
+					key = keybind["key"]
+					is_key = user_input_type == key or input["KeyCode"] == key
 
 					if is_key then
-						local method = keybind["method"]
+						method = keybind["method"]
 
 						if method == 1 then
 							keybind:set_activated(not keybind["activated"])
@@ -4146,11 +4146,11 @@ do
 		LPH_NO_VIRTUALIZE(function(input, gpe)
 			if not gpe then
 				for _, keybind in keybind_data do
-					local key = keybind["key"]
-					local is_key = input["UserInputType"] == key or input["KeyCode"] == key
+					key = keybind["key"]
+					is_key = input["UserInputType"] == key or input["KeyCode"] == key
 
 					if is_key then
-						local method = keybind["method"]
+						method = keybind["method"]
 						if method == 2 then
 							keybind:set_activated(true)
 						elseif method == 3 then
@@ -4172,7 +4172,7 @@ do
 
 	set_active_tab = function(tab)
 		actives["old_tab"] = actives["tab"]
-		local last_group = actives["old_tab"] and actives["old_tab"]["group"]
+		last_group = actives["old_tab"] and actives["old_tab"]["group"]
 
 		tween(right_side_cover, show_transparency, circular, out, 0.15)
 
@@ -4187,7 +4187,7 @@ do
 			)
 		end
 
-		local tab_position = tab["position"]
+		tab_position = tab["position"]
 
 		if last_group == tab["group"] then
 			tween(
@@ -4216,7 +4216,7 @@ do
 
 				tween(right_side_cover, hide_transparency, circular, out, 0.15)
 
-				local new_frame = tab["frame"]
+				new_frame = tab["frame"]
 				new_frame["Visible"] = true
 				new_frame["Position"] = udim2_new(0, 10, 0, 20)
 				tween(new_frame, { ["tween_position"] = udim2_new(0, 10, 0, 10) }, circular, out, 0.15)
@@ -4227,21 +4227,21 @@ do
 		actives["tab"] = tab
 	end
 
-	local group_header_height = 30
-	local tab_vertical_step = 15
+	group_header_height = 30
+	tab_vertical_step = 15
 
 	function menu.update_layout()
-		local current_y_offset = menu["initial_base_offset"]
-		local ordered_groups = menu["ordered_groups"]
-		local num_groups = #ordered_groups
+		current_y_offset = menu["initial_base_offset"]
+		ordered_groups = menu["ordered_groups"]
+		num_groups = #ordered_groups
 
 		for i = 1, num_groups do
-			local group = ordered_groups[i]
-			local should_be_visible = group["is_visible"]
-			local group_text = group["text"]
-			local group_line = group["line"]
-			local ordered_tabs = group["ordered_tabs"]
-			local num_tabs = #ordered_tabs
+			group = ordered_groups[i]
+			should_be_visible = group["is_visible"]
+			group_text = group["text"]
+			group_line = group["line"]
+			ordered_tabs = group["ordered_tabs"]
+			num_tabs = #ordered_tabs
 
 			group["initial_offset"] = current_y_offset
 
@@ -4253,9 +4253,9 @@ do
 			end
 
 			for tab_index = 1, num_tabs do
-				local tab = ordered_tabs[tab_index]
-				local tab_text = tab["text"]
-				local tab_text_frame = tab["text_frame"]
+				tab = ordered_tabs[tab_index]
+				tab_text = tab["text"]
+				tab_text_frame = tab["text_frame"]
 				if tab_text then
 					tab_text["Visible"] = should_be_visible
 				end
@@ -4272,13 +4272,13 @@ do
 					group_line["Position"] = udim2_new(0, 15, 0, current_y_offset + 15)
 				end
 
-				local base_tab_y = current_y_offset + 20
+				base_tab_y = current_y_offset + 20
 				for tab_index = 1, num_tabs do
-					local tab = ordered_tabs[tab_index]
-					local tab_text = tab["text"]
-					local tab_text_frame = tab["text_frame"]
-					local new_tab_y = base_tab_y + (tab_index - 1) * tab_vertical_step
-					local new_tab_position = udim2_new(0, 15, 0, new_tab_y)
+					tab = ordered_tabs[tab_index]
+					tab_text = tab["text"]
+					tab_text_frame = tab["text_frame"]
+					new_tab_y = base_tab_y + (tab_index - 1) * tab_vertical_step
+					new_tab_position = udim2_new(0, 15, 0, new_tab_y)
 
 					tab["position"] = new_tab_position
 					if tab_text then
@@ -4296,26 +4296,26 @@ do
 			end
 		end
 
-		local size = current_y_offset > 405 and udim2_new(0, 575, 0, 450 + (current_y_offset - 405))
+		size = current_y_offset > 405 and udim2_new(0, 575, 0, 450 + (current_y_offset - 405))
 			or udim2_new(0, 575, 0, 450)
 		drag_frame["Size"] = size
 		frame["Size"] = size
 	end
 
-	local group = {}
+	group = {}
 	group["__index"] = group
 
 	function menu.create_group(name)
-		local new_tabs = {}
-		local ordered_tabs = {}
-		local initial_offset
-		local ordered_groups = menu["ordered_groups"]
-		local num_groups = #ordered_groups
+		new_tabs = {}
+		ordered_tabs = {}
+		initial_offset
+		ordered_groups = menu["ordered_groups"]
+		num_groups = #ordered_groups
 
 		if num_groups > 0 then
-			local previous_group = nil
+			previous_group = nil
 			for i = num_groups, 1, -1 do
-				local g = ordered_groups[i]
+				g = ordered_groups[i]
 				if g["is_visible"] then
 					previous_group = g
 					break
@@ -4331,7 +4331,7 @@ do
 			initial_offset = menu["initial_base_offset"]
 		end
 
-		local new_group = setmetatable({
+		new_group = setmetatable({
 			["tabs"] = new_tabs,
 			["ordered_tabs"] = ordered_tabs,
 			["initial_offset"] = initial_offset,
@@ -4366,13 +4366,13 @@ do
 	end
 
 	function group:create_tab(name)
-		local group_initial_offset = self["initial_offset"]
-		local ordered_tabs = self["ordered_tabs"]
-		local index = #ordered_tabs + 1
-		local position = udim2_new(0, 15, 0, group_initial_offset + 20 + (index - 1) * tab_vertical_step)
-		local is_group_visible = self["is_visible"]
+		group_initial_offset = self["initial_offset"]
+		ordered_tabs = self["ordered_tabs"]
+		index = #ordered_tabs + 1
+		position = udim2_new(0, 15, 0, group_initial_offset + 20 + (index - 1) * tab_vertical_step)
+		is_group_visible = self["is_visible"]
 
-		local new_tab = {
+		new_tab = {
 			["text"] = drawing_proxy["new"]("Text", {
 				["Color"] = menu["colors"]["inactive_text"],
 				["Text"] = name:sub(1, 12),
@@ -4410,9 +4410,9 @@ do
 			self["group"]:remove_tab(name)
 		end
 
-		local text = new_tab["text"]
+		text = new_tab["text"]
 
-		local text_frame = drawing_proxy["new"]("Square", {
+		text_frame = drawing_proxy["new"]("Square", {
 			["Parent"] = inside,
 			["Position"] = position,
 			["Size"] = udim2_new(0, 70, 0, text["TextBounds"]["Y"]),
@@ -4454,16 +4454,16 @@ do
 	end
 
 	function group:remove_tab(name)
-		local tab_to_remove = self["tabs"][name]
+		tab_to_remove = self["tabs"][name]
 		if not tab_to_remove then
 			return
 		end
 
-		local remove_index = nil
-		local ordered_tabs = self["ordered_tabs"]
-		local num_tabs = #ordered_tabs
+		remove_index = nil
+		ordered_tabs = self["ordered_tabs"]
+		num_tabs = #ordered_tabs
 		for i = 1, num_tabs do
-			local tab = ordered_tabs[i]
+			tab = ordered_tabs[i]
 			if tab == tab_to_remove then
 				remove_index = i
 				break
@@ -4474,9 +4474,9 @@ do
 			return
 		end
 
-		local text_obj = tab_to_remove["text"]
-		local text_frame_obj = tab_to_remove["text_frame"]
-		local frame_obj = tab_to_remove["frame"]
+		text_obj = tab_to_remove["text"]
+		text_frame_obj = tab_to_remove["text_frame"]
+		frame_obj = tab_to_remove["frame"]
 
 		if text_obj then
 			text_obj["Visible"] = false
@@ -4521,16 +4521,16 @@ do
 		menu.update_layout()
 	end
 
-	local section = {}
+	section = {}
 	section["__index"] = section
 
 	function group:create_section(tab_name, name, side, size, y_position)
-		local tab = self["tabs"][tab_name]
+		tab = self["tabs"][tab_name]
 		if not tab then
 			return nil
 		end
 
-		local new_section = setmetatable({
+		new_section = setmetatable({
 			["tab"] = tab,
 			["name"] = name,
 			["side"] = side,
@@ -4539,10 +4539,10 @@ do
 			["elements"] = {},
 		}, section)
 
-		local tab_frame = tab["frame"]
-		local y_position = y_position or 0
+		tab_frame = tab["frame"]
+		y_position = y_position or 0
 
-		local section_border = drawing_proxy["new"]("Image", {
+		section_border = drawing_proxy["new"]("Image", {
 			["Parent"] = tab_frame,
 			["Position"] = udim2_new(
 				side == 1 and 0 or 0.5,
@@ -4558,7 +4558,7 @@ do
 			["ZIndex"] = 2,
 			["Visible"] = true,
 		})
-		local section_inside = drawing_proxy["new"]("Image", {
+		section_inside = drawing_proxy["new"]("Image", {
 			["Parent"] = section_border,
 			["Position"] = udim2_new(0, 1, 0, 0),
 			["Size"] = udim2_new(1, -2, 1, -1),
@@ -4569,7 +4569,7 @@ do
 			["ZIndex"] = 3,
 			["Visible"] = true,
 		})
-		local section_line = drawing_proxy["new"]("Square", {
+		section_line = drawing_proxy["new"]("Square", {
 			["Parent"] = section_inside,
 			["Size"] = udim2_new(0, 9, 0, 1),
 			["Position"] = udim2_new(0, 1, 0, 0),
@@ -4579,7 +4579,7 @@ do
 			["ZIndex"] = 4,
 			["Visible"] = true,
 		})
-		local section_label = drawing_proxy["new"]("Text", {
+		section_label = drawing_proxy["new"]("Text", {
 			["Color"] = menu["colors"]["accent"],
 			["Transparency"] = 0.5,
 			["Text"] = name,
@@ -4590,8 +4590,8 @@ do
 			["ZIndex"] = 4,
 			["Visible"] = true,
 		})
-		local text_bounds = section_label["TextBounds"]["X"] + 20
-		local section_line_two = drawing_proxy["new"]("Square", {
+		text_bounds = section_label["TextBounds"]["X"] + 20
+		section_line_two = drawing_proxy["new"]("Square", {
 			["Parent"] = section_inside,
 			["Position"] = udim2_new(0, text_bounds, 0, 0),
 			["Size"] = udim2_new(1, -(text_bounds + 1), 0, 1),
@@ -4601,7 +4601,7 @@ do
 			["ZIndex"] = 4,
 			["Visible"] = true,
 		})
-		local element_holder = drawing_proxy["new"]("Square", {
+		element_holder = drawing_proxy["new"]("Square", {
 			["Parent"] = section_inside,
 			["Position"] = udim2_new(0, 10, 0, 10),
 			["Size"] = udim2_new(1, -20, 1, -20),
@@ -4622,16 +4622,16 @@ do
 		return new_section
 	end
 
-	local panel_section = {}
+	panel_section = {}
 	panel_section["__index"] = panel_section
 
 	function group:create_panel_section(tab_name, name, side, favorites, configs)
-		local tab = self["tabs"][tab_name]
+		tab = self["tabs"][tab_name]
 		if not tab then
 			return nil
 		end
 
-		local new_section = setmetatable({
+		new_section = setmetatable({
 			["tab"] = tab,
 			["name"] = name,
 			["total_y_size"] = 30,
@@ -4643,9 +4643,9 @@ do
 			["configs"] = configs,
 		}, panel_section)
 
-		local tab_frame = tab["frame"]
+		tab_frame = tab["frame"]
 
-		local section_border = drawing_proxy["new"]("Image", {
+		section_border = drawing_proxy["new"]("Image", {
 			["Parent"] = tab_frame,
 			["Position"] = udim2_new(side == 1 and 0 or 0.5, side == 1 and 0 or 5, 0, 0),
 			["Size"] = udim2_new(0.5, -5, 1, 0),
@@ -4655,7 +4655,7 @@ do
 			["Data"] = pixel_image_data,
 			["Visible"] = true,
 		})
-		local section_inside = drawing_proxy["new"]("Image", {
+		section_inside = drawing_proxy["new"]("Image", {
 			["Parent"] = section_border,
 			["Position"] = udim2_new(0, 1, 0, 0),
 			["Size"] = udim2_new(1, -2, 1, -1),
@@ -4665,7 +4665,7 @@ do
 			["Data"] = pixel_image_data,
 			["Visible"] = true,
 		})
-		local section_line = drawing_proxy["new"]("Square", {
+		section_line = drawing_proxy["new"]("Square", {
 			["Parent"] = section_inside,
 			["Size"] = udim2_new(0, 9, 0, 1),
 			["Position"] = udim2_new(0, 1, 0, 0),
@@ -4674,7 +4674,7 @@ do
 			["Filled"] = true,
 			["Visible"] = true,
 		})
-		local section_label = drawing_proxy["new"]("Text", {
+		section_label = drawing_proxy["new"]("Text", {
 			["Color"] = menu["colors"]["accent"],
 			["Transparency"] = 0.5,
 			["Text"] = name,
@@ -4684,8 +4684,8 @@ do
 			["Font"] = 1,
 			["Visible"] = true,
 		})
-		local text_bounds = section_label["TextBounds"]["X"] + 20
-		local section_line_two = drawing_proxy["new"]("Square", {
+		text_bounds = section_label["TextBounds"]["X"] + 20
+		section_line_two = drawing_proxy["new"]("Square", {
 			["Parent"] = section_inside,
 			["Position"] = udim2_new(0, text_bounds, 0, 0),
 			["Size"] = udim2_new(1, -(text_bounds + 1), 0, 1),
@@ -4694,7 +4694,7 @@ do
 			["Transparency"] = 0.5,
 			["Visible"] = true,
 		})
-		local element_holder = drawing_proxy["new"]("Square", {
+		element_holder = drawing_proxy["new"]("Square", {
 			["Parent"] = section_inside,
 			["Position"] = udim2_new(0, 10, 0, 10),
 			["Size"] = udim2_new(1, -20, 1, -20),
@@ -4702,7 +4702,7 @@ do
 			["Filled"] = true,
 			["Visible"] = true,
 		})
-		local search_border = drawing_proxy["new"]("Image", {
+		search_border = drawing_proxy["new"]("Image", {
 			["Parent"] = element_holder,
 			["Position"] = udim2_new(0, 0, 0, 0),
 			["Size"] = udim2_new(1, 0, 0, 20),
@@ -4713,7 +4713,7 @@ do
 			["ZIndex"] = zindex,
 			["Visible"] = true,
 		})
-		local search_inside = drawing_proxy["new"]("Image", {
+		search_inside = drawing_proxy["new"]("Image", {
 			["Parent"] = search_border,
 			["Position"] = udim2_new(0, 1, 0, 1),
 			["Size"] = udim2_new(1, -2, 1, -2),
@@ -4724,7 +4724,7 @@ do
 			["ZIndex"] = zindex,
 			["Visible"] = true,
 		})
-		local search_text = drawing_proxy["new"]("Text", {
+		search_text = drawing_proxy["new"]("Text", {
 			["Color"] = menu["colors"]["inactive_text"],
 			["Text"] = "search",
 			["Size"] = 12,
@@ -4734,7 +4734,7 @@ do
 			["Parent"] = search_inside,
 			["Position"] = udim2_new(0, 22, 0, 3),
 		})
-		local search_image = drawing_proxy["new"]("Image", {
+		search_image = drawing_proxy["new"]("Image", {
 			["Color"] = menu["colors"]["inactive_text"],
 			["Data"] = base64_decode(
 				"iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMvu8A7YAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAAYAAAAAEAAABgAAAAAQAAAFBhaW50Lk5FVCA1LjEuMgADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAADp1fY4ytpsegAAAGdJREFUKFONkGEWgCAIg5GTdP9LlqPBA8Pq+yFuOvA5JHFOuDXGhNvAjPVipgtZAFAGtIuvbrSdRA4sJQQBKB/wOM6V9TevAe+cn6su8liwaieSuwuONy4/k0PdZHglsKOEWD+5QyIX+wJP/y1yP3IAAAAASUVORK5CYII="
@@ -4775,7 +4775,7 @@ do
 		end)
 
 		create_scroll_connection(section_border, section_border, function(is_up)
-			local old_scroll_index = new_section["scroll_index"]
+			old_scroll_index = new_section["scroll_index"]
 			new_section["scroll_index"] =
 				clamp(old_scroll_index + (is_up and -1 or 1), 1, 1 + clamp(#new_section["elements"] - 13, 0, 1000))
 			new_section:update_position()
@@ -4787,7 +4787,7 @@ do
 	-- > ( panel sections )
 
 	function panel_section:add_item(info)
-		local new_item = setmetatable({
+		new_item = setmetatable({
 			["drawings"] = {},
 			["color"] = color,
 			["name"] = info["text"],
@@ -4795,7 +4795,7 @@ do
 			["icons"] = {},
 		}, item)
 
-		local border = drawing_proxy["new"]("Image", {
+		border = drawing_proxy["new"]("Image", {
 			["Parent"] = self["holder"],
 			["Position"] = udim2_new(0, 0, 0, self["total_y_size"]),
 			["Size"] = udim2_new(1, 0, 0, 20),
@@ -4805,7 +4805,7 @@ do
 			["Data"] = pixel_image_data,
 			["Visible"] = false,
 		})
-		local inside = drawing_proxy["new"]("Image", {
+		inside = drawing_proxy["new"]("Image", {
 			["Parent"] = border,
 			["Position"] = udim2_new(0, 1, 0, 1),
 			["Size"] = udim2_new(1, -2, 1, -2),
@@ -4816,7 +4816,7 @@ do
 			["ZIndex"] = 2,
 			["Visible"] = true,
 		})
-		local text = drawing_proxy["new"]("Text", {
+		text = drawing_proxy["new"]("Text", {
 			["Color"] = menu["colors"]["inactive_text"],
 			["Text"] = info["text"],
 			["Size"] = 12,
@@ -4835,10 +4835,10 @@ do
 		self["total_y_size"] += 30
 		self["elements"][#self["elements"] + 1] = new_item
 
-		local icons = info["icons"] or {}
+		icons = info["icons"] or {}
 		for i = 1, #icons do
-			local icon = icons[i]
-			local name = "icon_" .. tostring(clock())
+			icon = icons[i]
+			name = "icon_" .. tostring(clock())
 
 			new_item["drawings"][name] = drawing_proxy["new"]("Image", {
 				["Parent"] = inside,
@@ -4856,11 +4856,11 @@ do
 
 		self["scroll_index"] = clamp(self["scroll_index"], 1, 1 + clamp(#self["elements"] - 13, 0, 1000))
 
-		local x = 4 + #icons * 15
+		x = 4 + #icons * 15
 		text["Position"] = udim2_new(0, x, 0, 3)
-		local text2_text = info["text2"]
+		text2_text = info["text2"]
 		if text2_text then
-			local text2 = drawing_proxy["new"]("Text", {
+			text2 = drawing_proxy["new"]("Text", {
 				["Color"] = menu["colors"]["dark_text"],
 				["Text"] = text2_text,
 				["Size"] = 12,
@@ -4872,10 +4872,10 @@ do
 				["Position"] = udim2_new(0, x + text["TextBounds"]["X"] + 3, 0, 3),
 			})
 
-			local size = text2["Position"]["X"] + text2["TextBounds"]["X"] + 9
-			local border_size = border["Position"]["X"] + border["Size"]["X"]
+			size = text2["Position"]["X"] + text2["TextBounds"]["X"] + 9
+			border_size = border["Position"]["X"] + border["Size"]["X"]
 			if size > border_size then
-				local overlap = 2 + math["ceil"]((size - border_size) / 6)
+				overlap = 2 + math["ceil"]((size - border_size) / 6)
 				text2["Text"] = text2["Text"]:sub(1, -overlap) .. ".."
 			end
 			new_item["drawings"]["text2"] = text2
@@ -4895,10 +4895,10 @@ do
 		end)
 
 		if self["favorites"] then
-			local flag = info["text"] .. self["name"]
+			flag = info["text"] .. self["name"]
 			new_item["favorite_flag"] = flag
 			new_item["parent"] = self
-			local favorited = menu["favorites"][flag]
+			favorited = menu["favorites"][flag]
 			if favorited then
 				new_item["favorited"] = true
 				self:add_icon(info["text"], star)
@@ -4915,22 +4915,22 @@ do
 
 		create_click_connection(self["holder"], border, function()
 			if not self["locked"] then
-				local selected = self["selected"]
+				selected = self["selected"]
 				if selected ~= new_item then
 					tween(border, { ["Color"] = menu["colors"]["highlighted"] }, circular, out, 0.17)
 					self["selected"] = new_item
 					self["on_selection_change"]:Fire(text["Text"])
 
-					local elements = self["elements"]
-					local index = nil
+					elements = self["elements"]
+					index = nil
 					for i = 1, #elements do
 						if elements[i] == new_item then
 							index = i
 						end
 					end
 
-					local elements = self["elements"]
-					local old_item = elements[1]
+					elements = self["elements"]
+					old_item = elements[1]
 					elements[1] = new_item
 					elements[index or #elements + 1] = old_item
 
@@ -4952,12 +4952,12 @@ do
 	end
 
 	function panel_section:remove_item(text, delay, skip)
-		local elements = self["elements"]
-		local holder = self["holder"]
-		local object = nil
+		elements = self["elements"]
+		holder = self["holder"]
+		object = nil
 
 		for i = 1, #elements do
-			local element = elements[i]
+			element = elements[i]
 
 			if element and element["drawings"]["text"]["Text"] == text then
 				object = element
@@ -4972,22 +4972,22 @@ do
 			return
 		end
 
-		local drawings = object["drawings"]
-		local frame = drawings["border"]
+		drawings = object["drawings"]
+		frame = drawings["border"]
 
-		local connections = click_connections[holder]
-
-		if connections then
-			connections[frame] = nil
-		end
-
-		local connections = hover_connections[holder]
+		connections = click_connections[holder]
 
 		if connections then
 			connections[frame] = nil
 		end
 
-		local connections = right_click_connections[holder]
+		connections = hover_connections[holder]
+
+		if connections then
+			connections[frame] = nil
+		end
+
+		connections = right_click_connections[holder]
 
 		if connections then
 			connections[frame] = nil
@@ -5013,11 +5013,11 @@ do
 	end
 
 	function panel_section:edit_item_color(text, color)
-		local elements = self["elements"]
-		local object = nil
+		elements = self["elements"]
+		object = nil
 
 		for i = 1, #elements do
-			local element = elements[i]["drawings"]["text"]
+			element = elements[i]["drawings"]["text"]
 
 			if element["Text"] == text then
 				object = element
@@ -5033,12 +5033,12 @@ do
 	end
 
 	function panel_section:remove_icon(text, icon)
-		local elements = self["elements"]
-		local object = nil
+		elements = self["elements"]
+		object = nil
 
 		for i = 1, #elements do
-			local element = elements[i]
-			local label = elements[i]["drawings"]["text"]
+			element = elements[i]
+			label = elements[i]["drawings"]["text"]
 
 			if label["Text"] == text then
 				object = element
@@ -5050,13 +5050,13 @@ do
 			return
 		end
 
-		local drawings = object["drawings"]
-		local icons = object["icons"]
+		drawings = object["drawings"]
+		icons = object["icons"]
 
-		local has_icon = false
+		has_icon = false
 
 		for i = 1, #icons do
-			local icon_data = icons[i]
+			icon_data = icons[i]
 			if icon_data[1] == icon then
 				has_icon = true
 				break
@@ -5068,9 +5068,9 @@ do
 		end
 
 		for i = 1, #icons do
-			local icon_data = icons[i]
+			icon_data = icons[i]
 			if icon_data[1] == icon then
-				local name = icon_data[2]
+				name = icon_data[2]
 				remove(icons, i)
 				drawings[name]:Destroy()
 				drawings[name] = nil
@@ -5086,12 +5086,12 @@ do
 	end
 
 	function panel_section:add_icon(text, icon)
-		local elements = self["elements"]
-		local object = nil
+		elements = self["elements"]
+		object = nil
 
 		for i = 1, #elements do
-			local element = elements[i]
-			local label = elements[i]["drawings"]["text"]
+			element = elements[i]
+			label = elements[i]["drawings"]["text"]
 
 			if label["Text"] == text then
 				object = element
@@ -5103,14 +5103,14 @@ do
 			return
 		end
 
-		local drawings = object["drawings"]
-		local icons = object["icons"]
+		drawings = object["drawings"]
+		icons = object["icons"]
 
 		for i = 1, #icons do
 			drawings[icons[i][2]]["tween_position"] += udim2_new(0, 15, 0, 0)
 		end
 
-		local name = "icon_" .. clock()
+		name = "icon_" .. clock()
 
 		drawings[name] = drawing_proxy["new"]("Image", {
 			["Parent"] = drawings["inside"],
@@ -5135,14 +5135,14 @@ do
 			return
 		end
 
-		local scroll_index = self["scroll_index"]
-		local elements = self["elements"]
-		local fake_elements = {}
+		scroll_index = self["scroll_index"]
+		elements = self["elements"]
+		fake_elements = {}
 
 		for i = 1, #elements do
-			local element = elements[i]
+			element = elements[i]
 			if element["favorited"] then
-				local frame = elements[i]["drawings"]["border"]
+				frame = elements[i]["drawings"]["border"]
 				frame["Visible"] = true
 				frame["Position"] = udim2_new(0, 0, 0, 30 + (i - scroll_index) * 30)
 				fake_elements[#fake_elements + 1] = element
@@ -5150,14 +5150,14 @@ do
 		end
 
 		for i = 1, #elements do
-			local element = elements[i]
+			element = elements[i]
 			if not element["favorited"] then
 				fake_elements[#fake_elements + 1] = element
 			end
 		end
 
 		for i = 1, #fake_elements do
-			local frame = fake_elements[i]["drawings"]["border"]
+			frame = fake_elements[i]["drawings"]["border"]
 			if i >= scroll_index and i < scroll_index + 13 then
 				frame["Visible"] = true
 				frame["Position"] = udim2_new(0, 0, 0, 30 + (i - scroll_index) * 30)
@@ -5170,10 +5170,10 @@ do
 	-- > ( elements )
 
 	function element.new(info, elements)
-		local position = info["position"]
-		local parent = info["parent"]
+		position = info["position"]
+		parent = info["parent"]
 
-		local frame = drawing_proxy["new"]("Square", {
+		frame = drawing_proxy["new"]("Square", {
 			["Parent"] = parent,
 			["Position"] = position,
 			["Size"] = udim2_new(1, -20, 0, 12),
@@ -5181,9 +5181,9 @@ do
 			["Visible"] = true,
 		})
 
-		local zindex = parent["ZIndex"] + 1
+		zindex = parent["ZIndex"] + 1
 
-		local new_element = setmetatable({
+		new_element = setmetatable({
 			["drawings"] = {
 				["text"] = drawing_proxy["new"]("Text", {
 					["Color"] = menu["colors"]["inactive_text"],
@@ -5204,14 +5204,14 @@ do
 			["old_visible"] = true,
 		}, element)
 
-		local text = new_element["drawings"]["text"]
-		local total_y_size = 17
+		text = new_element["drawings"]["text"]
+		total_y_size = 17
 
 		for element, properties in elements do
 			if element == "toggle" then
 				text["tween_position"] += udim2_new(0, 17, 0, 0)
 
-				local toggle_border = drawing_proxy["new"]("Image", {
+				toggle_border = drawing_proxy["new"]("Image", {
 					["Parent"] = frame,
 					["Position"] = udim2_new(0, 0, 0, 0),
 					["Size"] = udim2_new(0, 12, 0, 12),
@@ -5222,7 +5222,7 @@ do
 					["ZIndex"] = zindex + 1,
 					["Visible"] = true,
 				})
-				local toggle_inside = drawing_proxy["new"]("Image", {
+				toggle_inside = drawing_proxy["new"]("Image", {
 					["Parent"] = toggle_border,
 					["Position"] = udim2_new(0, 1, 0, 1),
 					["Size"] = udim2_new(1, -2, 1, -2),
@@ -5233,7 +5233,7 @@ do
 					["ZIndex"] = zindex + 2,
 					["Visible"] = true,
 				})
-				local toggle_click = drawing_proxy["new"]("Square", {
+				toggle_click = drawing_proxy["new"]("Square", {
 					["Parent"] = frame,
 					["Size"] = udim2_new(0, 17 + new_element["drawings"]["text"]["TextBounds"]["X"], 1, 0),
 					["Transparency"] = 0,
@@ -5241,7 +5241,7 @@ do
 					["ZIndex"] = zindex + 3,
 					["Position"] = udim2_new(0, 0, 0, 0),
 				})
-				local checkmark = drawing_proxy["new"]("Image", {
+				checkmark = drawing_proxy["new"]("Image", {
 					["Parent"] = toggle_inside,
 					["Position"] = udim2_new(0, 1, 0, 1),
 					["Size"] = udim2_new(1, -2, 1, -2),
@@ -5283,7 +5283,7 @@ do
 			elseif element == "slider" then
 				total_y_size += 14
 
-				local slider_border = drawing_proxy["new"]("Image", {
+				slider_border = drawing_proxy["new"]("Image", {
 					["Parent"] = frame,
 					["Position"] = udim2_new(0, 0, 0, 14),
 					["Size"] = udim2_new(1, 0, 0, 12),
@@ -5294,7 +5294,7 @@ do
 					["ZIndex"] = zindex + 1,
 					["Visible"] = true,
 				})
-				local slider_inside = drawing_proxy["new"]("Image", {
+				slider_inside = drawing_proxy["new"]("Image", {
 					["Parent"] = slider_border,
 					["Position"] = udim2_new(0, 1, 0, 1),
 					["Size"] = udim2_new(1, -2, 1, -2),
@@ -5305,7 +5305,7 @@ do
 					["ZIndex"] = zindex + 2,
 					["Visible"] = true,
 				})
-				local slider_fill = drawing_proxy["new"]("Image", {
+				slider_fill = drawing_proxy["new"]("Image", {
 					["Parent"] = slider_inside,
 					["Position"] = udim2_new(0, 1, 0, 1),
 					["Size"] = udim2_new(0, 0, 1, -2),
@@ -5316,7 +5316,7 @@ do
 					["ZIndex"] = zindex + 3,
 					["Visible"] = true,
 				})
-				local slider_line = drawing_proxy["new"]("Square", {
+				slider_line = drawing_proxy["new"]("Square", {
 					["Parent"] = frame,
 					["Position"] = udim2_new(0, text["TextBounds"]["X"] + (elements["toggle"] and 20 or 3), 0, 2),
 					["Size"] = udim2_new(0, 1, 0, 8),
@@ -5326,7 +5326,7 @@ do
 					["Transparency"] = 0.5,
 					["ZIndex"] = zindex + 4,
 				})
-				local slider_text = drawing_proxy["new"]("Text", {
+				slider_text = drawing_proxy["new"]("Text", {
 					["Color"] = menu["colors"]["dark_text"],
 					["Text"] = "",
 					["Size"] = 12,
@@ -5337,7 +5337,7 @@ do
 					["ZIndex"] = zindex + 5,
 					["Position"] = udim2_new(0, text["TextBounds"]["X"] + (elements["toggle"] and 24 or 7), 0, -1),
 				})
-				local slider_click = drawing_proxy["new"]("Square", {
+				slider_click = drawing_proxy["new"]("Square", {
 					["Parent"] = slider_line,
 					["Position"] = udim2_new(0, 0, 0, -1),
 					["Size"] = udim2_new(0, 50, 0, 10),
@@ -5379,7 +5379,7 @@ do
 				end)
 
 				create_click_connection(parent, slider_border, function(mouse_position)
-					local min, max, decimals = properties["min"], properties["max"], properties["decimals"]
+					min, max, decimals = properties["min"], properties["max"], properties["decimals"]
 					moving = create_connection(mouse["Move"], function()
 						new_element:set_slider(
 							round(
@@ -5412,7 +5412,7 @@ do
 			elseif element == "textbox" then
 				total_y_size += 18
 
-				local textbox_border = drawing_proxy["new"]("Image", {
+				textbox_border = drawing_proxy["new"]("Image", {
 					["Parent"] = frame,
 					["Position"] = udim2_new(0, 0, 0, 14),
 					["Size"] = udim2_new(1, 0, 0, 16),
@@ -5423,7 +5423,7 @@ do
 					["Visible"] = true,
 					["ZIndex"] = zindex + 1,
 				})
-				local textbox_inside = drawing_proxy["new"]("Image", {
+				textbox_inside = drawing_proxy["new"]("Image", {
 					["Parent"] = textbox_border,
 					["Position"] = udim2_new(0, 1, 0, 1),
 					["Size"] = udim2_new(1, -2, 1, -2),
@@ -5434,7 +5434,7 @@ do
 					["ZIndex"] = zindex + 2,
 					["Visible"] = true,
 				})
-				local textbox_text = drawing_proxy["new"]("Text", {
+				textbox_text = drawing_proxy["new"]("Text", {
 					["Color"] = menu["colors"]["dark_text"],
 					["Text"] = "...",
 					["Size"] = 12,
@@ -5469,7 +5469,7 @@ do
 			elseif element == "dropdown" then
 				total_y_size += 18
 
-				local dropdown_border = drawing_proxy["new"]("Image", {
+				dropdown_border = drawing_proxy["new"]("Image", {
 					["Parent"] = frame,
 					["Position"] = udim2_new(0, 0, 0, 14),
 					["Size"] = udim2_new(1, 0, 0, 16),
@@ -5480,7 +5480,7 @@ do
 					["Visible"] = true,
 					["ZIndex"] = zindex + 1,
 				})
-				local dropdown_inside = drawing_proxy["new"]("Image", {
+				dropdown_inside = drawing_proxy["new"]("Image", {
 					["Parent"] = dropdown_border,
 					["Position"] = udim2_new(0, 1, 0, 1),
 					["Size"] = udim2_new(1, -2, 1, -2),
@@ -5491,7 +5491,7 @@ do
 					["ZIndex"] = zindex + 2,
 					["Visible"] = true,
 				})
-				local dropdown_text = drawing_proxy["new"]("Text", {
+				dropdown_text = drawing_proxy["new"]("Text", {
 					["Color"] = menu["colors"]["dark_text"],
 					["Text"] = "none",
 					["Size"] = 12,
@@ -5503,7 +5503,7 @@ do
 					["ZIndex"] = zindex + 3,
 					["Position"] = udim2_new(0, 3, 0, 0),
 				})
-				local dropdown_arrow = drawing_proxy["new"]("Image", {
+				dropdown_arrow = drawing_proxy["new"]("Image", {
 					["Color"] = menu["colors"]["dark_text"],
 					["Data"] = arrow_image_data,
 					["Size"] = udim2_new(0, 8, 0, 8),
@@ -5533,23 +5533,23 @@ do
 					tween(dropdown_arrow, { Color = menu["colors"]["dark_text"] }, circular, out, 0.17)
 				end)
 
-				local extensions = properties["use_custom_extensions"]
+				extensions = properties["use_custom_extensions"]
 				if extensions then
-					local original_options = properties["options"]
-					local new_options = {}
+					original_options = properties["options"]
+					new_options = {}
 
 					for i = 1, #original_options do
 						new_options[#new_options + 1] = original_options[i]
 					end
 
 					for _, file in listfiles(file_path .. "/custom") do
-						local extension = file:match("%.([^%.]+)$")
+						extension = file:match("%.([^%.]+)$")
 
 						if extension then
 							for i = 1, #extensions do
 								if extensions[i] == extension then
-									local file_name = file:match("([^/\\]+)$")
-									local found = false
+									file_name = file:match("([^/\\]+)$")
+									found = false
 									for i = 1, #original_options do
 										if original_options[i] == file_name then
 											found = true
@@ -5568,21 +5568,21 @@ do
 					new_element["options"] = new_options
 
 					create_click_connection(parent, dropdown_border, function()
-						local original_options = properties["options"]
-						local new_options = {}
+						original_options = properties["options"]
+						new_options = {}
 
 						for i = 1, #original_options do
 							new_options[#new_options + 1] = original_options[i]
 						end
 
 						for _, file in listfiles(file_path .. "/custom") do
-							local extension = file:match("%.([^%.]+)$")
+							extension = file:match("%.([^%.]+)$")
 
 							if extension then
 								for i = 1, #extensions do
 									if extensions[i] == extension then
-										local file_name = file:match("([^/\\]+)$")
-										local found = false
+										file_name = file:match("([^/\\]+)$")
+										found = false
 										for i = 1, #original_options do
 											if original_options[i] == file_name then
 												found = true
@@ -5614,7 +5614,7 @@ do
 					end)
 				end
 
-				local default = properties["default"]
+				default = properties["default"]
 				new_element["dropdown_default"] = default
 				new_element["requires_one"] = properties["requires_one"]
 
@@ -5622,7 +5622,7 @@ do
 					new_element:set_dropdown(default)
 				end
 			elseif element == "keybind" then
-				local keybind_border = drawing_proxy["new"]("Image", {
+				keybind_border = drawing_proxy["new"]("Image", {
 					["Parent"] = frame,
 					["Position"] = udim2_new(1, -40, 0, 0),
 					["Size"] = udim2_new(0, 40, 0, 12),
@@ -5633,7 +5633,7 @@ do
 					["ZIndex"] = zindex + 1,
 					["Visible"] = true,
 				})
-				local keybind_inside = drawing_proxy["new"]("Image", {
+				keybind_inside = drawing_proxy["new"]("Image", {
 					["Parent"] = keybind_border,
 					["Position"] = udim2_new(0, 1, 0, 1),
 					["Size"] = udim2_new(1, -2, 1, -2),
@@ -5644,7 +5644,7 @@ do
 					["ZIndex"] = zindex + 2,
 					["Visible"] = true,
 				})
-				local keybind_text = drawing_proxy["new"]("Text", {
+				keybind_text = drawing_proxy["new"]("Text", {
 					["Color"] = menu["colors"]["dark_text"],
 					["Text"] = "none",
 					["Size"] = 12,
@@ -5657,7 +5657,7 @@ do
 					["Position"] = udim2_new(0.5, 0, 0, -1),
 				})
 
-				local size = keybind_text["TextBounds"]["X"] + 8
+				size = keybind_text["TextBounds"]["X"] + 8
 
 				keybind_border["Size"] = udim2_new(0, size, 0, 12)
 				keybind_border["Position"] = udim2_new(1, -size, 0, 0)
@@ -5682,7 +5682,7 @@ do
 				if properties["flag"] then
 					new_element["keybind_flag"] = properties["flag"]
 
-					local data = math_random(9000000, 90000000)
+					data = math_random(9000000, 90000000)
 					keybind_data[data] = {
 						["key"] = properties["default"],
 						["value"] = true,
@@ -5697,10 +5697,10 @@ do
 					end)
 				end
 			elseif element == "colorpicker" then
-				local transparency = properties["default_transparency"] or 0
-				local color = properties["default_color"] or color3_fromrgb(255, 0, 0)
+				transparency = properties["default_transparency"] or 0
+				color = properties["default_color"] or color3_fromrgb(255, 0, 0)
 
-				local colorpicker_border = drawing_proxy["new"]("Image", {
+				colorpicker_border = drawing_proxy["new"]("Image", {
 					["Parent"] = frame,
 					["Position"] = udim2_new(1, -25, 0, 0),
 					["Size"] = udim2_new(0, 25, 0, 12),
@@ -5711,7 +5711,7 @@ do
 					["ZIndex"] = zindex + 1,
 					["Visible"] = true,
 				})
-				local colorpicker_inside = drawing_proxy["new"]("Image", {
+				colorpicker_inside = drawing_proxy["new"]("Image", {
 					["Parent"] = colorpicker_border,
 					["Position"] = udim2_new(0, 1, 0, 1),
 					["Size"] = udim2_new(1, -2, 1, -2),
@@ -5722,7 +5722,7 @@ do
 					["ZIndex"] = zindex + 2,
 					["Visible"] = true,
 				})
-				local colorpicker_transparency = drawing_proxy["new"]("Image", {
+				colorpicker_transparency = drawing_proxy["new"]("Image", {
 					["Parent"] = colorpicker_inside,
 					["Position"] = udim2_new(0, 1, 0, 1),
 					["Size"] = udim2_new(1, -2, 1, -2),
@@ -5733,7 +5733,7 @@ do
 					["ZIndex"] = zindex + 3,
 					["Visible"] = true,
 				})
-				local colorpicker_fill = drawing_proxy["new"]("Image", {
+				colorpicker_fill = drawing_proxy["new"]("Image", {
 					["Parent"] = colorpicker_transparency,
 					["Position"] = udim2_new(0, 0, 0, 0),
 					["Size"] = udim2_new(1, 0, 1, 0),
@@ -5785,7 +5785,7 @@ do
 				})
 			elseif element == "button" then
 				total_y_size += 4
-				local button_border = drawing_proxy["new"]("Image", {
+				button_border = drawing_proxy["new"]("Image", {
 					["Parent"] = frame,
 					["Position"] = udim2_new(0, 0, 0, 0),
 					["Size"] = udim2_new(1, 0, 0, 16),
@@ -5796,7 +5796,7 @@ do
 					["Visible"] = true,
 					["ZIndex"] = zindex + 1,
 				})
-				local button_inside = drawing_proxy["new"]("Image", {
+				button_inside = drawing_proxy["new"]("Image", {
 					["Parent"] = button_border,
 					["Position"] = udim2_new(0, 1, 0, 1),
 					["Size"] = udim2_new(1, -2, 1, -2),
@@ -5807,7 +5807,7 @@ do
 					["ZIndex"] = zindex + 2,
 					["Visible"] = true,
 				})
-				local button_icon = drawing_proxy["new"]("Image", {
+				button_icon = drawing_proxy["new"]("Image", {
 					["Parent"] = button_border,
 					["Position"] = udim2_new(1, -14, 0, 3),
 					["Size"] = udim2_new(0, 10, 0, 10),
@@ -5818,7 +5818,7 @@ do
 					["ZIndex"] = zindex + 3,
 					["Visible"] = true,
 				})
-				local button_text = drawing_proxy["new"]("Text", {
+				button_text = drawing_proxy["new"]("Text", {
 					["Color"] = menu["colors"]["dark_text"],
 					["Text"] = info["text"],
 					["Size"] = 12,
@@ -5831,11 +5831,11 @@ do
 					["Position"] = udim2_new(0, 3, 0, 0),
 				})
 
-				local cooldown = clock()
+				cooldown = clock()
 
 				new_element["on_clicked"] = signal["new"]()
 
-				local drawings = new_element["drawings"]
+				drawings = new_element["drawings"]
 				drawings["button_border"] = button_border
 				drawings["button_inside"] = button_inside
 				drawings["button_text"] = button_text
@@ -5849,7 +5849,7 @@ do
 				end)
 
 				if properties["confirmation"] then
-					local in_confirmation = false
+					in_confirmation = false
 
 					create_click_connection(parent, button_border, function()
 						if clock() - cooldown > 0.15 and not actives["typing"] then
@@ -5865,7 +5865,7 @@ do
 								in_confirmation = false
 							else
 								tween(button_text, { Color = menu["colors"]["accent"] }, circular, out, 0.075)
-								local old = cooldown
+								old = cooldown
 								in_confirmation = cooldown
 								for i = 1, 3 do
 									if in_confirmation ~= old then
@@ -5920,7 +5920,7 @@ do
 			end
 		end
 
-		local tip = info["tip"]
+		tip = info["tip"]
 
 		if tip then
 			create_hover_connection(parent, button_border, function()
@@ -5938,7 +5938,7 @@ do
 	end
 
 	function element:set_info(property, value)
-		local text = self["drawings"]["info_text"]
+		text = self["drawings"]["info_text"]
 		text[property] = value
 
 		if property == "Text" then
@@ -5952,10 +5952,10 @@ do
 	end
 
 	function element:set_toggle(value, just_keybind)
-		local keybind = keybind_data[self]
+		keybind = keybind_data[self]
 		if keybind then
 			if not just_keybind then
-				local is_on_not_held = keybind["method"] == 2
+				is_on_not_held = keybind["method"] == 2
 				keybind["value"] = value
 				keybind["activated"] = is_on_not_held or value
 				spawn(on_keybind_change["Fire"], on_keybind_change, keybind, self, is_on_not_held or value)
@@ -5966,7 +5966,7 @@ do
 			end
 		end
 
-		local drawings = self["drawings"]
+		drawings = self["drawings"]
 		tween(
 			drawings["text"],
 			{ Color = value and menu["colors"]["active_text"] or menu["colors"]["inactive_text"] },
@@ -5981,9 +5981,9 @@ do
 	end
 
 	function element:set_slider(value, just_keybind)
-		local drawings = self["drawings"]
-		local max = self["slider_max"]
-		local min = self["slider_min"]
+		drawings = self["drawings"]
+		max = self["slider_max"]
+		min = self["slider_min"]
 		value = clamp(value, min, max)
 
 		tween(
@@ -5994,7 +5994,7 @@ do
 			0.2
 		)
 
-		local text = drawings["slider_text"]
+		text = drawings["slider_text"]
 		if value == min then
 			tween(drawings["slider_line"], { Color = menu["colors"]["dark_text"] }, circular, out, 0.2)
 			text["Text"] = self["slider_min_text"] or self["slider_prefix"] .. value .. self["slider_suffix"]
@@ -6004,7 +6004,7 @@ do
 				or self["slider_prefix"] .. value .. self["slider_suffix"]
 		end
 
-		local keybind = keybind_data[self]
+		keybind = keybind_data[self]
 
 		if keybind then
 			if not just_keybind then
@@ -6037,20 +6037,20 @@ do
 	end
 
 	function element:set_dropdown(value, just_keybind, no_fire)
-		local drawings = self["drawings"]
-		local dropdown_text = drawings["dropdown_text"]
-		local max_textbounds = drawings["dropdown_inside"]["real_size"]["X"]
+		drawings = self["drawings"]
+		dropdown_text = drawings["dropdown_text"]
+		max_textbounds = drawings["dropdown_inside"]["real_size"]["X"]
 
-		local text = ""
-		local last_text = ""
+		text = ""
+		last_text = ""
 
 		value = type(value) == "table" and value or { value }
 
-		local options = self["options"]
+		options = self["options"]
 
 		for i = 1, #value do
-			local option = value[i]
-			local found = false
+			option = value[i]
+			found = false
 			for i = 1, #options do
 				if options[i] == option then
 					found = true
@@ -6069,7 +6069,7 @@ do
 
 		if value and #value ~= 0 then
 			for i = 1, #value do
-				local option = value[i]
+				option = value[i]
 				text = i == 1 and option or text .. ", " .. option
 				dropdown_text["Text"] = text
 
@@ -6084,7 +6084,7 @@ do
 			dropdown_text["Text"] = "none"
 		end
 
-		local keybind = keybind_data[self]
+		keybind = keybind_data[self]
 
 		if keybind then
 			if not just_keybind then
@@ -6100,12 +6100,12 @@ do
 	end
 
 	function element:update_dropdown_value(option)
-		local value = flags[self["dropdown_flag"]]
-		local multi = self["multi"]
-		local requires_one = self["requires_one"]
+		value = flags[self["dropdown_flag"]]
+		multi = self["multi"]
+		requires_one = self["requires_one"]
 
 		if multi then
-			local count = value and #value or 0
+			count = value and #value or 0
 			for i = 1, count do
 				if value[i] == option then
 					if requires_one and count == 1 then
@@ -6148,23 +6148,23 @@ do
 	end
 
 	function element:set_key(value)
-		local drawings = self["drawings"]
-		local keybind_border = drawings["keybind_border"]
-		local keybind_inside = drawings["keybind_inside"]
-		local keybind_text = drawings["keybind_text"]
+		drawings = self["drawings"]
+		keybind_border = drawings["keybind_border"]
+		keybind_inside = drawings["keybind_inside"]
+		keybind_text = drawings["keybind_text"]
 
 		keybind_text["Text"] = value
 				and (shortened_characters[value] and shortened_characters[value] or value["Name"]:lower())
 			or "none"
 
-		local size = keybind_text["TextBounds"]["X"] + 8
+		size = keybind_text["TextBounds"]["X"] + 8
 
 		keybind_border["Size"] = udim2_new(0, size, 0, 12)
 		keybind_border["Position"] = udim2_new(1, -size, 0, 0)
 		keybind_inside["Size"] = udim2_new(0, size - 2, 0, 10)
 		keybind_text["Position"] = udim2_new(0, (size - 2) / 2, 0, -2)
 
-		local flag = self["keybind_flag"]
+		flag = self["keybind_flag"]
 
 		if flag then
 			flags[flag] = value
@@ -6173,7 +6173,7 @@ do
 		self["on_key_change"]:Fire(value)
 	end
 
-	local settings = {}
+	settings = {}
 	settings["__index"] = settings
 
 	function settings:create_element(a, b, c)
@@ -6181,8 +6181,8 @@ do
 	end
 
 	function element:create_settings(count)
-		local frame = self["frame"]
-		local cog_icon = drawing_proxy["new"]("Image", {
+		frame = self["frame"]
+		cog_icon = drawing_proxy["new"]("Image", {
 			["Data"] = cog_image_data,
 			["Visible"] = true,
 			["Transparency"] = 1,
@@ -6201,7 +6201,7 @@ do
 			tween(cog_icon, { Color = menu["colors"]["inactive_text"] }, circular, out, 0.17)
 		end)
 
-		local section_border = drawing_proxy["new"]("Image", {
+		section_border = drawing_proxy["new"]("Image", {
 			["Parent"] = cog_icon,
 			["Position"] = udim2_new(1, 5, 0, -5),
 			["Size"] = udim2_new(0, 170, 0, 10),
@@ -6212,7 +6212,7 @@ do
 			["ZIndex"] = 500,
 			["Visible"] = false,
 		})
-		local section_inside = drawing_proxy["new"]("Image", {
+		section_inside = drawing_proxy["new"]("Image", {
 			["Parent"] = section_border,
 			["Position"] = udim2_new(0, 1, 0, 1),
 			["Size"] = udim2_new(1, -2, 1, -2),
@@ -6224,7 +6224,7 @@ do
 			["Visible"] = true,
 		})
 
-		local new_settings = setmetatable({
+		new_settings = setmetatable({
 			["sections"] = {},
 			["elements"] = {},
 			["border"] = section_border,
@@ -6232,14 +6232,14 @@ do
 		}, settings)
 
 		for i = 1, type(count) == "number" and count or 1 do
-			local new_section = setmetatable({
+			new_section = setmetatable({
 				["tab"] = self["section"]["tab"],
 				["total_y_size"] = 10,
 				["frame"] = self["frame"],
 				["elements"] = new_settings["elements"],
 			}, section)
 
-			local element_holder = drawing_proxy["new"]("Square", {
+			element_holder = drawing_proxy["new"]("Square", {
 				["Parent"] = section_inside,
 				["Position"] = udim2_new(0, 10 + i * 180, 0, 10),
 				["Size"] = udim2_new(1, -20, 1, -20),
@@ -6270,36 +6270,36 @@ do
 	end
 
 	function element:remove()
-		local parent = self["parent"]
-		local object = self["frame"]
+		parent = self["parent"]
+		object = self["frame"]
 
-		local connections = click_connections[parent]
-
-		if connections then
-			connections[object] = nil
-		end
-
-		local connections = hover_connections[parent]
+		connections = click_connections[parent]
 
 		if connections then
 			connections[object] = nil
 		end
 
-		local connections = right_click_connections[parent]
+		connections = hover_connections[parent]
 
 		if connections then
 			connections[object] = nil
 		end
 
-		local drawings = self["drawings"]
+		connections = right_click_connections[parent]
+
+		if connections then
+			connections[object] = nil
+		end
+
+		drawings = self["drawings"]
 
 		for _, drawing in drawings do
 			drawing:Destroy()
 			drawings[_] = nil
 		end
 
-		local section = self["section"]
-		local elements = section["elements"]
+		section = self["section"]
+		elements = section["elements"]
 
 		for i = 1, #elements do
 			if elements[i] == self then
@@ -6321,8 +6321,8 @@ do
 	end
 
 	function section:create_element(info, elements, fake)
-		local position = self["total_y_size"]
-		local new_element, total_y_size = element["new"]({
+		position = self["total_y_size"]
+		new_element, total_y_size = element["new"]({
 			["text"] = info["name"],
 			["parent"] = self["inside"],
 			["position"] = udim2_new(0, 10, 0, position),
@@ -6344,11 +6344,11 @@ do
 	end
 
 	function section:recalculate_size()
-		local elements = self["elements"]
-		local total_size = 10
+		elements = self["elements"]
+		total_size = 10
 
 		for i = 1, #elements do
-			local element = elements[i]
+			element = elements[i]
 			if element["visible"] then
 				element["frame"]["Position"] = udim2_new(0, 10, 0, total_size)
 				total_size += element["total_y_size"]
@@ -6371,7 +6371,7 @@ do
 			element:remove()
 		end
 		for _, drawing in self do
-			local type = typeof(drawing)
+			type = typeof(drawing)
 			if (type == "Drawing" or type == "Table") and rawget(drawing, "Destroy") then
 				drawing["Destroy"](drawing)
 				self[_] = nil
@@ -6381,7 +6381,7 @@ do
 
 	-- > ( notifications )
 
-	local notification_types = {
+	notification_types = {
 		[1] = {
 			color3_fromrgb(174, 255, 0),
 			base64_decode(
@@ -6409,36 +6409,36 @@ do
 	}
 
 	do
-		local update_notifications = LPH_NO_VIRTUALIZE(function()
-			local notifications = menu["notifications"]
-			local size = camera["ViewportSize"]["Y"] * 0.88
+		update_notifications = LPH_NO_VIRTUALIZE(function()
+			notifications = menu["notifications"]
+			size = camera["ViewportSize"]["Y"] * 0.88
 			if #notifications > 6 then
 				notifications[1]:dismiss()
 			end
 			for i = 1, #notifications do
-				local notification = notifications[i]
-				local inside = notification["inside"]
-				local position = inside["Position"]
-				local new_position = udim2_new(0, position["X"], 0, size - (i * 29))
+				notification = notifications[i]
+				inside = notification["inside"]
+				position = inside["Position"]
+				new_position = udim2_new(0, position["X"], 0, size - (i * 29))
 				if position ~= new_position then
 					tween(inside, { tween_position = new_position }, exponential, out, 0.14)
 				end
 			end
 		end)
 
-		local colors = menu["colors"]
+		colors = menu["colors"]
 
-		local notification = {}
+		notification = {}
 		notification["__index"] = notification
 
 		menu["new_notification"] = function(text, type, time, data)
 			if do_notifications then
-				local color = typeof(time) == "Color3" and time
+				color = typeof(time) == "Color3" and time
 					or (type == 1 and colors["success"])
 					or (type == 2 and colors["alert"])
 					or (type == 3 and colors["error"])
 					or colors["accent"]
-				local inside = drawing_proxy["new"]("Image", {
+				inside = drawing_proxy["new"]("Image", {
 					["Data"] = pixel_image_data,
 					["Rounding"] = 7,
 					["Size"] = udim2_new(1, -2, 1, -2),
@@ -6448,7 +6448,7 @@ do
 					["ZIndex"] = 1101,
 					["Visible"] = true,
 				})
-				local image = drawing_proxy["new"]("Image", {
+				image = drawing_proxy["new"]("Image", {
 					["Parent"] = inside,
 					["Position"] = udim2_new(0, 5, 0, 5),
 					["Size"] = udim2_new(0, 12, 0, 12),
@@ -6459,7 +6459,7 @@ do
 					["ZIndex"] = 1102,
 					["Visible"] = true,
 				})
-				local text = drawing_proxy["new"]("Text", {
+				text = drawing_proxy["new"]("Text", {
 					["Parent"] = inside,
 					["Position"] = udim2_new(0, 26, 0, 5),
 					["Color"] = colors["active_text"],
@@ -6470,7 +6470,7 @@ do
 					["Transparency"] = 0,
 					["Visible"] = true,
 				})
-				local shadow = drawing_proxy["new"]("Image", {
+				shadow = drawing_proxy["new"]("Image", {
 					["Parent"] = inside,
 					["Data"] = shadow_image_data,
 					["Rounding"] = 8,
@@ -6481,16 +6481,16 @@ do
 					["Position"] = udim2_new(0, 0, 0, 0),
 				})
 
-				local x_size = 32 + text["TextBounds"]["X"]
-				local size = udim2_new(0, x_size, 0, 24)
+				x_size = 32 + text["TextBounds"]["X"]
+				size = udim2_new(0, x_size, 0, 24)
 
 				inside["Size"] = size
 
-				local shadow_size = floor(x_size / 13)
+				shadow_size = floor(x_size / 13)
 				shadow["Size"] = size + udim2_new(0, shadow_size, 0, 6)
 				shadow["Position"] = udim2_new(0, -shadow_size / 2, 0, -3)
 
-				local new_notification = setmetatable({
+				new_notification = setmetatable({
 					["inside"] = inside,
 					["image"] = image,
 					["text"] = text,
@@ -6505,8 +6505,8 @@ do
 					end
 				end)
 
-				local notifications = menu["notifications"]
-				local viewport_size = camera["ViewportSize"]
+				notifications = menu["notifications"]
+				viewport_size = camera["ViewportSize"]
 
 				inside["Position"] = udim2_new(
 					0,
@@ -6527,17 +6527,17 @@ do
 		end
 
 		function notification:dismiss()
-			local inside = self["inside"]
-			local image = self["image"]
-			local text = self["text"]
-			local shadow = self["shadow"]
+			inside = self["inside"]
+			image = self["image"]
+			text = self["text"]
+			shadow = self["shadow"]
 			tween(inside, hide_transparency, circular, out, 0.12)
 			tween(image, hide_transparency, circular, out, 0.12)
 			tween(text, hide_transparency, circular, out, 0.12)
 			tween(shadow, hide_transparency, circular, out, 0.12)
 			self["active"] = false
 
-			local notifications = menu["notifications"]
+			notifications = menu["notifications"]
 			for i = 1, #notifications do
 				if notifications[i] == self then
 					remove(notifications, i)
@@ -6593,16 +6593,16 @@ do
 						section["label"]["Color"] = color
 
 						for _, element in section["elements"] do
-							local drawings = element["drawings"]
-							local checkmark = drawings["checkmark"]
-							local slider_fill = drawings["slider_fill"]
-							local slider_text = drawings["slider_text"]
+							drawings = element["drawings"]
+							checkmark = drawings["checkmark"]
+							slider_fill = drawings["slider_fill"]
+							slider_text = drawings["slider_text"]
 
-							local icons = element["icons"]
+							icons = element["icons"]
 
 							if icons then
 								for i = 1, #icons do
-									local icon = icons[i]
+									icon = icons[i]
 									drawings[icon[2]]["Color"] = color
 								end
 							end
@@ -6625,9 +6625,9 @@ do
 
 			for _, settings in menu["settings"] do
 				for _, element in settings["elements"] do
-					local drawings = element["drawings"]
-					local checkmark = drawings["checkmark"]
-					local slider_fill = drawings["slider_fill"]
+					drawings = element["drawings"]
+					checkmark = drawings["checkmark"]
+					slider_fill = drawings["slider_fill"]
 
 					if slider_fill then
 						slider_fill["Color"] = color
@@ -6657,10 +6657,10 @@ do
 
 		-- >> ( config system )
 
-		local function to_base64(input)
-			local charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-			local encoded = ""
-			local padding = 0
+		function to_base64(input)
+			charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+			encoded = ""
+			padding = 0
 
 			while #input % 3 ~= 0 do
 				input = input .. "\0"
@@ -6668,8 +6668,8 @@ do
 			end
 
 			for i = 1, #input, 3 do
-				local a, b, c = string["byte"](input, i, i + 2)
-				local n = a * 2 ^ 16 + (b or 0) * 2 ^ 8 + (c or 0)
+				a, b, c = string["byte"](input, i, i + 2)
+				n = a * 2 ^ 16 + (b or 0) * 2 ^ 8 + (c or 0)
 				encoded = encoded
 					.. string["sub"](charset, math.floor(n / 2 ^ 18) % 64 + 1, math.floor(n / 2 ^ 18) % 64 + 1)
 				encoded = encoded
@@ -6682,18 +6682,18 @@ do
 			return string["sub"](encoded, 1, #encoded - padding) .. string["rep"]("=", padding)
 		end
 
-		local function from_base64(input)
-			local charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-			local decoded = ""
+		function from_base64(input)
+			charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+			decoded = ""
 			input = string["gsub"](input, "=", "")
 
 			for i = 1, #input, 4 do
-				local a, b, c, d =
+				a, b, c, d =
 					string["find"](charset, string["sub"](input, i, i)) - 1,
 					string["find"](charset, string["sub"](input, i + 1, i + 1)) - 1,
 					string["find"](charset, string["sub"](input, i + 2, i + 2)) - 1 or 0,
 					string["find"](charset, string["sub"](input, i + 3, i + 3)) - 1 or 0
-				local n = a * 2 ^ 18 + b * 2 ^ 12 + c * 2 ^ 6 + d
+				n = a * 2 ^ 18 + b * 2 ^ 12 + c * 2 ^ 6 + d
 				decoded = decoded .. string["char"](math.floor(n / 2 ^ 16) % 256)
 				decoded = decoded .. string["char"](math.floor(n / 2 ^ 8) % 256)
 				decoded = decoded .. string["char"](n % 256)
@@ -6702,55 +6702,55 @@ do
 			return string["gsub"](decoded, "%z", "")
 		end
 
-		local function xor_crypt(input, key)
-			local output = {}
+		function xor_crypt(input, key)
+			output = {}
 			for i = 1, #input do
-				local key_byte = string["byte"](key, (i - 1) % #key + 1)
-				local xored = bit32["bxor"](string["byte"](input, i), key_byte)
+				key_byte = string["byte"](key, (i - 1) % #key + 1)
+				xored = bit32["bxor"](string["byte"](input, i), key_byte)
 				table.insert(output, string["char"](xored))
 			end
 			return table.concat(output)
 		end
 
-		local function shuffle_key(key)
-			local shuffled = {}
+		function shuffle_key(key)
+			shuffled = {}
 			for i = 1, #key do
 				table.insert(shuffled, string["sub"](key, i, i))
 			end
 			for i = #shuffled, 2, -1 do
-				local j = math_random(i)
+				j = math_random(i)
 				shuffled[i], shuffled[j] = shuffled[j], shuffled[i]
 			end
 			return table.concat(shuffled)
 		end
 
-		local function encrypt(input, key)
-			local salt = tostring(math_random(1000, 9999))
+		function encrypt(input, key)
+			salt = tostring(math_random(1000, 9999))
 			input = salt .. input .. string["reverse"](salt)
-			local shuffled_key = shuffle_key(key)
-			local xored = xor_crypt(input, shuffled_key)
+			shuffled_key = shuffle_key(key)
+			xored = xor_crypt(input, shuffled_key)
 			return to_base64(xored)
 		end
 
-		local function decrypt(input, key)
-			local decoded = from_base64(input)
-			local shuffled_key = shuffle_key(key)
-			local xored = xor_crypt(decoded, shuffled_key)
-			local salt_length = 4
+		function decrypt(input, key)
+			decoded = from_base64(input)
+			shuffled_key = shuffle_key(key)
+			xored = xor_crypt(decoded, shuffled_key)
+			salt_length = 4
 
 			return string["sub"](xored, salt_length + 1, -salt_length - 1)
 		end
 
 		menu.get_config_list = function()
-			local list = {}
-			local folder = file_path .. "/configs/"
-			local prefix_len = #folder
+			list = {}
+			folder = file_path .. "/configs/"
+			prefix_len = #folder
 
-			local files = listfiles(folder)
+			files = listfiles(folder)
 			for _, file in ipairs(files) do
-				local ext = file:match("%.([^%.]+)$")
+				ext = file:match("%.([^%.]+)$")
 				if ext and ext:lower() == "cfg" then
-					local name = file:sub(prefix_len + 1, -5)
+					name = file:sub(prefix_len + 1, -5)
 					if name ~= "" then
 						list[#list + 1] = name
 					end
@@ -6760,9 +6760,9 @@ do
 			return list
 		end
 		menu.get_addon_list = function()
-			local list = {}
+			list = {}
 
-			local files = listfiles(file_path .. "/addons/")
+			files = listfiles(file_path .. "/addons/")
 			for _, file in files do
 				if string["match"](file, "%.(.*)") == "luau" then
 					list[#list + 1] = string["sub"](file, 20, #file - 5)
@@ -6773,9 +6773,9 @@ do
 		end
 
 		menu.get_skins_list = function()
-			local list = {}
+			list = {}
 
-			local files = listfiles(file_path .. "/custom/")
+			files = listfiles(file_path .. "/custom/")
 			for _, file in files do
 				if string["match"](file, "%.(.*)") == "skin" then
 					list[#list + 1] = string["sub"](file, 20, #file - 5)
@@ -6786,9 +6786,9 @@ do
 		end
 
 		menu.get_theme_list = function()
-			local list = {}
+			list = {}
 
-			local files = listfiles(file_path .. "/themes/")
+			files = listfiles(file_path .. "/themes/")
 			for _, file in files do
 				if string["match"](file, "%.(.*)") == "th" then
 					list[#list + 1] = string["sub"](file, 20, #file - 3)
@@ -6803,17 +6803,17 @@ do
 				return
 			end
 
-			local keybinds = {}
+			keybinds = {}
 
-			local config = {
+			config = {
 				["keybinds"] = keybinds,
 				["author"] = flags["author"] or LRM_LinkedDiscordID or "Unknown",
 				["date"] = os["date"]("%x"),
 			}
 
 			for flag, data in flags do
-				local data = data
-				local type_of = typeof(data)
+				data = data
+				type_of = typeof(data)
 				if type_of == "Color3" then
 					data = { floor(data["R"] * 255), floor(data["G"] * 255), floor(data["B"] * 255) }
 				elseif type_of == "EnumItem" then
@@ -6829,10 +6829,10 @@ do
 
 			for element, data in keybind_data do
 				if type(element) == "table" then
-					local type = data["type"]
-					local flag =
+					type = data["type"]
+					flag =
 						data["element"][type == 1 and "dropdown_flag" or type == 2 and "slider_flag" or type == 3 and "toggle_flag" or type == 4 and "name"]
-					local original_value = data["original_value"]
+					original_value = data["original_value"]
 
 					keybinds[#keybinds + 1] = {
 						["flag"] = flag,
@@ -6854,10 +6854,10 @@ do
 		end)
 
 		menu["get_config_data"] = LPH_JIT(function(data)
-			local success, decrypted = pcall(decrypt, data, "^^^^^^^^^^^^^^^^^^^^")
+			success, decrypted = pcall(decrypt, data, "^^^^^^^^^^^^^^^^^^^^")
 
 			if decrypted then
-				local success, json = pcall(function()
+				success, json = pcall(function()
 					return http_service:JSONDecode(decrypted)
 				end)
 
@@ -6872,13 +6872,13 @@ do
 				return
 			end
 
-			local path = file_path .. "/configs/" .. name .. ".cfg"
+			path = file_path .. "/configs/" .. name .. ".cfg"
 
 			if isfile(path) then
-				local new_flags = menu["get_config_data"](readfile(path))
+				new_flags = menu["get_config_data"](readfile(path))
 
 				if new_flags then
-					local loaded_addons = new_flags["loaded_addons"]
+					loaded_addons = new_flags["loaded_addons"]
 
 					if loaded_addons then
 						for _, addon in addon_data do
@@ -6907,16 +6907,16 @@ do
 						end
 					end
 
-					local colors = menu["colors"]
+					colors = menu["colors"]
 					for color, old in colors do
-						local value = new_flags[color .. "_color"]
+						value = new_flags[color .. "_color"]
 
 						if value then
 							colors[color] = color3_fromrgb(value[1], value[2], value[3])
 						end
 					end
 
-					local keybinds = new_flags["keybinds"]
+					keybinds = new_flags["keybinds"]
 
 					if keybinds then
 						for _, data in keybind_data do
@@ -6926,17 +6926,17 @@ do
 						end
 
 						for _, new_keybind in keybinds do
-							local flag = new_keybind["flag"]
-							local type = new_keybind["type"]
-							local flag_name = type == 1 and "dropdown_flag"
+							flag = new_keybind["flag"]
+							type = new_keybind["type"]
+							flag_name = type == 1 and "dropdown_flag"
 								or type == 2 and "slider_flag"
 								or type == 3 and "toggle_flag"
 								or type == 4 and "name"
-							local new_keybind_data = nil
+							new_keybind_data = nil
 
-							local key = new_keybind["key"]
+							key = new_keybind["key"]
 
-							local s = pcall(function()
+							s = pcall(function()
 								key = Enum["UserInputType"][key]
 							end)
 							if not s then
@@ -6949,11 +6949,11 @@ do
 								for _, group in menu["groups"] do
 									for name, tab in group["tabs"] do
 										for _, section in tab["sections"] do
-											local elements = section["elements"]
+											elements = section["elements"]
 											for i = 1, #elements do
-												local element = elements[i]
+												element = elements[i]
 												if element[flag_name] == flag then
-													local method = new_keybind["method"]
+													method = new_keybind["method"]
 
 													new_keybind_data = setmetatable({
 														["method"] = type == 2 and 1 or method,
@@ -6975,11 +6975,11 @@ do
 								end
 
 								for _, settings in menu["settings"] do
-									local elements = settings["elements"]
+									elements = settings["elements"]
 									for i = 1, #elements do
-										local element = elements[i]
+										element = elements[i]
 										if element[flag_name] == flag then
-											local method = new_keybind["method"]
+											method = new_keybind["method"]
 											new_keybind_data = setmetatable({
 												["method"] = type == 2 and 1 or method,
 												["original_value"] = new_keybind["og_value"],
@@ -6997,7 +6997,7 @@ do
 								end
 
 								if new_keybind_data then
-									local element = new_keybind_data["element"]
+									element = new_keybind_data["element"]
 									keybind_data[element] = new_keybind_data
 
 									on_keybind_created:Fire(new_keybind_data, element)
@@ -7009,19 +7009,19 @@ do
 					for name, group in menu["groups"] do
 						for name, tab in group["tabs"] do
 							for _, section in tab["sections"] do
-								local elements = section["elements"]
+								elements = section["elements"]
 								for i = 1, #elements do
-									local element = elements[i]
-									local slider_flag = element["slider_flag"]
-									local toggle_flag = element["toggle_flag"]
-									local dropdown_flag = element["dropdown_flag"]
-									local textbox_flag = element["textbox_flag"]
-									local colorpicker_flag = element["color_flag"]
-									local keybind_flag = element["keybind_flag"]
+									element = elements[i]
+									slider_flag = element["slider_flag"]
+									toggle_flag = element["toggle_flag"]
+									dropdown_flag = element["dropdown_flag"]
+									textbox_flag = element["textbox_flag"]
+									colorpicker_flag = element["color_flag"]
+									keybind_flag = element["keybind_flag"]
 
 									if slider_flag then
-										local value = flags[slider_flag]
-										local new_value = new_flags[slider_flag]
+										value = flags[slider_flag]
+										new_value = new_flags[slider_flag]
 
 										if new_value ~= nil and value ~= new_value then
 											element:set_slider(new_value)
@@ -7029,8 +7029,8 @@ do
 									end
 
 									if toggle_flag then
-										local value = flags[toggle_flag]
-										local new_value = new_flags[toggle_flag]
+										value = flags[toggle_flag]
+										new_value = new_flags[toggle_flag]
 
 										if new_value ~= nil and value ~= new_value then
 											element:set_toggle(new_value)
@@ -7038,15 +7038,15 @@ do
 									end
 
 									if dropdown_flag then
-										local value = flags[dropdown_flag]
-										local new_value = new_flags[dropdown_flag]
+										value = flags[dropdown_flag]
+										new_value = new_flags[dropdown_flag]
 
 										if value ~= new_value then
 											if new_value then
-												local options = element["options"]
+												options = element["options"]
 
 												for _, value in new_value do
-													local found = false
+													found = false
 													for i = 1, #options do
 														if options[i] == value then
 															found = true
@@ -7067,8 +7067,8 @@ do
 									end
 
 									if textbox_flag then
-										local value = flags[textbox_flag]
-										local new_value = new_flags[textbox_flag]
+										value = flags[textbox_flag]
+										new_value = new_flags[textbox_flag]
 
 										if new_value ~= nil and value ~= new_value then
 											element:set_textbox(new_value)
@@ -7076,8 +7076,8 @@ do
 									end
 
 									if colorpicker_flag then
-										local color_value = flags[colorpicker_flag]
-										local new_color_value = new_flags[colorpicker_flag]
+										color_value = flags[colorpicker_flag]
+										new_color_value = new_flags[colorpicker_flag]
 										new_color_value = new_color_value
 												and color3_fromrgb(
 													new_color_value[1],
@@ -7085,9 +7085,9 @@ do
 													new_color_value[3]
 												)
 											or nil
-										local transparency_flag = element["transparency_flag"]
-										local transparency_value = flags[transparency_flag]
-										local new_transparency_value = new_flags[transparency_flag]
+										transparency_flag = element["transparency_flag"]
+										transparency_value = flags[transparency_flag]
+										new_transparency_value = new_flags[transparency_flag]
 
 										if new_color_value ~= nil and color_value ~= new_color_value then
 											element:set_colorpicker(new_color_value)
@@ -7102,11 +7102,11 @@ do
 									end
 
 									if keybind_flag then
-										local value = flags[keybind_flag]
-										local new_value = new_flags[keybind_flag]
+										value = flags[keybind_flag]
+										new_value = new_flags[keybind_flag]
 
 										if new_value ~= nil and value ~= new_value then
-											local s, err = pcall(function()
+											s, err = pcall(function()
 												new_value = Enum["UserInputType"][new_value]
 											end)
 											if not s then
@@ -7121,19 +7121,19 @@ do
 					end
 
 					for element_settings, settings in menu["settings"] do
-						local elements = settings["elements"]
+						elements = settings["elements"]
 						for i = 1, #elements do
-							local element = elements[i]
-							local slider_flag = element["slider_flag"]
-							local toggle_flag = element["toggle_flag"]
-							local dropdown_flag = element["dropdown_flag"]
-							local textbox_flag = element["textbox_flag"]
-							local colorpicker_flag = element["color_flag"]
-							local keybind_flag = element["keybind_flag"]
+							element = elements[i]
+							slider_flag = element["slider_flag"]
+							toggle_flag = element["toggle_flag"]
+							dropdown_flag = element["dropdown_flag"]
+							textbox_flag = element["textbox_flag"]
+							colorpicker_flag = element["color_flag"]
+							keybind_flag = element["keybind_flag"]
 
 							if slider_flag then
-								local value = flags[slider_flag]
-								local new_value = new_flags[slider_flag]
+								value = flags[slider_flag]
+								new_value = new_flags[slider_flag]
 
 								if new_value ~= nil and value ~= new_value then
 									element:set_slider(new_value)
@@ -7141,8 +7141,8 @@ do
 							end
 
 							if toggle_flag then
-								local value = flags[toggle_flag]
-								local new_value = new_flags[toggle_flag]
+								value = flags[toggle_flag]
+								new_value = new_flags[toggle_flag]
 
 								if new_value ~= nil and value ~= new_value then
 									element:set_toggle(new_value)
@@ -7150,15 +7150,15 @@ do
 							end
 
 							if dropdown_flag then
-								local value = flags[dropdown_flag]
-								local new_value = new_flags[dropdown_flag]
+								value = flags[dropdown_flag]
+								new_value = new_flags[dropdown_flag]
 
 								if value ~= new_value then
 									if new_value then
-										local options = element["options"]
+										options = element["options"]
 
 										for _, value in new_value do
-											local found = false
+											found = false
 											for i = 1, #options do
 												if options[i] == value then
 													found = true
@@ -7179,8 +7179,8 @@ do
 							end
 
 							if textbox_flag then
-								local value = flags[textbox_flag]
-								local new_value = new_flags[textbox_flag]
+								value = flags[textbox_flag]
+								new_value = new_flags[textbox_flag]
 
 								if new_value ~= nil and value ~= new_value then
 									element:set_textbox(new_value)
@@ -7188,15 +7188,15 @@ do
 							end
 
 							if colorpicker_flag then
-								local color_value = flags[colorpicker_flag]
-								local new_color_value = new_flags[colorpicker_flag]
+								color_value = flags[colorpicker_flag]
+								new_color_value = new_flags[colorpicker_flag]
 
 								new_color_value = new_color_value
 										and color3_fromrgb(new_color_value[1], new_color_value[2], new_color_value[3])
 									or nil
-								local transparency_flag = element["transparency_flag"]
-								local transparency_value = flags[transparency_flag]
-								local new_transparency_value = new_flags[transparency_flag]
+								transparency_flag = element["transparency_flag"]
+								transparency_value = flags[transparency_flag]
+								new_transparency_value = new_flags[transparency_flag]
 
 								if new_color_value ~= nil and color_value ~= new_color_value then
 									element:set_colorpicker(new_color_value)
@@ -7208,11 +7208,11 @@ do
 							end
 
 							if keybind_flag then
-								local value = flags[keybind_flag]
-								local new_value = new_flags[keybind_flag]
+								value = flags[keybind_flag]
+								new_value = new_flags[keybind_flag]
 
 								if new_value ~= nil and value ~= new_value then
-									local s, err = pcall(function()
+									s, err = pcall(function()
 										new_value = Enum["UserInputType"][new_value]
 									end)
 									if not s then
@@ -7224,13 +7224,13 @@ do
 						end
 					end
 
-					local keybinds_position = new_flags["keybinds_position"]
+					keybinds_position = new_flags["keybinds_position"]
 
 					if keybinds_position then
 						list_frame["Position"] = udim2_new(0, keybinds_position[1], 0, keybinds_position[2])
 					end
 
-					local skins = new_flags["skins"]
+					skins = new_flags["skins"]
 
 					if skins and type(skins) == "table" then
 						flags["skins"] = skins
@@ -7243,20 +7243,20 @@ do
 
 		do
 			menu["unload_addon"] = function(name)
-				local data = addon_data[name]
+				data = addon_data[name]
 
 				if data then
-					local thread = data[1]
-					local on_unload = data[4]
+					thread = data[1]
+					on_unload = data[4]
 					if on_unload then
 						on_unload()
 					end
 					if data[2]["destroy"] then
 						data[2]["destroy"](data[2])
-						local addons_group = menu["groups"]["addons"]
+						addons_group = menu["groups"]["addons"]
 
-						local count = #addons_group["ordered_tabs"]
-						local is_visible = addons_group["is_visible"]
+						count = #addons_group["ordered_tabs"]
+						is_visible = addons_group["is_visible"]
 						if count == 0 and is_visible then
 							addons_group["hide"](addons_group)
 						elseif count > 0 and not is_visible then
@@ -7266,8 +7266,8 @@ do
 					for _, connection in data[3] do
 						connection:Disconnect()
 					end
-					local loaded_addons = flags["loaded_addons"]
-					local found = nil
+					loaded_addons = flags["loaded_addons"]
+					found = nil
 					for i = 1, #loaded_addons do
 						if loaded_addons[i] == name then
 							found = i
@@ -7284,15 +7284,15 @@ do
 			end
 
 			menu["load_addon"] = function(name)
-				local path = file_path .. "/addons/" .. name .. ".luau"
+				path = file_path .. "/addons/" .. name .. ".luau"
 
 				if not isfile(path) then
 					return "file does not exist"
 				end
 
-				local data = readfile(path)
+				data = readfile(path)
 
-				local s, err = pcall(function()
+				s, err = pcall(function()
 					data = loadstring(data)
 				end)
 
@@ -7306,7 +7306,7 @@ do
 
 				getfenv(data).__IDENTIFIER = name
 
-				local thread = coroutine["create"](data)
+				thread = coroutine["create"](data)
 
 				addon_data[name] = {
 					thread,
@@ -7315,10 +7315,10 @@ do
 					function() end,
 					name,
 				}
-				local loaded_addons = flags["loaded_addons"]
+				loaded_addons = flags["loaded_addons"]
 				loaded_addons[#loaded_addons + 1] = name
 
-				local s, err = coroutine["resume"](thread)
+				s, err = coroutine["resume"](thread)
 
 				if not s then
 					spawn(menu["unload_addon"], name)
@@ -7329,7 +7329,7 @@ do
 
 		-- >> ( fake settings )
 
-		local settings_section = setmetatable({
+		settings_section = setmetatable({
 			["total_y_size"] = 10,
 			["elements"] = {},
 		}, section)
@@ -7371,7 +7371,7 @@ do
 		-- >> ( settings )
 
 		do
-			local menu_keybind = settings_section:create_element({
+			menu_keybind = settings_section:create_element({
 				["name"] = "toggle bind",
 			}, {
 				["keybind"] = {
@@ -7625,21 +7625,21 @@ do
 					for name, group in menu["groups"] do
 						for name, tab in group["tabs"] do
 							for _, section in tab["sections"] do
-								local search_border = section["search_border"]
+								search_border = section["search_border"]
 								if search_border then
 									search_border["Color"] = color
 								end
 								section["border"]["Color"] = color
 								for _, element in section["elements"] do
-									local drawings = element["drawings"]
-									local toggle_border = drawings["toggle_border"]
-									local dropdown_border = drawings["dropdown_border"]
-									local slider_border = drawings["slider_border"]
-									local colorpicker_border = drawings["colorpicker_border"]
-									local keybind_border = drawings["keybind_border"]
-									local button_border = drawings["button_border"]
-									local textbox_border = drawings["textbox_border"]
-									local border = drawings["border"]
+									drawings = element["drawings"]
+									toggle_border = drawings["toggle_border"]
+									dropdown_border = drawings["dropdown_border"]
+									slider_border = drawings["slider_border"]
+									colorpicker_border = drawings["colorpicker_border"]
+									keybind_border = drawings["keybind_border"]
+									button_border = drawings["button_border"]
+									textbox_border = drawings["textbox_border"]
+									border = drawings["border"]
 
 									if toggle_border then
 										toggle_border["Color"] = color
@@ -7679,14 +7679,14 @@ do
 
 					for _, settings in menu["settings"] do
 						for _, element in settings["elements"] do
-							local drawings = element["drawings"]
-							local toggle_border = drawings["toggle_border"]
-							local dropdown_border = drawings["dropdown_border"]
-							local slider_border = drawings["slider_border"]
-							local colorpicker_border = drawings["colorpicker_border"]
-							local keybind_border = drawings["keybind_border"]
-							local button_border = drawings["button_border"]
-							local textbox_border = drawings["textbox_border"]
+							drawings = element["drawings"]
+							toggle_border = drawings["toggle_border"]
+							dropdown_border = drawings["dropdown_border"]
+							slider_border = drawings["slider_border"]
+							colorpicker_border = drawings["colorpicker_border"]
+							keybind_border = drawings["keybind_border"]
+							button_border = drawings["button_border"]
+							textbox_border = drawings["textbox_border"]
 
 							if toggle_border then
 								toggle_border["Color"] = color
@@ -7825,16 +7825,16 @@ do
 						for name, tab in group["tabs"] do
 							for _, section in tab["sections"] do
 								for _, element in section["elements"] do
-									local drawings = element["drawings"]
-									local text = drawings["dropdown_text"]
-									local dropdown_arrow = drawings["dropdown_arrow"]
-									local button_text = drawings["button_text"]
-									local button_icon = drawings["button_icon"]
-									local textbox_text = drawings["textbox_text"]
-									local keybind_text = drawings["keybind_text"]
-									local slider_text = drawings["slider_text"]
+									drawings = element["drawings"]
+									text = drawings["dropdown_text"]
+									dropdown_arrow = drawings["dropdown_arrow"]
+									button_text = drawings["button_text"]
+									button_icon = drawings["button_icon"]
+									textbox_text = drawings["textbox_text"]
+									keybind_text = drawings["keybind_text"]
+									slider_text = drawings["slider_text"]
 
-									local text2 = drawings["text2"]
+									text2 = drawings["text2"]
 
 									if text then
 										text["Color"] = color
@@ -7874,15 +7874,15 @@ do
 
 					for _, settings in menu["settings"] do
 						for _, element in settings["elements"] do
-							local drawings = element["drawings"]
-							local text = drawings["dropdown_text"]
-							local dropdown_arrow = drawings["dropdown_arrow"]
-							local slider_text = drawings["slider_text"]
-							local text2 = drawings["text2"]
-							local button_text = drawings["button_text"]
-							local button_icon = drawings["button_icon"]
-							local textbox_text = drawings["textbox_text"]
-							local keybind_text = drawings["keybind_text"]
+							drawings = element["drawings"]
+							text = drawings["dropdown_text"]
+							dropdown_arrow = drawings["dropdown_arrow"]
+							slider_text = drawings["slider_text"]
+							text2 = drawings["text2"]
+							button_text = drawings["button_text"]
+							button_icon = drawings["button_icon"]
+							textbox_text = drawings["textbox_text"]
+							keybind_text = drawings["keybind_text"]
 
 							if text then
 								text["Color"] = color
@@ -7973,7 +7973,7 @@ do
 							end
 							for _, section in tab["sections"] do
 								for _, element in section["elements"] do
-									local toggle_flag = element["toggle_flag"]
+									toggle_flag = element["toggle_flag"]
 
 									if toggle_flag then
 										if flags[toggle_flag] then
@@ -7987,7 +7987,7 @@ do
 
 					for _, settings in menu["settings"] do
 						for _, element in settings["elements"] do
-							local toggle_flag = element["toggle_flag"]
+							toggle_flag = element["toggle_flag"]
 
 							if toggle_flag then
 								if flags[toggle_flag] then
@@ -8020,16 +8020,16 @@ do
 								tab["text"]["Color"] = color
 							end
 							for _, section in tab["sections"] do
-								local search_image = section["search_image"]
+								search_image = section["search_image"]
 
 								if search_image then
 									search_image["Color"] = color
 								end
 								for _, element in section["elements"] do
-									local drawings = element["drawings"]
-									local cog_icon = drawings["cog_icon"]
+									drawings = element["drawings"]
+									cog_icon = drawings["cog_icon"]
 
-									local toggle_flag = element["toggle_flag"]
+									toggle_flag = element["toggle_flag"]
 
 									if not toggle_flag or not flags[toggle_flag] then
 										element["drawings"]["text"]["Color"] = color
@@ -8045,14 +8045,14 @@ do
 
 					for _, settings in menu["settings"] do
 						for _, element in settings["elements"] do
-							local drawings = element["drawings"]
-							local dropdown_arrow = drawings["dropdown_arrow"]
+							drawings = element["drawings"]
+							dropdown_arrow = drawings["dropdown_arrow"]
 
 							if dropdown_arrow then
 								dropdown_arrow["Color"] = color
 							end
 
-							local toggle_flag = element["toggle_flag"]
+							toggle_flag = element["toggle_flag"]
 
 							if not toggle_flag or not flags[toggle_flag] then
 								element["drawings"]["text"]["Color"] = color
@@ -8131,20 +8131,20 @@ do
 					for name, group in menu["groups"] do
 						for name, tab in group["tabs"] do
 							for _, section in tab["sections"] do
-								local search_inside = section["search_inside"]
+								search_inside = section["search_inside"]
 								if search_inside then
 									search_inside["Color"] = color
 								end
 								for _, element in section["elements"] do
-									local drawings = element["drawings"]
-									local toggle_inside = drawings["toggle_inside"]
-									local dropdown_inside = drawings["dropdown_inside"]
-									local slider_inside = drawings["slider_inside"]
-									local colorpicker_inside = drawings["colorpicker_inside"]
-									local keybind_inside = drawings["keybind_inside"]
-									local button_inside = drawings["button_inside"]
-									local textbox_inside = drawings["textbox_inside"]
-									local inside = drawings["inside"]
+									drawings = element["drawings"]
+									toggle_inside = drawings["toggle_inside"]
+									dropdown_inside = drawings["dropdown_inside"]
+									slider_inside = drawings["slider_inside"]
+									colorpicker_inside = drawings["colorpicker_inside"]
+									keybind_inside = drawings["keybind_inside"]
+									button_inside = drawings["button_inside"]
+									textbox_inside = drawings["textbox_inside"]
+									inside = drawings["inside"]
 
 									if toggle_inside then
 										toggle_inside["Color"] = color
@@ -8184,15 +8184,15 @@ do
 
 					for _, settings in menu["settings"] do
 						for _, element in settings["elements"] do
-							local drawings = element["drawings"]
-							local toggle_inside = drawings["toggle_inside"]
-							local dropdown_inside = drawings["dropdown_inside"]
-							local slider_inside = drawings["slider_inside"]
-							local colorpicker_inside = drawings["colorpicker_inside"]
-							local keybind_inside = drawings["keybind_inside"]
-							local button_inside = drawings["button_inside"]
-							local textbox_inside = drawings["textbox_inside"]
-							local inside = drawings["inside"]
+							drawings = element["drawings"]
+							toggle_inside = drawings["toggle_inside"]
+							dropdown_inside = drawings["dropdown_inside"]
+							slider_inside = drawings["slider_inside"]
+							colorpicker_inside = drawings["colorpicker_inside"]
+							keybind_inside = drawings["keybind_inside"]
+							button_inside = drawings["button_inside"]
+							textbox_inside = drawings["textbox_inside"]
+							inside = drawings["inside"]
 
 							if toggle_inside then
 								toggle_inside["Color"] = color
@@ -8267,10 +8267,10 @@ do
 					},
 				})["on_clicked"],
 				function()
-					local elements = theme_section["elements"]
+					elements = theme_section["elements"]
 
 					for i = 1, #elements do
-						local element = elements[i]
+						element = elements[i]
 						if element["dropdown_flag"] then
 							element:set_options(menu["get_theme_list"]())
 							break
@@ -8310,16 +8310,16 @@ do
 					["button"] = {},
 				})["on_clicked"],
 				function()
-					local file = file_path .. "/themes/" .. flags["!name"] .. ".th"
-					local data = {}
+					file = file_path .. "/themes/" .. flags["!name"] .. ".th"
+					data = {}
 
-					local elements = theme_section["elements"]
+					elements = theme_section["elements"]
 
 					for i = 1, #elements do
-						local element = elements[i]
-						local flag = element["color_flag"]
+						element = elements[i]
+						flag = element["color_flag"]
 						if flag then
-							local color = flags[flag]
+							color = flags[flag]
 							data[flag] = { floor(color["R"] * 255), floor(color["G"] * 255), floor(color["B"] * 255) }
 						end
 					end
@@ -8328,10 +8328,10 @@ do
 
 					menu["new_notification"]("successfully saved theme " .. flags["!name"], 1)
 
-					local elements = theme_section["elements"]
+					elements = theme_section["elements"]
 
 					for i = 1, #elements do
-						local element = elements[i]
+						element = elements[i]
 						if element["dropdown_flag"] then
 							element:set_options(menu["get_theme_list"]())
 							break
@@ -8386,9 +8386,9 @@ do
 		-- >> ( configs )
 
 		function menu:setup_configs(section_name)
-			local config_list, config_info, config_editor = nil, nil, nil
+			config_list, config_info, config_editor = nil, nil, nil
 			if type(section_name) == "string" then
-				local config_tab = menu.create_group(section_name)
+				config_tab = menu.create_group(section_name)
 				config_tab:create_tab("configs")
 				config_list =
 					menu["groups"][section_name]:create_panel_section("configs", "config list", 1, false, true)
@@ -8403,19 +8403,19 @@ do
 
 			menu_references["config_list"] = config_list
 
-			local config_author = config_info:create_element({
+			config_author = config_info:create_element({
 				["name"] = "creator: ",
 			}, {
 				["info"] = {},
 			})
 
-			local config_last_updated = config_info:create_element({
+			config_last_updated = config_info:create_element({
 				["name"] = "last updated: ",
 			}, {
 				["info"] = {},
 			})
 
-			local config_name = config_editor:create_element({
+			config_name = config_editor:create_element({
 				["name"] = "config name",
 			}, {
 				["textbox"] = {
@@ -8423,7 +8423,7 @@ do
 				},
 			})
 
-			local create_config = config_editor:create_element({
+			create_config = config_editor:create_element({
 				["name"] = "create config",
 			}, {
 				["button"] = {
@@ -8431,7 +8431,7 @@ do
 				},
 			})
 
-			local delete_config = config_editor:create_element({
+			delete_config = config_editor:create_element({
 				["name"] = "delete config",
 			}, {
 				["button"] = {
@@ -8440,7 +8440,7 @@ do
 				},
 			})
 
-			local update_config = config_editor:create_element({
+			update_config = config_editor:create_element({
 				["name"] = "update config",
 			}, {
 				["button"] = {
@@ -8449,7 +8449,7 @@ do
 				},
 			})
 
-			local load_config = config_editor:create_element({
+			load_config = config_editor:create_element({
 				["name"] = "load config",
 			}, {
 				["button"] = {
@@ -8458,7 +8458,7 @@ do
 				},
 			})
 
-			local refresh_config_list = config_editor:create_element({
+			refresh_config_list = config_editor:create_element({
 				["name"] = "refresh config list",
 			}, {
 				["button"] = {
@@ -8467,9 +8467,9 @@ do
 			})
 
 			create_connection(config_list["on_selection_change"], function(config)
-				local config = config or "AbbbbAzbbbbA12z"
-				local path = file_path .. "/configs/" .. config .. ".cfg"
-				local data = nil
+				config = config or "AbbbbAzbbbbA12z"
+				path = file_path .. "/configs/" .. config .. ".cfg"
+				data = nil
 				if isfile(path) then
 					data = menu["get_config_data"](readfile(path))
 				end
@@ -8493,12 +8493,12 @@ do
 					config_last_updated:set_visible(true)
 					config_last_updated:set_info("Text", data["date"])
 
-					local author = data["author"]
-					local username = nil
+					author = data["author"]
+					username = nil
 
 					if author and tonumber(author) then
-						local s, data = pcall(function()
-							local body = request({
+						s, data = pcall(function()
+							body = request({
 								["Url"] = "https://discord-lookup-api-pied.vercel.app/v1/user/" .. author,
 								["Method"] = "GET",
 								["Headers"] = {
@@ -8527,7 +8527,7 @@ do
 			end)
 
 			create_connection(create_config["on_clicked"], function()
-				local selected_config = flags["!config_name"]
+				selected_config = flags["!config_name"]
 
 				if selected_config and tostring(selected_config) and #selected_config > 0 then
 					menu["save_config"](selected_config)
@@ -8544,17 +8544,17 @@ do
 			end)
 
 			create_connection(refresh_config_list["on_clicked"], function()
-				local elements = config_list["elements"]
+				elements = config_list["elements"]
 				for _, element in elements do
 					config_list:remove_item(element["name"], true)
 					elements[_] = nil
 				end
 
-				local configs = menu["get_config_list"]()
-				local current_autoload = menu["autoload"]
+				configs = menu["get_config_list"]()
+				current_autoload = menu["autoload"]
 
 				for i = 1, #configs do
-					local config = configs[i]
+					config = configs[i]
 					config_list:add_item({
 						["text"] = config,
 						["icons"] = current_autoload == config and {
@@ -8568,7 +8568,7 @@ do
 			end)
 
 			create_connection(delete_config["on_clicked"], function()
-				local selected_config = config_list["selected"]["name"]
+				selected_config = config_list["selected"]["name"]
 
 				if selected_config and tostring(selected_config) and #selected_config > 0 then
 					config_list:remove_item(selected_config)
@@ -8578,7 +8578,7 @@ do
 			end)
 
 			create_connection(update_config["on_clicked"], function()
-				local selected_config = config_list["selected"]["name"]
+				selected_config = config_list["selected"]["name"]
 
 				if selected_config and tostring(selected_config) and #selected_config > 0 then
 					menu["save_config"](selected_config)
@@ -8587,7 +8587,7 @@ do
 			end)
 
 			create_connection(load_config["on_clicked"], function()
-				local selected_config = config_list["selected"]["name"]
+				selected_config = config_list["selected"]["name"]
 
 				if selected_config and tostring(selected_config) and #selected_config > 0 then
 					menu["load_config"](selected_config)
@@ -8618,21 +8618,21 @@ do
 	-- > ( loading / unloading )
 
 	do
-		local unload = getgenv()["_JUJU"]
+		unload = getgenv()["_JUJU"]
 
 		if unload then
 			unload()
 		end
 
-		local env = getgenv()
-		local old_drawing = env["fake_drawing"]
+		env = getgenv()
+		old_drawing = env["fake_drawing"]
 
-		local metatables = {}
+		metatables = {}
 
-		local real = getrawmetatable
+		real = getrawmetatable
 		env["_OG"] = real
 		env["getrawmetatable"] = newcclosure(function(instance)
-			local mt = real(instance)
+			mt = real(instance)
 			metatables[instance] = mt
 
 			return mt
@@ -8646,9 +8646,9 @@ do
 			for _, group in menu["groups"] do
 				for _, tab in group["tabs"] do
 					for _, section in tab["sections"] do
-						local elements = section["elements"]
+						elements = section["elements"]
 						for i = 1, #elements do
-							local element = elements[i]
+							element = elements[i]
 
 							if element["toggle_flag"] then
 								element:set_toggle(false)
@@ -8659,9 +8659,9 @@ do
 			end
 
 			for _, settings in menu["settings"] do
-				local elements = settings["elements"]
+				elements = settings["elements"]
 				for i = 1, #elements do
-					local element = elements[i]
+					element = elements[i]
 
 					if element["toggle_flag"] then
 						element:set_toggle(false)
@@ -8700,16 +8700,16 @@ do
 
 		-- >> ( data )
 
-		local s, data = pcall(function()
+		s, data = pcall(function()
 			return http_service:JSONDecode(readfile(file_path .. "/data.dat"))
 		end)
 
 		if s and data then
-			local notifications = data["notifications"]
-			local autoload_config = data["autoload"]
-			local favorites = data["favorites"]
-			local theme = data["theme"]
-			local hide_on_load = data["hide_on_load"]
+			notifications = data["notifications"]
+			autoload_config = data["autoload"]
+			favorites = data["favorites"]
+			theme = data["theme"]
+			hide_on_load = data["hide_on_load"]
 
 			menu["hide_on_load"] = hide_on_load
 
