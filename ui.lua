@@ -355,7 +355,7 @@ do
 				["jaydes.png"] = safeHttp("https://raw.githubusercontent.com/Kazamatcha/jujuui/main/assets/jaydes.png"),
 				["1.png"] = safeHttp("https://raw.githubusercontent.com/Kazamatcha/jujuui/main/assets/1.png"),
 				["2.png"] = safeHttp("https://raw.githubusercontent.com/Kazamatcha/jujuui/main/assets/2.png"),
-				["logo.png"] = safeHttp("https://raw.githubusercontent.com/Kazamatcha/jujuui/main/assets/logo.png"),
+				["logobn.png"] = safeHttp("https://raw.githubusercontent.com/Kazamatcha/jujuui/main/assets/logobn.png"),
 				["saturation.png"] = safeHttp(
 					"https://raw.githubusercontent.com/Kazamatcha/jujuui/main/assets/saturation.png"
 				),
@@ -755,7 +755,7 @@ do
 
 	local logo = drawing_proxy["new"]("Image", {
 		["Color"] = menu["colors"]["accent"],
-		["Data"] = readfile(file_path .. "/assets/logo.png"),
+		["Data"] = readfile(file_path .. "/assets/logobn.png"),
 		["Position"] = udim2_new(0, 15, 0, 15),
 		["Parent"] = inside,
 		["Size"] = udim2_new(0, 35, 0, 35),
@@ -947,7 +947,7 @@ do
 
 	local drag_logo = drawing_proxy["new"]("Image", {
 		["Color"] = menu["colors"]["accent"],
-		["Data"] = readfile(file_path .. "/assets/logo.png"),
+		["Data"] = readfile(file_path .. "/assets/logobn.png"),
 		["Position"] = udim2_new(0.5, -40, 0.5, -40),
 		["Parent"] = drag_inside,
 		["Size"] = udim2_new(0, 80, 0, 80),
