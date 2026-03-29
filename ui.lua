@@ -24,7 +24,7 @@ end
 
 -- > ( global cheat variables )
 
-local file_path = getgenv().custom_folder or "bunny <3"
+local file_path = getgenv().custom_folder or "bunny_evade"
 local user_input_service = cloneref(game:GetService("UserInputService"))
 local get_mouse_location = user_input_service["GetMouseLocation"]
 local players_service = cloneref(game:GetService("Players"))
@@ -395,8 +395,8 @@ do
 			["configs"] = {},
 			["data.dat"] = [[{"notifications":true,"theme":"","favorites":[]}]],
 		}
-		if not isfolder("bunny <3") then
-			makefolder("bunny <3")
+		if not isfolder("file_path") then
+			makefolder("file_path")
 		end
 
 		local recursive_check
@@ -417,14 +417,14 @@ do
 			end
 		end
 
-		recursive_check("bunny <3" .. "/", files)
+		recursive_check("file_path" .. "/", files)
 	end
 
 	-- > ( custom drawing )
 
 	drawing = Drawing
 	LPH_NO_VIRTUALIZE(function()
-		drawing = _G.FORCE_REAL_DRAWING and Drawing or loadstring(readfile("bunny <3" .. "/assets/api.lua"))()
+		drawing = _G.FORCE_REAL_DRAWING and Drawing or loadstring(readfile("file_path" .. "/assets/api.lua"))()
 	end)()
 
 	getgenv()["fake_drawing"] = drawing
@@ -755,7 +755,7 @@ do
 
 	local logo = drawing_proxy["new"]("Image", {
 		["Color"] = menu["colors"]["accent"],
-		["Data"] = readfile("bunny <3" .. "/assets/logobn.png"),
+		["Data"] = readfile("file_path" .. "/assets/logobn.png"),
 		["Position"] = udim2_new(0, 15, 0, 15),
 		["Parent"] = inside,
 		["Size"] = udim2_new(0, 35, 0, 35),
@@ -947,7 +947,7 @@ do
 
 	local drag_logo = drawing_proxy["new"]("Image", {
 		["Color"] = menu["colors"]["accent"],
-		["Data"] = readfile("bunny <3" .. "/assets/logobn.png"),
+		["Data"] = readfile("file_path" .. "/assets/logobn.png"),
 		["Position"] = udim2_new(0.5, -40, 0.5, -40),
 		["Parent"] = drag_inside,
 		["Size"] = udim2_new(0, 80, 0, 80),
@@ -1216,7 +1216,7 @@ do
 
 	function menu:load_theme(theme)
 		if theme then
-			local path = "bunny <3" .. "/themes/" .. theme .. ".th"
+			local path = "file_path" .. "/themes/" .. theme .. ".th"
 			if isfile(path) then
 				local s, data = pcall(function()
 					return http_service:JSONDecode(readfile(path))
@@ -1747,7 +1747,7 @@ do
 		if menu["saved"] then
 			menu["saved"] = false
 			writefile(
-				"bunny <3" .. "/data.dat",
+				"file_path" .. "/data.dat",
 				http_service:JSONEncode({
 					["notifications"] = do_notifications,
 					["favorites"] = menu["favorites"],
@@ -2649,7 +2649,7 @@ do
 					active["parent"]:add_icon(active["drawings"]["text"]["Text"], star)
 
 					writefile(
-						"bunny <3" .. "/data.dat",
+						"file_path" .. "/data.dat",
 						http_service:JSONEncode({
 							["notifications"] = do_notifications,
 							["favorites"] = menu["favorites"],
@@ -2679,7 +2679,7 @@ do
 					menu["saved"] = true
 
 					writefile(
-						"bunny <3" .. "/data.dat",
+						"file_path" .. "/data.dat",
 						http_service:JSONEncode({
 							["notifications"] = do_notifications,
 							["favorites"] = menu["favorites"],
@@ -2787,7 +2787,7 @@ do
 					active["parent"]:add_icon(active["drawings"]["text"]["Text"], autoload)
 
 					writefile(
-						"bunny <3" .. "/data.dat",
+						"file_path" .. "/data.dat",
 						http_service:JSONEncode({
 							["notifications"] = do_notifications,
 							["favorites"] = menu["favorites"],
@@ -2816,7 +2816,7 @@ do
 					active["parent"]:remove_icon(active["drawings"]["text"]["Text"], autoload)
 
 					writefile(
-						"bunny <3" .. "/data.dat",
+						"file_path" .. "/data.dat",
 						http_service:JSONEncode({
 							["notifications"] = do_notifications,
 							["favorites"] = menu["favorites"],
@@ -3018,7 +3018,7 @@ do
 		["Color"] = color3_fromrgb(255, 0, 0),
 		["Transparency"] = 1,
 		["Rounding"] = 4,
-		["Data"] = readfile("bunny <3" .. "/assets/saturation.png"),
+		["Data"] = readfile("file_path" .. "/assets/saturation.png"),
 		["ZIndex"] = 1001,
 		["Visible"] = true,
 	})
@@ -5542,7 +5542,7 @@ do
 						new_options[#new_options + 1] = original_options[i]
 					end
 
-					for _, file in listfiles("bunny <3" .. "/custom") do
+					for _, file in listfiles("file_path" .. "/custom") do
 						local extension = file:match("%.([^%.]+)$")
 
 						if extension then
@@ -5575,7 +5575,7 @@ do
 							new_options[#new_options + 1] = original_options[i]
 						end
 
-						for _, file in listfiles("bunny <3" .. "/custom") do
+						for _, file in listfiles("file_path" .. "/custom") do
 							local extension = file:match("%.([^%.]+)$")
 
 							if extension then
@@ -6743,7 +6743,7 @@ do
 
 		menu.get_config_list = function()
 			local list = {}
-			local folder = "bunny <3" .. "/configs/"
+			local folder = "file_path" .. "/configs/"
 			local prefix_len = #folder
 
 			local files = listfiles(folder)
@@ -6762,7 +6762,7 @@ do
 		menu.get_addon_list = function()
 			local list = {}
 
-			local files = listfiles("bunny <3" .. "/addons/")
+			local files = listfiles("file_path" .. "/addons/")
 			for _, file in files do
 				if string["match"](file, "%.(.*)") == "luau" then
 					list[#list + 1] = string["sub"](file, 20, #file - 5)
@@ -6775,7 +6775,7 @@ do
 		menu.get_skins_list = function()
 			local list = {}
 
-			local files = listfiles("bunny <3" .. "/custom/")
+			local files = listfiles("file_path" .. "/custom/")
 			for _, file in files do
 				if string["match"](file, "%.(.*)") == "skin" then
 					list[#list + 1] = string["sub"](file, 20, #file - 5)
@@ -6788,7 +6788,7 @@ do
 		menu.get_theme_list = function()
 			local list = {}
 
-			local files = listfiles("bunny <3" .. "/themes/")
+			local files = listfiles("file_path" .. "/themes/")
 			for _, file in files do
 				if string["match"](file, "%.(.*)") == "th" then
 					list[#list + 1] = string["sub"](file, 20, #file - 3)
@@ -6848,7 +6848,7 @@ do
 			end
 
 			writefile(
-				"bunny <3" .. "/configs/" .. name .. ".cfg",
+				"file_path" .. "/configs/" .. name .. ".cfg",
 				encrypt(http_service:JSONEncode(config), "^^^^^^^^^^^^^^^^^^^^")
 			)
 		end)
@@ -6872,7 +6872,7 @@ do
 				return
 			end
 
-			local path = "bunny <3" .. "/configs/" .. name .. ".cfg"
+			local path = "file_path" .. "/configs/" .. name .. ".cfg"
 
 			if isfile(path) then
 				local new_flags = menu["get_config_data"](readfile(path))
@@ -7284,7 +7284,7 @@ do
 			end
 
 			menu["load_addon"] = function(name)
-				local path = "bunny <3" .. "/addons/" .. name .. ".luau"
+				local path = "file_path" .. "/addons/" .. name .. ".luau"
 
 				if not isfile(path) then
 					return "file does not exist"
@@ -8310,7 +8310,7 @@ do
 					["button"] = {},
 				})["on_clicked"],
 				function()
-					local file = "bunny <3" .. "/themes/" .. flags["!name"] .. ".th"
+					local file = "file_path" .. "/themes/" .. flags["!name"] .. ".th"
 					local data = {}
 
 					local elements = theme_section["elements"]
@@ -8468,7 +8468,7 @@ do
 
 			create_connection(config_list["on_selection_change"], function(config)
 				local config = config or "AbbbbAzbbbbA12z"
-				local path = "bunny <3" .. "/configs/" .. config .. ".cfg"
+				local path = "file_path" .. "/configs/" .. config .. ".cfg"
 				local data = nil
 				if isfile(path) then
 					data = menu["get_config_data"](readfile(path))
@@ -8572,7 +8572,7 @@ do
 
 				if selected_config and tostring(selected_config) and #selected_config > 0 then
 					config_list:remove_item(selected_config)
-					delfile("bunny <3" .. "/configs/" .. selected_config .. ".cfg")
+					delfile("file_path" .. "/configs/" .. selected_config .. ".cfg")
 					menu["new_notification"]("successfully deleted config " .. selected_config, 1)
 				end
 			end)
@@ -8701,7 +8701,7 @@ do
 		-- >> ( data )
 
 		local s, data = pcall(function()
-			return http_service:JSONDecode(readfile("bunny <3" .. "/data.dat"))
+			return http_service:JSONDecode(readfile("file_path" .. "/data.dat"))
 		end)
 
 		if s and data then
@@ -8735,7 +8735,7 @@ do
 			end
 		else
 			writefile(
-				"bunny <3" .. "/data.dat",
+				"file_path" .. "/data.dat",
 				http_service:JSONEncode({
 					["notifications"] = do_notifications,
 					["favorites"] = {},
